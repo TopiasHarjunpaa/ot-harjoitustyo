@@ -1,3 +1,9 @@
-# Otsikko
+# Ohjelmistotekniikka, kevät 2021, harjoitustyö
 
-Tavallista tekstiä, joka sisältää **lihavoituja** ja *kursivoituja* osuuksia.
+### Tehtävät
+
+##### Viikko 1
+
+[gitlog.txt]()
+
+[komentorivi.txt]()

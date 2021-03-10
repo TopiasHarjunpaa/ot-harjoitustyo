@@ -7,3 +7,5 @@
 [gitlog.txt](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 
 [komentorivi.txt](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
+
+Tehdään paikallinen muutos.

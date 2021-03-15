@@ -1,16 +1,16 @@
-#Vaatimusmäärittely
+# Vaatimusmäärittely
 
-###Sovelluksen tarkoitus
+### Sovelluksen tarkoitus
 xxx
 
-###Käyttäjät
+### Käyttäjät
 xxx
 
-###Käyttöliittymäluonnos
+### Käyttöliittymäluonnos
 xxx
 
-###Perusversion tarjouma toiminnallisuus
+### Perusversion tarjouma toiminnallisuus
 xxx
 
-#Jatkokehitysideoita
+# Jatkokehitysideoita
 xxx

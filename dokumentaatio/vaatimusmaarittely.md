@@ -12,5 +12,5 @@ xxx
 ### Perusversion tarjouma toiminnallisuus
 xxx
 
-# Jatkokehitysideoita
+### Jatkokehitysideoita
 xxx

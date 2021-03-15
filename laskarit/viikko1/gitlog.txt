@@ -1,1 +1,123 @@
-Add gitlog here.
+commit 3f33a31841c0feb84023e8ffe5ff377f52bd61cc
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 21:08:03 2021 +0200
+
+    Poisto ja uudelleen nimeäminen
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 400e4cee2217281ba1594b3177d86a168e412746
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:59:49 2021 +0200
+
+    Lisättiin tiedostoja
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 354971b1f59243a10f383a10c49c099498a25170
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:54:47 2021 +0200
+
+    git add -p muutokset
+
+ eka.txt    | 4 ++--
+ kolmas.txt | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit c0e9413ca89288568c67fd1c38b075637aa52e75
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:51:25 2021 +0200
+
+    uudelleen nimeäminen
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b04749b53b89ac96682dc103e75e1a3783b649e6
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:50:16 2021 +0200
+
+    poistettiin toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 044168526f8618892322e978867f5cdd1639e996
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:47:36 2021 +0200
+
+    poisto ja lisäys
+
+ tiedosto.txt | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+commit 8355e0080c78184fe40dbfef9e8a138f39aaa3fc
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:45:05 2021 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+commit 97fd3d22a543840090ce1dd9afb91780f5ef46f9
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:41:17 2021 +0200
+
+    stuff lisätty
+
+ jokin.txt => stuff/jokin.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b751c9de1678b00916f1b61f40c1b28a432e8615
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:33:07 2021 +0200
+
+    stuff lisätty
+
+ jokin.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6830bbe568edcecae69f18243ae304bed4186264
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:31:06 2021 +0200
+
+    muutoksia toiseen ja kolmanteen
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 1b6f27df0d2f7b20c1333fa86a55f831092416b1
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:30:04 2021 +0200
+
+    kolmas lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit e7ebe0733e994ce1d2b2afbbfd38995bfbb2fcad
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:27:28 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 057c25e5e0e040bbfbd3c96f9c544c89f5692846
+Author: Topias Harjunpää <topias.harjunpaa@gmail.com>
+Date:   Tue Mar 9 20:25:25 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+

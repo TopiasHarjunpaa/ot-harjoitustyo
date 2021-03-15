@@ -13,3 +13,5 @@
 [vaatimusmaarittely.md](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
 [coverage.png](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/laskarit/viikko2/Coverage.png)
+
+[tuntikirjanpito.md](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)

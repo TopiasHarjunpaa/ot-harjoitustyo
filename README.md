@@ -8,4 +8,8 @@
 
 [komentorivi.txt](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
-Tehdään paikallinen muutos.
+#### Viikko 2
+
+[vaatimusmaarittely.md](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+
+[coverage.png](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/laskarit/viikko2/Coverage.png)

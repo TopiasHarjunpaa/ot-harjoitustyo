@@ -1,5 +1,5 @@
-# Ohjelmistotekniikka, kevät 2021, harjoitustyö
-## The Possible Game
+# Ohjelmistotekniikka, kevät 2021
+### The Possible Game | harjoitustyö
 
 ## Tehtävät
 
@@ -33,7 +33,7 @@ Asenna komennolla:
 poetry install
 ```
 
-Suorita komennolla (pladeholder):
+Suorita komennolla (placeholder):
 
 ```
 poetry run...
@@ -47,25 +47,25 @@ poetry run invoke start
 
 ## Komentorivitoiminnot
 
-##### Ohjelman suorittaminen:
+#### Ohjelman suorittaminen:
 
 ```
 poetry run invoke start
 ```
 
-##### Testaus:
+#### Testaus:
 
 ```
 poetry run invoke test
 ```
 
-##### Testikattavuus:
+#### Testikattavuus:
 
 ```
 poetry run invoke coverage-report
 ```
 
-##### Pylint (placeholder)
+#### Pylint (placeholder):
 
 ```
 poetry run...

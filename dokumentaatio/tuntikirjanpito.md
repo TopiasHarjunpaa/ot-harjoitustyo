@@ -2,5 +2,5 @@
 
 | Päivä | Aika | Mitä tein |
 | :----:|:-----| :-----|
-| xx.xx | 0    | xxxx |
+| 17.3 | 1    | Alustavan määrittelydokumentin luominen |
 | yht   | 0    | | 

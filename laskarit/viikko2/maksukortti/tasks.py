@@ -1,5 +1,5 @@
-from invoke import task
-
-@task
-def test(ctx):
-    ctx.run("pytest")
+#from invoke import task
+#
+#@task
+#def test(ctx):
+#    ctx.run("pytest")

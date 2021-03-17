@@ -1,4 +1,5 @@
 from classtest import classs
+from config import MESSAGE
 
-test = classs("Is it working?")
+test = classs(MESSAGE)
 print(test)

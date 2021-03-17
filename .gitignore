@@ -11,3 +11,5 @@ htmlcov
 .coverage
 data/TPG_database.sqlite
 data/test-TPG_database.sqlite
+src__pycache__
+src/tests/__pycache__

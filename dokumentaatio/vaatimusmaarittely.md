@@ -1,43 +1,41 @@
 # Vaatimusmäärittely
 
-### Sovelluksen tarkoitus
+## Sovelluksen tarkoitus
 
-Sovellus on yksinkertainen tasohyppelypeli, jonka esikuvana toimii [The Impossible Game](https://impossible.game/). Pelissä pelaajan tulee väistellä vastaan tulevia esteitä ja edetä mahdollisimman pitkällä.
+Sovellus on yksinkertainen tasohyppelypeli, jonka esikuvana toimii [The Impossible Game](https://impossible.game/). Pelissä pelaajan tulee väistellä vastaan tulevia esteitä ja edetä mahdollisimman pitkälle.
 
-### Toteutus
+## Toteutus
 
-- Ohjelma toteutetaan Pythonilla ja Pygame -kirjastolla
-- Tiedon tallennus tapahtuu paikalliseen tietokantaan (sqlite)
+- Ohjelma toteutetaan Pythonilla ja Pygame-kirjaston avulla
+- Tiedon tallennus tapahtuu SQLite-tietokannan avulla
 - Ohjelman tulee toimia Linux-käyttöjärjestelmällä
 
-### Käyttäjät
+## Käyttäjät
 
 Pelissä on vain peruskäyttäjän rooli.
 
-### Käyttöliittymäluonnos
+## Käyttöliittymäluonnos (Placeholder)
 
-Placeholder
+## Perusversion tarjouma toiminnallisuus
 
-### Perusversion tarjouma toiminnallisuus
-
-##### Ennen kirjautumista
+#### Ennen kirjautumista
 
 - Käyttäjä voi luoda järjelmään käyttäjätunnuksen
 - Käyttäjä voi kirjautua järjestelmään
 - Käyttäjä näkee tilaston pelin tulosennätyksistä
 
-##### Kirjautumisen jälkeen
+#### Kirjautumisen jälkeen
 
 - Käyttäjä näkee tulosennätysten lisäksi myös henkilökohtaisen ennätyksen
 - Käyttäjä voi aloittaa uuden pelin
 - Käyttäjä voi kirjautua ulos järjestelmästä
 
-##### Pelin perusversio
+#### Pelin perusversio
 
 - Yksinkertainen laatikkomainen grafiikka
 - Yksi taso, jossa pisteitä kertyy esimerkiksi piste per sekunti
 
-### Jatkokehitysideoita
+## Jatkokehitysideoita
 Perusversion jälkeen mahdollisia kehitysideoita. Tuskin kuitenkaan realistista toteuttaa lähellekään kaikkia kurssin aikataulun puitteissa:
 
 - Parannuksia pelin grafiikkaan:

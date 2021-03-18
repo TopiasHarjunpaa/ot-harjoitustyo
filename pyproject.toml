@@ -8,11 +8,13 @@ authors = ["Topias Harjunpää <topias.harjunpaa@gmail.com>"]
 python = "^3.6"
 invoke = "^1.5.0"
 python-dotenv = "^0.15.0"
+autopep8 = "^1.5.6"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
 coverage = "^5.5"
 pytest-dotenv = "^0.5.2"
+pylint = "^2.7.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

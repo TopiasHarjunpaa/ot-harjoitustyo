@@ -3,10 +3,14 @@ from database_connection import get_database_connection
 
 def drop_tables(connection):
     cursor = connection.cursor()
-    
-    #Just for testing purposes right now...
+
+    # Just for testing purposes right now...
     cursor.execute('''
-        drop table if exists users;
+        DROP TABLE IF EXISTS users;
+    ''')
+
+    cursor.execute('''
+        DROP TABLE IF EXISTS results;
     ''')
 
     connection.commit()
@@ -15,11 +19,20 @@ def drop_tables(connection):
 def create_tables(connection):
     cursor = connection.cursor()
 
-    #Just for testing purposes right now...
+    # Just for testing purposes right now...
     cursor.execute('''
-        create table users (
-            username text primary key,
-            password text
+        CREATE TABLE users (
+            id INTEGER PRIMARY KEY,
+            username TEXT UNIQUE,
+            password TEXT
+        );
+    ''')
+    cursor.execute('''
+        CREATE TABLE results (
+            id INTEGER PRIMARY KEY,
+            user_id INTEGER REFERENCES users,
+            points INTEGER,
+            time TIMESTAMP
         );
     ''')
 

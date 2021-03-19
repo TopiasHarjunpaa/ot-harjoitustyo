@@ -6,6 +6,7 @@ class Result:
         self.points = points
         self.time = time
 
+    # Just for debugging purposes
     def __str__(self):
         return f"id: {self.result_id}, user_id: {self.user_id}, \
                 points: {self.points}, time: {self.time}"

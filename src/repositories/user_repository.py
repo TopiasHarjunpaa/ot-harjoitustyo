@@ -33,5 +33,10 @@ class UserRepository:
             user_list.append(user)
         return user_list
 
+    def delete(self):
+        cursor = self._conn.cursor()
+        cursor.execute("DELETE FROM Users")
+        self._conn.commit()
+
 
 user_repository = UserRepository(get_database_connection())

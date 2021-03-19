@@ -24,5 +24,10 @@ class ResultRepository:
             result_list.append(result)
         return result_list
 
+    def delete(self):
+        cursor = self._conn.cursor()
+        cursor.execute("DELETE FROM Results")
+        self._conn.commit()
+
 
 result_repository = ResultRepository(get_database_connection())

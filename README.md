@@ -33,10 +33,10 @@ Asenna komennolla:
 poetry install
 ```
 
-Suorita komennolla (placeholder):
+Suorita komennolla:
 
 ```
-poetry run...
+poetry run invoke build
 ```
 
 Käynnistä komennolla:
@@ -65,8 +65,8 @@ poetry run invoke test
 poetry run invoke coverage-report
 ```
 
-#### Pylint (placeholder):
+#### Pylint:
 
 ```
-poetry run...
+poetry run invoke lint
 ```

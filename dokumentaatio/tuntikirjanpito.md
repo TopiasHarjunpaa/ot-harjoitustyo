@@ -6,4 +6,5 @@
 | 17.3 | 3    | Projektin alustus (poetry, invoke, pytest, sqlite yms.) |
 | 18.3 | 2    | Tiedon tallentaminen ja haku repository mallin mukaisesti |
 | 18.3 | 1    | Laatutarkistusten konfigurointi ja niihin liittyvät korjaukset |
-| yht   | 7    | | 
+| 19.3 | 2    | Unittest ja testikattavuus |
+| yht   | 8    | | 

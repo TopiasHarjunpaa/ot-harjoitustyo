@@ -21,12 +21,6 @@ def main():
     clock = ClockService(FPS)
     game = GameService(level, renderer, clock)
     game.run()
-    # while game.running:
-
-    #    level = LevelService()
-    #    renderer = RenderService(display, level, BACKGROUND)
-    #    game = GameService(level, renderer, clock)
-
     pygame.quit()
 
 

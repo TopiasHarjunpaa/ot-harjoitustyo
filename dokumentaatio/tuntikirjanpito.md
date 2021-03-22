@@ -7,4 +7,5 @@
 | 18.3 | 2    | Tiedon tallentaminen ja haku repository mallin mukaisesti |
 | 18.3 | 1    | Laatutarkistusten konfigurointi ja niihin liittyvät korjaukset |
 | 19.3 | 2    | Unittest ja testikattavuus |
-| yht   | 8    | | 
+| 22.3 | 4    | Pygame pelin runko |
+| yht   | 12    | | 

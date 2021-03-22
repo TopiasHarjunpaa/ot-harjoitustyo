@@ -8,6 +8,5 @@ try:
 except FileNotFoundError:
     pass
 
-MESSAGE = os.getenv("MESSAGE") or "default message"
 DATABASE_FILENAME = os.getenv('DATABASE_FILENAME') or 'database.sqlite'
 DATABASE_FILE_PATH = os.path.join(dirname, '..', 'data', DATABASE_FILENAME)

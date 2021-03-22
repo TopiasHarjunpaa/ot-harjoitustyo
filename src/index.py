@@ -1,38 +1,34 @@
-
+import pygame
+from services.game_service import GameService
+from services.level_service import LevelService
+from services.render_service import RenderService
+from services.clock_service import ClockService
 from repositories.user_repository import user_repository
 from repositories.result_repository import result_repository
 
-# For testing purposes only
+WIDTH = 640
+HEIGHT = 480
+TITLE = "The Possible Game"
+BACKGROUND = (0, 0, 0)
+FPS = 60
 
-while True:
-    print("x: end, 1:add user, 2:list users, 3:find, 4:add result, 5:list_results")
-    OUTPUT = input("Command: ")
 
-    if OUTPUT == "x":
-        break
+def main():
+    display = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption(TITLE)
+    level = LevelService()
+    renderer = RenderService(display, level, BACKGROUND)
+    clock = ClockService(FPS)
+    game = GameService(level, renderer, clock)
+    game.run()
+    # while game.running:
 
-    if OUTPUT == "1":
-        USERNAME = input("username: ")
-        PASSWORD = input("password: ")
-        user_repository.create(USERNAME, PASSWORD)
-        print("Added!")
+    #    level = LevelService()
+    #    renderer = RenderService(display, level, BACKGROUND)
+    #    game = GameService(level, renderer, clock)
 
-    if OUTPUT == "2":
-        USERS = user_repository.find_all_users()
-        for u in USERS:
-            print(u)
+    pygame.quit()
 
-    if OUTPUT == "3":
-        FIND = input("Who?: ")
-        print(user_repository.find_user_by_username(FIND))
 
-    if OUTPUT == "4":
-        FIND = input("Who?: ")
-        WHO = user_repository.find_user_by_username(FIND)
-        print(WHO)
-        result_repository.create(WHO.user_id, 100)
-
-    if OUTPUT == "5":
-        POINTS = result_repository.find_all_results()
-        for p in POINTS:
-            print(p)
+if __name__ == "__main__":
+    main()

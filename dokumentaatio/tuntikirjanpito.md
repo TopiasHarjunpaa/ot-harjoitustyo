@@ -8,4 +8,6 @@
 | 18.3 | 1    | Laatutarkistusten konfigurointi ja niihin liittyvät korjaukset |
 | 19.3 | 2    | Unittest ja testikattavuus |
 | 22.3 | 4    | Pygame pelin runko |
-| yht   | 12    | | 
+| 23.3 | 2    | Alustavan kerrosarkkitehtuurin toteuttaminen saavuttamatta juuri mitään järkevää |
+| 30.3 | 2    | Alustavan kerrosarkkitehtuurin toteuttamisen uusi yritys hieman paremmalla lopputuloksella |
+| yht   | 17    | | 

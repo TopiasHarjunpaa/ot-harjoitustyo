@@ -12,6 +12,7 @@ class LevelService:
         self.obstacle = pygame.sprite.Group()
         self.player = Player(self)
         self.init_sprites()
+        self.update()
 
     def update(self):
         self.all_sprites.update()

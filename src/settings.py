@@ -1,0 +1,5 @@
+WIDTH = 640
+HEIGHT = 480
+TITLE = "The Possible Game"
+BACKGROUND = (0, 0, 0)
+FPS = 60

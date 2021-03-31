@@ -9,5 +9,6 @@
 | 19.3 | 2    | Unittest ja testikattavuus |
 | 22.3 | 4    | Pygame pelin runko |
 | 23.3 | 2    | Alustavan kerrosarkkitehtuurin toteuttaminen saavuttamatta juuri mitään järkevää |
-| 30.3 | 2    | Alustavan kerrosarkkitehtuurin toteuttamisen uusi yritys hieman paremmalla lopputuloksella |
-| yht   | 17    | | 
+| 30.3 | 2    | Alustavan kerrosarkkitehtuurin toteuttamisen uusi yritys hieman paremmalla menestyksellä |
+| 31.3 | 2    | Ensimmäisen tason alustava luonnos ja lisääminen sovellukseen|
+| yht   | 19    | | 

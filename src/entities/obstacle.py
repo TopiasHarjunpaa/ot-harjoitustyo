@@ -6,14 +6,15 @@ RED = (255, 0, 0)
 
 
 class Obstacle(pygame.sprite.Sprite):
-    def __init__(self, height):
+    def __init__(self, x, y, width, height):
         super().__init__()
-        self.image = pygame.Surface((40, 40))
+        self.image = pygame.Surface((width, height))
         self.image.fill(RED)
         self.rect = self.image.get_rect()
-        self.rect.midbottom = (640, height)
+        self.rect.midbottom = (x, y)
 
     def update(self):
-        self.rect.x -= 8
+        self.rect.x -= 5
+        #1/16 of the screen... temp
         if self.rect.right < 0:
             self.kill()

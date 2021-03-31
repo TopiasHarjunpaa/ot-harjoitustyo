@@ -21,7 +21,7 @@ class Player(pygame.sprite.Sprite):
         floor_hit = pygame.sprite.spritecollide(self, self.game.floors, False)
         self.rect.x -= 1
         if floor_hit:
-            self.speed -= 16
+            self.speed -= 13
 
     def update(self):
         self.speed += 0.7

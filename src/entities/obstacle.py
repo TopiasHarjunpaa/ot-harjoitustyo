@@ -15,6 +15,6 @@ class Obstacle(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.x -= 5
-        #1/16 of the screen... temp
+        # 1/16 of the screen... temp
         if self.rect.right < 0:
             self.kill()

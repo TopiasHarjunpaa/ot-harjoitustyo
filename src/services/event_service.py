@@ -11,7 +11,9 @@ class EventService:
                 return "QUIT"
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    return "SPACE"
+                    return "JUMP"
+                if event.key == pygame.K_ESCAPE:
+                    return "ESC"
 
     def wait_for_key_pressed(self, key, fps):
         waiting = True

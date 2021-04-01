@@ -16,6 +16,6 @@ class Floor(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.x -= 5
-        #self.rect.width/160 #2*640 / 160 = 8 temp changing sizes for air and ground
+        # self.rect.width/160 #2*640 / 160 = 8 temp changing sizes for air and ground
         if self.rect.right < 0:
             self.kill()

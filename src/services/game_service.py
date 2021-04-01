@@ -41,7 +41,10 @@ class GameService:
         event = self.events.handle_events()
         if event == "QUIT":
             self.quit()
-        if event == "SPACE":
+        if event == "ESC":
+            self.playing = False
+            self.show_start_view()
+        if event == "JUMP":
             self.level.player.jump()
 
     def show_game_view(self):
@@ -63,6 +66,7 @@ class GameService:
         self.logged_in = True
 
     def show_transition_view(self):
+        # Needs some improvements...
         TransitionView(self.display).show()
         if self.events.wait_for_key_pressed(pygame.K_c, FPS) == "QUIT":
             self.quit()

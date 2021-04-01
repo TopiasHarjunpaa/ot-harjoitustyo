@@ -4,4 +4,4 @@
 
 Monopoly osat 1 ja 2
 
-(/Monopoly.png)
+![kuva](/Monopoly.png)

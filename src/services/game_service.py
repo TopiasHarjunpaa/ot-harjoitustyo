@@ -11,10 +11,12 @@ from services.event_service import EventService
 class GameService:
     def __init__(self):
         pygame.init()
-        self.display = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.width = pygame.display.Info().current_w
+        self.height = pygame.display.Info().current_h
+        self.display = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption(TITLE)
         self.clock = pygame.time.Clock()
-        self.level = LevelService()
+        self.level = LevelService(self.width, self.height)
         self.logged_in = False
         self.playing = False
         self.events = EventService(self.clock)
@@ -25,7 +27,7 @@ class GameService:
         self.show_start_view()
 
     def run(self):
-        self.level.__init__()
+        self.level.__init__(self.width, self.height)
         while self.playing:
             self.clock.tick(FPS)
             self.check_events()

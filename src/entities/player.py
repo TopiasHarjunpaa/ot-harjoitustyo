@@ -6,14 +6,14 @@ RED = (255, 0, 0)
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, game):
+    def __init__(self, game, x, y, size):
         super().__init__()
         self.game = game
-        self.image = pygame.Surface((40, 40))
+        self.image = pygame.Surface((size, size))
         self.image.fill(GREEN)
         self.rect = self.image.get_rect()
-        self.y = 200
-        self.x = 320
+        self.x = x
+        self.y = y
         self.speed = 0
         self.rect.midbottom = (self.x, self.y)
 
@@ -21,7 +21,7 @@ class Player(pygame.sprite.Sprite):
         floor_hit = pygame.sprite.spritecollide(self, self.game.floors, False)
         self.rect.x -= 1
         if floor_hit:
-            self.speed -= 13
+            self.speed -= 14
 
     def update(self):
         self.speed += 0.7

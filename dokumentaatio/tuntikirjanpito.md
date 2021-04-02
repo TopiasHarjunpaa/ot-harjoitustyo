@@ -11,4 +11,5 @@
 | 23.3 | 2    | Alustavan kerrosarkkitehtuurin toteuttaminen saavuttamatta juuri mitään järkevää |
 | 30.3 | 2    | Alustavan kerrosarkkitehtuurin toteuttamisen uusi yritys hieman paremmalla menestyksellä |
 | 31.3 | 2    | Ensimmäisen tason alustava luonnos ja lisääminen sovellukseen|
-| yht   | 19    | | 
+| 2.4  | 1    | Pieniä korjauksia ja ensimmäisen tason parantelua |
+| yht   | 20    | | 

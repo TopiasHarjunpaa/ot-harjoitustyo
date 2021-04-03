@@ -12,4 +12,5 @@
 | 30.3 | 2    | Alustavan kerrosarkkitehtuurin toteuttamisen uusi yritys hieman paremmalla menestyksellä |
 | 31.3 | 2    | Ensimmäisen tason alustava luonnos ja lisääminen sovellukseen|
 | 2.4  | 1    | Pieniä korjauksia ja ensimmäisen tason parantelua |
-| yht   | 20    | | 
+| 3.4  | 1    | Ensimmäiset testit pelin toiminnallisuuksiin sekä testeihin liittyvät valmistelut |
+| yht   | 21    | | 

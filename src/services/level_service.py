@@ -13,7 +13,8 @@ class LevelService:
         self.floors = pygame.sprite.Group()
         self.lavas = pygame.sprite.Group()
         self.obstacle = pygame.sprite.Group()
-        self.player = Player(self, width/2, self.height / 4 * 3, self.width / 40)
+        self.player = Player(self, width/2, self.height /
+                             4 * 3, self.width / 40)
         self.init_sprites()
         self.update()
 
@@ -44,7 +45,6 @@ class LevelService:
         base_height = self.height / 4 * 3
         obstacle_size = self.width / 40
 
-
         for i in range(len(LEVEL_1_FLOOR)):
             if LEVEL_1_FLOOR[i] == 0:
                 self.floors.add(Floor(i*floor_width, base_height,
@@ -53,15 +53,19 @@ class LevelService:
                 for j in range(len(ground_obstacles)):
                     if ground_obstacles[j] == 1:
                         self.obstacle.add(
-                            Obstacle((i + j/10) * floor_width, base_height, obstacle_size, obstacle_size))
+                            Obstacle((i + j/10) * floor_width, base_height,
+                                     obstacle_size, obstacle_size))
             else:
                 self.lavas.add(Floor(i*floor_width, base_height,
-                                floor_width, floor_thickness, (55, 55, 55)))
+                                     floor_width, floor_thickness, (55, 55, 55)))
                 air_floors = LEVEL_1_AIR_FLOOR[i]
                 for j in range(len(air_floors)):
                     value = air_floors[j]
                     if value > 0:
                         self.floors.add(Floor(
-                            (i + j/10) * floor_width, base_height - air_foor_steps * value, air_floor_width, floor_thickness, (55, 55, 55)))
+                            (i + j/10) * floor_width, base_height -
+                            air_foor_steps * value,
+                            air_floor_width, floor_thickness, (55, 55, 55)))
+
         self.all_sprites.add(self.player, self.floors,
                              self.lavas, self.obstacle)

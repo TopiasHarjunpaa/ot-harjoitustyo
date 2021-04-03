@@ -9,14 +9,11 @@ from services.event_service import EventService
 
 
 class GameService:
-    def __init__(self):
-        pygame.init()
-        self.width = pygame.display.Info().current_w
-        self.height = pygame.display.Info().current_h
-        self.display = pygame.display.set_mode((self.width, self.height))
-        pygame.display.set_caption(TITLE)
-        self.clock = pygame.time.Clock()
-        self.level = LevelService(self.width, self.height)
+    def __init__(self, level, renderer, event_queue, clock):
+        self.clock = clock
+        self.level = level
+        self.renderer = renderer
+        self.event_queue = event_queue
         self.logged_in = False
         self.playing = False
         self.events = EventService(self.clock)
@@ -27,9 +24,9 @@ class GameService:
         self.show_start_view()
 
     def run(self):
-        self.level.__init__(self.width, self.height)
+        self.level.__init__(self.level.width, self.level.height)
         while self.playing:
-            self.clock.tick(FPS)
+            self.clock.tick()
             self.check_events()
             self.playing = self.level.update()
             self.show_game_view()
@@ -50,26 +47,24 @@ class GameService:
             self.level.player.jump()
 
     def show_game_view(self):
-        self.display.fill(BACKGROUND)
-        self.level.all_sprites.draw(self.display)
-        pygame.display.flip()
+        self.renderer.render()
 
     def show_start_view(self):
-        StartView(self.display).show()
-        if self.events.wait_for_key_pressed(pygame.K_s, FPS) == "QUIT":
+        StartView(self.renderer.display).show()
+        if self.events.wait_for_key_pressed(pygame.K_s) == "QUIT":
             self.quit()
         self.playing = True
         self.run()
 
     def show_login_view(self):
-        LoginView(self.display).show()
-        if self.events.wait_for_key_pressed(pygame.K_l, FPS) == "QUIT":
+        LoginView(self.renderer.display).show()
+        if self.events.wait_for_key_pressed(pygame.K_l) == "QUIT":
             self.quit()
         self.logged_in = True
 
     def show_transition_view(self):
         # Needs some improvements...
-        TransitionView(self.display).show()
-        if self.events.wait_for_key_pressed(pygame.K_c, FPS) == "QUIT":
+        TransitionView(self.renderer.display).show()
+        if self.events.wait_for_key_pressed(pygame.K_c) == "QUIT":
             self.quit()
         self.start()

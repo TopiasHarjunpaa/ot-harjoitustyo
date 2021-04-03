@@ -15,10 +15,10 @@ class EventService:
                 if event.key == pygame.K_ESCAPE:
                     return "ESC"
 
-    def wait_for_key_pressed(self, key, fps):
+    def wait_for_key_pressed(self, key):
         waiting = True
         while waiting:
-            self.clock.tick(fps)
+            self.clock.tick()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     waiting = False

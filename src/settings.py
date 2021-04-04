@@ -1,10 +1,3 @@
-# Make full screen
-import pygame
-pygame.init()
-info = pygame.display.Info()
-
-WIDTH = info.current_w
-HEIGHT = info.current_h
 TITLE = "The Possible Game"
 BACKGROUND = (0, 0, 0)
 FPS = 60

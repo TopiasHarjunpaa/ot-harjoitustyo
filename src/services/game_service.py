@@ -3,7 +3,6 @@ import pygame
 from ui.start_view import StartView
 from ui.login_view import LoginView
 from ui.transition_view import TransitionView
-from settings import WIDTH, HEIGHT, TITLE, BACKGROUND, FPS  # Temporary
 from services.level_service import LevelService
 from services.event_service import EventService
 

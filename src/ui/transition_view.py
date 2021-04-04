@@ -1,5 +1,5 @@
 import pygame
-from settings import WIDTH, HEIGHT, TITLE, BACKGROUND
+from settings import BACKGROUND
 
 
 class TransitionView:

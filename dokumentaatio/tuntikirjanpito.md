@@ -13,4 +13,5 @@
 | 31.3 | 2    | Ensimmäisen tason alustava luonnos ja lisääminen sovellukseen|
 | 2.4  | 1    | Pieniä korjauksia ja ensimmäisen tason parantelua |
 | 3.4  | 1    | Ensimmäiset testit pelin toiminnallisuuksiin sekä testeihin liittyvät valmistelut |
-| yht   | 21    | | 
+| 4.4  | 2    | Tason lukeminen tiedostosta ja pientä visuaalista parantelua |
+| yht   | 23    | | 

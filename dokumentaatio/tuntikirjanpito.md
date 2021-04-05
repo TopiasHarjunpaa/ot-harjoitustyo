@@ -14,4 +14,5 @@
 | 2.4  | 1    | Pieniä korjauksia ja ensimmäisen tason parantelua |
 | 3.4  | 1    | Ensimmäiset testit pelin toiminnallisuuksiin sekä testeihin liittyvät valmistelut |
 | 4.4  | 2    | Tason lukeminen tiedostosta ja pientä visuaalista parantelua |
-| yht   | 23    | | 
+| 5.4  | 1    | Tason läpäisemisen toiminnallisuus |
+| yht   | 24    | | 

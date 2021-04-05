@@ -3,6 +3,7 @@ import pygame
 from ui.start_view import StartView
 from ui.login_view import LoginView
 from ui.transition_view import TransitionView
+from ui.finish_view import FinishView
 from services.level_service import LevelService
 from services.event_service import EventService
 
@@ -29,6 +30,8 @@ class GameService:
             self.check_events()
             self.playing = self.level.update()
             self.show_game_view()
+        if self.level.finished:
+            self.show_finish_view()
         self.show_transition_view()
 
     def quit(self):
@@ -64,6 +67,13 @@ class GameService:
     def show_transition_view(self):
         # Needs some improvements...
         TransitionView(self.renderer.display).show()
+        if self.events.wait_for_key_pressed(pygame.K_c) == "QUIT":
+            self.quit()
+        self.start()
+
+    def show_finish_view(self):
+        # Temp
+        FinishView(self.renderer.display).show()
         if self.events.wait_for_key_pressed(pygame.K_c) == "QUIT":
             self.quit()
         self.start()

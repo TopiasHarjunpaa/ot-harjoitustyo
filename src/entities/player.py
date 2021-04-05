@@ -28,17 +28,20 @@ class Player(pygame.sprite.Sprite):
         self.y += self.speed + 0.4
         self.rect.midbottom = (self.x, self.y)
         if self.jumping and self.angle >= -90:
-            self.image = pygame.transform.rotate(self.original_image, self.angle)
+            self.image = pygame.transform.rotate(
+                self.original_image, self.angle)
             self.angle -= 3
         else:
             self.jumping = False
             self.angle = 0
-            self.image = pygame.transform.rotate(self.original_image, self.angle)
-    
+            self.image = pygame.transform.rotate(
+                self.original_image, self.angle)
+
     def visualize(self, size):
-        #Temporary solution
-        WHITE =(255, 255, 255)
+        # Temporary solution
+        WHITE = (255, 255, 255)
         PURPLE = (255, 0, 255)
         bs = 2
         pygame.draw.rect(self.original_image, (WHITE), (0, 0, size, size))
-        pygame.draw.rect(self.original_image, (PURPLE), (bs, bs, size - 2 * bs, size - 2 * bs))
+        pygame.draw.rect(self.original_image, (PURPLE),
+                         (bs, bs, size - 2 * bs, size - 2 * bs))

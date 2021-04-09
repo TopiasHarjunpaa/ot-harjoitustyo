@@ -1,6 +1,6 @@
-**/htmlcov
-**/.pytest_cache
-**/.coverage
-**/__pycache__
+htmlcov
+.pytest_cache
+.coverage
+__pycache__
 data/TPG_database.sqlite
 data/test-TPG_database.sqlite

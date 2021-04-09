@@ -5,10 +5,10 @@ The Possible Game on ohjelmistotekniikan kurssin harjoitustyö. Tarkemmat tiedot
 
 ## Dokumentaatio
 
-- [Käyttöohje (placeholder)]()
+- [Käyttöohje](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
 - [Vaatimusmäärittely](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
-- [Arkkitehtuurikuvaus (placeholder)]()
-- [Testausdokumentti (placeholder)]()
+- [Arkkitehtuurikuvaus](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+- [Testausdokumentti](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/testaus.md)
 - [Työaikakirjanpito](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 
 ## Asennus
@@ -33,28 +33,31 @@ Ohjelma käynnistetään komennolla:
 $ poetry run invoke start
 ```
 
-## Komentorivitoiminnot
+## Muut komentorivitoiminnot
 
-#### Ohjelman suorittaminen:
-
-```
-poetry run invoke start
-```
 
 #### Testaus:
+
+Testit voidaan suorittaa komennolla:
 
 ```
 poetry run invoke test
 ```
 
-#### Testikattavuus:
+Testikattavuusraportin saa generoitua komennolla:
 
 ```
 poetry run invoke coverage-report
 ```
 
+Käyttöliittymään ja testeihin liittyvä koodi on jätetty raportista pois.
+
 #### Pylint:
+
+Laatutarkastukset voidaan suorittaa komennolla:
 
 ```
 poetry run invoke lint
 ```
+
+Käyttöliittymään ja testeihin liittyvä koodi on jätetty pois laatutarkastuksista.

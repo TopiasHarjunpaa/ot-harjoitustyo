@@ -1,6 +1,8 @@
 # Ohjelmistotekniikka, kevät 2021
 ### The Possible Game | harjoitustyö
 
+The Possible Game on ohjelmistotekniikan kurssin harjoitustyö. Tarkemmat tiedot löytyvät dokumentaatiosta.
+
 ## Dokumentaatio
 
 - [Käyttöohje (placeholder)]()
@@ -11,22 +13,24 @@
 
 ## Asennus
 
-Asenna komennolla:
+Aloita kloonaamalla repositorio:
 
 ```
-poetry install
+$ git clone git@github.com:TopiasHarjunpaa/ot-harjoitustyo.git
+$ cd ot-harjoitustyo
 ```
 
-Suorita komennolla:
+Asenna seuraavaksi tarvittavat riippuvuudet ja alusta tietokanta komennoilla:
 
 ```
-poetry run invoke build
+$ poetry install
+$ poetry run invoke build
 ```
 
-Käynnistä komennolla:
+Ohjelma käynnistetään komennolla:
 
 ```
-poetry run invoke start
+$ poetry run invoke start
 ```
 
 ## Komentorivitoiminnot

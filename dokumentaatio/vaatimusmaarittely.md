@@ -16,7 +16,7 @@ Pelissä on vain peruskäyttäjän rooli.
 
 ## Käyttöliittymäluonnos (Placeholder)
 
-## Perusversion tarjouma toiminnallisuus
+## Perusversion tarjoama toiminnallisuus
 
 #### Aloitusvalikko
 
@@ -28,7 +28,7 @@ Pelissä on vain peruskäyttäjän rooli.
     * Sovellus tallentaa kaikki uudet pelit käyttäjätunnuksen mukaan.
     * Käyttäjä voi jatkaa olemassa olevaa peliä valitsemalla tallennustiedoston käyttäjätunnuksen perusteella.
 
-Huom. alustavan suunnitelman mukaan tarkoituksena oli luoda yksilöllinen käyttäjätunnus ja salasana, jonka avulla käyttäjä tiedot talletetaan. Kyseessä on kuitenkin yksittäisellä laitteella oleva peli, joten tätä ei nähty tarpeelliseksi. Tästä syystä tiedot talletetaan ns. olemassa oleviin peleihin, jotka ovat kaikkien valittavissa / jatkettavissa. Myöhemmin voidaan selvittää nähdäänkö tarpeelliseksi lisätä ominaisuutta, jossa käyttäjä voi suojata olemassa olevan pelinsä salasanalla.
+Huom. alustavan suunnitelman mukaan tarkoituksena oli luoda yksilöllinen käyttäjätunnus ja salasana, jonka avulla käyttäjä- ja pelitiedot talletetaan. Kyseessä on kuitenkin yksittäisellä laitteella oleva peli, joten tätä ei nähty tarpeelliseksi. Tästä syystä tiedot talletetaan ns. olemassa oleviin peleihin, jotka ovat kaikkien valittavissa / jatkettavissa. Myöhemmin voidaan selvittää nähdäänkö tarpeelliseksi lisätä ominaisuutta, jossa käyttäjä voi suojata olemassa olevan pelinsä salasanalla.
 
 Tällä hetkellä aloitusvalikon toteutusta vastaa hieman harhaanjohtavasti kirjautumisikkuna, josta pääsee eteenpäin painamalla "l" painiketta. Toisin sanoen aloitusvalikon toiminnallisuutta ei ole juurikaan vielä toteutettu.
 
@@ -58,11 +58,13 @@ Tällä hetkellä peliin toteutettu yksi taso, jonka voi läpäistä. Myös siir
 Perusversion jälkeen mahdollisia kehitysideoita. Tuskin kuitenkaan realistista toteuttaa lähellekään kaikkia kurssin aikataulun puitteissa:
 
 - Parannuksia pelin grafiikkaan:
-    * Pelaajan hahmo ja muut objektit
-    * Tausta ja tasot
-- Äänet ja musiikki
+    * Pelaajan hahmo ja muut objektit.
+    * Tausta ja tasot.
+- Äänet ja musiikki.
 - Tasojen lisääminen
-    * Uudessa pelissä voisi olla vain yksi taso auki ja muut lukittuina
-    * Kun tason läpäisee, niin seuraavat tasot aukeavat
-- Lisäpisteiden keräämisen mahdollisuus tason suorittamisen yhteydessä
+    * Uudessa pelissä voisi olla vain yksi taso auki ja muut lukittuina.
+    * Kun tason läpäisee, niin seuraavat tasot aukeavat.
+- Lisäpisteiden keräämisen mahdollisuus tason suorittamisen yhteydessä.
 - Asetusvalikko, jossa voisi säätää painikkeita, ääniä tai vaikka pelin vaikeusastetta (tavallinen, nopea, extra nopea jne...)
+- Tallennettujen pelien suojaaminen salasanalla.
+- Tallennettujen pelien poistaminen tai tallennettujen pelien määrän rajaaminen.

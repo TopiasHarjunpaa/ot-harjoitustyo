@@ -13,7 +13,7 @@ class LevelService:
         self.lavas = pygame.sprite.Group()
         self.goals = pygame.sprite.Group()
         self.obstacle = pygame.sprite.Group()
-        self.player = Player(self, width/2, self.height /
+        self.player = Player(self, self.width/2, self.height /
                              4 * 3, self.width / 40)
         self.init_sprites()
         self.speed = 10
@@ -52,37 +52,40 @@ class LevelService:
 
     def init_sprites(self):
         obstacle_size = self.width / 40
-        particle_width = self.width / 20
-        particle_height = self.height / 12
+        object_w = self.width / 20
+        object_h = self.height / 12
         floor_thickness = self.width / 40
 
         filename = "src/assets/level_1.csv"
         # filename = "src/assets/level_1_test.csv" #for testing
 
         with open(filename) as file:
-            row_number = 0
+            row_nr = 0
             for row in file:
                 parts = row.strip().split(",")
-                column_number = 0
+                column_nr = 0
                 for part in parts:
                     if part == "f":
-                        floor = Floor(self, column_number * particle_width, row_number *
-                                      particle_height, particle_width, floor_thickness, "f")
+                        floor = Floor(self, column_nr * object_w,
+                                      row_nr * object_h, object_w,
+                                      floor_thickness, "f")
                         self.floors.add(floor)
                     if part == "l":
-                        lava = Floor(self, column_number * particle_width, row_number *
-                                     particle_height, particle_width, floor_thickness, "l")
+                        lava = Floor(self, column_nr * object_w,
+                                     row_nr * object_h, object_w,
+                                     floor_thickness, "l")
                         self.lavas.add(lava)
                     if part == "g":
-                        goal = Floor(self, column_number * particle_width, row_number *
-                                     particle_height, particle_width, floor_thickness, "g")
+                        goal = Floor(self, column_nr * object_w, row_nr * object_h,
+                                     object_w, floor_thickness, "g")
                         self.goals.add(goal)
                     if part == "x":
-                        obstacle = Obstacle(self, column_number * particle_width + particle_width / 2,
-                                            (row_number + 1) * particle_height, obstacle_size, obstacle_size)
+                        obstacle = Obstacle(self, column_nr * object_w + object_w / 2,
+                                            (row_nr + 1) * object_h,
+                                            obstacle_size, obstacle_size)
                         self.obstacle.add(obstacle)
-                    column_number += 1
-                row_number += 1
+                    column_nr += 1
+                row_nr += 1
 
         self.all_sprites.add(self.player, self.floors,
                              self.lavas, self.obstacle, self.goals)

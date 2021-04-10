@@ -6,9 +6,9 @@ class Obstacle(pygame.sprite.Sprite):
         super().__init__()
         self.game = game
         self.image = pygame.Surface((width, height), pygame.SRCALPHA)
+        self.visualize(width, height)
         self.rect = self.image.get_rect()
         self.rect.midbottom = (x, y)
-        self.visualize(width, height)
 
     def update(self):
         self.rect.x -= self.game.speed
@@ -16,10 +16,8 @@ class Obstacle(pygame.sprite.Sprite):
             self.kill()
 
     def visualize(self, width, height):
-        # Temporary solution
-        WHITE = (255, 255, 255)
-        BLUE = (0, 0, 255)
-        bs = 2
-        pygame.draw.rect(self.image, (WHITE), (0, 0, width, height))
-        pygame.draw.rect(self.image, (BLUE),
-                         (bs, bs, width - 2 * bs, height - 2 * bs))
+        white = (255, 255, 255)
+        blue = (0, 0, 255)
+        pygame.draw.rect(self.image, (white), (0, 0, width, height))
+        pygame.draw.rect(self.image, (blue),
+                         (2, 2, width - 4, height - 4))

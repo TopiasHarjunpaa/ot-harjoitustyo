@@ -15,4 +15,6 @@
 | 3.4  | 1    | Ensimmäiset testit pelin toiminnallisuuksiin sekä testeihin liittyvät valmistelut |
 | 4.4  | 2    | Tason lukeminen tiedostosta ja pientä visuaalista parantelua |
 | 5.4  | 1    | Tason läpäisemisen toiminnallisuus |
-| yht   | 24    | | 
+| 9.4  | 2    | Käyttöliittymän ja sovelluslogiikan eriyttäminen |
+| 10.4 | 2    | Käyttöliittymän ja sovelluslogiikan eriyttäminen |
+| yht   | 28    | | 

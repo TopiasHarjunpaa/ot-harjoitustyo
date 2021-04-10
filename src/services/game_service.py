@@ -1,79 +1,43 @@
-from os import sys
 import pygame
-from ui.start_view import StartView
-from ui.login_view import LoginView
-from ui.transition_view import TransitionView
-from ui.finish_view import FinishView
-from services.level_service import LevelService
-from services.event_service import EventService
+from ui.ui import UI
 
 
 class GameService:
-    def __init__(self, level, renderer, event_queue, clock):
+    def __init__(self, level, renderer, event_queue, clock, width, height):
         self.clock = clock
         self.level = level
         self.renderer = renderer
         self.event_queue = event_queue
-        self.logged_in = False
         self.playing = False
-        self.events = EventService(self.clock)
+        self.menu = UI(self)  # Maybe change name of the file...
+        self.width = width
+        self.heigth = height
 
-    def start(self):
-        if not self.logged_in:
-            self.show_login_view()
-        self.show_start_view()
+    def launch(self):
+        self.menu.start_menu()
 
-    def run(self):
-        self.level.__init__(self.level.width, self.level.height)
+    def start_gameloop(self):
+        self.playing = True
+        self.level.__init__(self.width, self.heigth)
         while self.playing:
             self.clock.tick()
             self.check_events()
             self.playing = self.level.update()
-            self.show_game_view()
+            self.render()
         if self.level.finished:
-            self.show_finish_view()
-        self.show_transition_view()
-
-    def quit(self):
-        pygame.quit()
-        sys.exit()
+            self.menu.show_finish_view()
+        self.menu.show_transition_view()
 
     def check_events(self):
-        event = self.events.handle_events()
-        if event == "QUIT":
-            self.quit()
-        if event == "ESC":
-            self.playing = False
-            self.show_start_view()
-        if event == "JUMP":
-            self.level.player.jump()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.menu.quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    self.level.player.jump()
+                if event.key == pygame.K_ESCAPE:
+                    self.playing = False
+                    self.menu.show_start_view()
 
-    def show_game_view(self):
+    def render(self):
         self.renderer.render()
-
-    def show_start_view(self):
-        StartView(self.renderer.display).show()
-        if self.events.wait_for_key_pressed(pygame.K_s) == "QUIT":
-            self.quit()
-        self.playing = True
-        self.run()
-
-    def show_login_view(self):
-        LoginView(self.renderer.display).show()
-        if self.events.wait_for_key_pressed(pygame.K_l) == "QUIT":
-            self.quit()
-        self.logged_in = True
-
-    def show_transition_view(self):
-        # Needs some improvements...
-        TransitionView(self.renderer.display).show()
-        if self.events.wait_for_key_pressed(pygame.K_c) == "QUIT":
-            self.quit()
-        self.start()
-
-    def show_finish_view(self):
-        # Temp
-        FinishView(self.renderer.display).show()
-        if self.events.wait_for_key_pressed(pygame.K_c) == "QUIT":
-            self.quit()
-        self.start()

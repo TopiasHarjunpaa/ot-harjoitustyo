@@ -15,13 +15,13 @@ def main():
     display = pygame.display.set_mode((display_width, display_heigth))
     pygame.display.set_caption(TITLE)
 
-    level = LevelService(display_width, display_heigth)
+    level = LevelService()
     renderer = RenderService(display, level, BACKGROUND)
     clock = ClockService(FPS)
     event_queue = EventQueueService()
 
-    game = GameService(level, renderer, event_queue, clock)
-    game.start()
+    game = GameService(level, renderer, event_queue, clock, display_width, display_heigth)
+    game.launch()
 
 
 if __name__ == "__main__":

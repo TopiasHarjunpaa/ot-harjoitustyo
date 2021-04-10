@@ -5,12 +5,12 @@ class Floor(pygame.sprite.Sprite):
     def __init__(self, game, x, y, width, height, type):
         super().__init__()
         self.game = game
-        self.image = pygame.Surface((width, height), pygame.SRCALPHA)
         self.type = type
+        self.image = pygame.Surface((width, height), pygame.SRCALPHA)
+        self.visualize(width, height)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.visualize(width, height)
 
     def update(self):
         self.rect.x -= self.game.speed
@@ -18,22 +18,16 @@ class Floor(pygame.sprite.Sprite):
             self.kill()
 
     def visualize(self, width, height):
-        # Temporary solution
-        BLACK = (0, 0, 0)
-        WHITE = (255, 255, 255)
-        FIREBRICK = (178, 34, 34)
-        GREEN = (0, 255, 0)
-        bs = 2
-
         if self.type == "f":
-            pygame.draw.rect(self.image, (WHITE), (0, 0, width, height))
-            pygame.draw.rect(self.image, (FIREBRICK),
-                             (bs, bs, width - 2 * bs, height - 2 * bs))
+            color1 = (255, 255, 255)
+            color2 = (178, 34, 34)
         if self.type == "l":
-            pygame.draw.rect(self.image, (FIREBRICK), (0, 0, width, height))
-            pygame.draw.rect(self.image, (BLACK),
-                             (bs, bs, width - 2 * bs, height - 2 * bs))
+            color1 = (178, 34, 34)
+            color2 = (0, 0, 0)
         if self.type == "g":
-            pygame.draw.rect(self.image, (WHITE), (0, 0, width, height))
-            pygame.draw.rect(self.image, (GREEN),
-                             (bs, bs, width - 2 * bs, height - 2 * bs))
+            color1 = (255, 255, 255)
+            color2 = (0, 255, 0)
+
+        pygame.draw.rect(self.image, (color1), (0, 0, width, height))
+        pygame.draw.rect(self.image, (color2),
+                         (2, 2, width - 4, height - 4))

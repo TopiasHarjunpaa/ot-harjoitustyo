@@ -9,7 +9,7 @@ from ui.finish_view import FinishView
 class UI:
     def __init__(self, game):
         self.game = game
-        self.display = game.renderer.display
+        self.renderer = game.renderer
         self.menu_view_is_open = False
 
     def start_menu(self):
@@ -17,8 +17,8 @@ class UI:
 
     def show_menu_view(self):
         self.menu_view_is_open = True
-        MenuView(self.display).show()
-        self.wait_for_key_pressed(pygame.K_l)
+        MenuView(self.renderer).show()
+        self.wait_for_key_pressed(pygame.K_n)
         self.menu_view_is_open = False
         self.show_start_view()
 
@@ -30,7 +30,7 @@ class UI:
         # - Later add new window for options...?
 
     def show_start_view(self):
-        StartView(self.display).show()
+        StartView(self.renderer).show()
         self.wait_for_key_pressed(pygame.K_s)
         self.game.start_gameloop()
 
@@ -40,8 +40,9 @@ class UI:
         # - Make possibility to choose level. Right now only 1 level.
 
     def show_transition_view(self):
+        #Rename transition_view into game_over_view or something...
         # Needs lots of improvements... Just temp for testing...
-        TransitionView(self.display).show()
+        TransitionView(self.renderer).show()
         self.wait_for_key_pressed(pygame.K_c)
         self.show_start_view()
         # Multiple choices needs to be implemented, such as:
@@ -50,7 +51,7 @@ class UI:
 
     def show_finish_view(self):
         # Needs lots of improvements... Just temp for testing...
-        FinishView(self.display).show()
+        FinishView(self.renderer).show()
         self.wait_for_key_pressed(pygame.K_c)
         self.show_start_view()
 

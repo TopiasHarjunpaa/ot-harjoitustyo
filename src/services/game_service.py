@@ -40,4 +40,4 @@ class GameService:
                     self.menu.show_start_view()
 
     def render(self):
-        self.renderer.render()
+        self.renderer.render_game()

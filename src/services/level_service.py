@@ -56,8 +56,8 @@ class LevelService:
         object_h = self.height / 12
         floor_thickness = self.width / 40
 
-        filename = "src/assets/level_1.csv"
-        # filename = "src/assets/level_1_test.csv" #for testing
+        filename = "src/assets/maps/level_1.csv"
+        # filename = "src/assets/maps/level_1_test.csv" #for testing
 
         with open(filename) as file:
             row_nr = 0

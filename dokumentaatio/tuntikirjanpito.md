@@ -17,4 +17,5 @@
 | 5.4  | 1    | Tason läpäisemisen toiminnallisuus |
 | 9.4  | 2    | Käyttöliittymän ja sovelluslogiikan eriyttäminen |
 | 10.4 | 2    | Käyttöliittymän ja sovelluslogiikan eriyttäminen |
-| yht   | 28    | | 
+| 10.4 | 2    | Valikot ja siirtymät |
+| yht   | 30    | | 

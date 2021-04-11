@@ -20,7 +20,8 @@ def main():
     clock = ClockService(FPS)
     event_queue = EventQueueService()
 
-    game = GameService(level, renderer, event_queue, clock, display_width, display_heigth)
+    game = GameService(level, renderer, event_queue, clock,
+                       display_width, display_heigth)
     game.launch()
 
 

@@ -22,36 +22,40 @@ Pelissä on vain peruskäyttäjän rooli.
 
 - Aloitusnäkymässä käyttäjälle näytetään pelin ennätykset
 - Käyttäjä voi aloittaa uuden pelin:
-    * Uuden pelin luominen tapahtuu syöttämällä käyttäjätunnus (tai nimimerkki)
-    * Samaa käyttäjätunnusta ei voi käyttää.
+    * Uuden pelin luominen tapahtuu omassa ikkunassa syöttämällä neljän merkin pituinen nimimerkki
 - Käyttäjä voi jatkaa olemassa olevaa peliä:
-    * Sovellus tallentaa kaikki uudet pelit käyttäjätunnuksen mukaan.
-    * Käyttäjä voi jatkaa olemassa olevaa peliä valitsemalla tallennustiedoston käyttäjätunnuksen perusteella.
+    * Sovellus tallentaa kaikki uudet pelit nimimerkin perusteella tietokantaan
+    * Pelin jatkaminen tapahtuu omassa ikkunassa, josta löytyy lista tallennetuista nimimerkeistä.
 
-Huom. alustavan suunnitelman mukaan tarkoituksena oli luoda yksilöllinen käyttäjätunnus ja salasana, jonka avulla käyttäjä- ja pelitiedot talletetaan. Kyseessä on kuitenkin yksittäisellä laitteella oleva peli, joten tätä ei nähty tarpeelliseksi. Tästä syystä tiedot talletetaan ns. olemassa oleviin peleihin, jotka ovat kaikkien valittavissa / jatkettavissa. Myöhemmin voidaan selvittää nähdäänkö tarpeelliseksi lisätä ominaisuutta, jossa käyttäjä voi suojata olemassa olevan pelinsä salasanalla.
+**Huom!** alustavan suunnitelman mukaan tarkoituksena oli luoda yksilöllinen käyttäjätunnus ja salasana, jonka avulla käyttäjä- ja pelitiedot talletetaan. Kyseessä on kuitenkin yksittäisellä laitteella oleva peli, joten tätä ei nähty tarpeelliseksi. Tästä syystä tiedot talletetaan ns. olemassa oleviin peleihin, jotka ovat kaikkien valittavissa / jatkettavissa.
 
-Tällä hetkellä aloitusvalikon toteutusta vastaa hieman harhaanjohtavasti kirjautumisikkuna, josta pääsee eteenpäin painamalla "l" painiketta. Toisin sanoen aloitusvalikon toiminnallisuutta ei ole juurikaan vielä toteutettu.
+*Aloitusvalikkon ulkoasu ja siirtymät toisiin valikoihin on melkein valmiita, mutta tietokantayhteyttä ei ole vielä muodostettu*
 
 #### Pelivalikko
 
-- Käyttäjä näkee valitussa pelissä olevan pistetilanteen
+- Käyttäjä näkee listan tasoista
+- Käyttäjä näkee oman nimimerkkinsä
+- Käyttäjä näkee kussakin tasossa oman ennätyksensä
 - Käyttäjä voi valita haluamansa tason (perusversiossa on vain yksi taso)
+- Saavuttamattomat tasot ovat lukittuja
 - Tason valinnan jälkeen peli käynnistyy
 - Pelivalikosta voidaan palata takaisin aloitusvalikkoon
 
-Tällä hetkellä pelivalikon toteutusta vastaa käynnistysikkuna, josta pääsee käynnistämään pelin painamalla "s" painiketta. Tätäkään toiminnallisuutta ei siis ole juurikaan toteutettu.
+*Tällä hetkellä pelivalikon ulkoasu ja siirtymät ovat melkein valmiita. Tästäkin puuttuu tietokantayhteys*
 
 #### Pelinäkymä
 
 - Yksinkertainen laatikkomainen grafiikka.
 - Yksi taso, jossa pisteitä kertyy esimerkiksi piste per sekunti.
-- Pelaajan "kuolema" käynnistää siirtymävalikon:
-    * Siirtymävalikosta voi aloittaa tason uudelleen tai palata takaisin pelivalikkoon.
-- Tason läpäiseminen käynnistää maalivalikon:
-    * Maalivalikossa näytetään tason läpäisemisestä saadut pisteet.
-    * Maalivalikosta voidaan palata takaisin pelivalikkoon.
+- Pelaajan *"kuolema"* käynnistää *Game Over -valikon*:
+    * Tässä näytetään tason läpäisemisprosentti
+    * Mahdollisuus palata takaisin pelivalikkoon ja aloittaa uudelleen
+    * Mahdollisuus palata aloitusvalikkoon
+- Tason läpäiseminen käynnistää *maalivalikon*:
+    * Mahdollisuus palata takaisin pelivalikkoon (ja yrittää seuraavaa tasoa)
+    * Mahdollisuus palata aloitusvalikkoon
 
-Tällä hetkellä peliin toteutettu yksi taso, jonka voi läpäistä. Myös siirtymävalikot ovat olemassa, mutta niiden sisältö ja siirtymät eivät ole vielä valmiita.
+*Tällä hetkellä peliin toteutettu yksi taso, jonka voi läpäistä. Valikoiden ulkoasu ja siirtymät ovat melkein valmiita. Tästäkin puuttuu tietokantayhteys*
 
 ## Jatkokehitysideoita
 
@@ -62,9 +66,8 @@ Perusversion jälkeen mahdollisia kehitysideoita. Tuskin kuitenkaan realistista 
     * Tausta ja tasot.
 - Äänet ja musiikki.
 - Tasojen lisääminen
-    * Uudessa pelissä voisi olla vain yksi taso auki ja muut lukittuina.
+    * Ovat jo käyttöliittymässä olemassa, mutta toiminnallisuudet odottavat jatkokehitystä
     * Kun tason läpäisee, niin seuraavat tasot aukeavat.
-- Lisäpisteiden keräämisen mahdollisuus tason suorittamisen yhteydessä.
 - Asetusvalikko, jossa voisi säätää painikkeita, ääniä tai vaikka pelin vaikeusastetta (tavallinen, nopea, extra nopea jne...)
 - Tallennettujen pelien suojaaminen salasanalla.
 - Tallennettujen pelien poistaminen tai tallennettujen pelien määrän rajaaminen.

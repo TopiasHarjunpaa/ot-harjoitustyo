@@ -26,7 +26,7 @@ class GameService:
             self.render()
         if self.level.finished:
             self.menu.show_finish_view()
-        self.menu.show_transition_view()
+        self.menu.show_game_over_view()
 
     def check_events(self):
         for event in pygame.event.get():

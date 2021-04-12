@@ -4,7 +4,7 @@ from database_connection import get_database_connection
 def drop_tables(connection):
     cursor = connection.cursor()
 
-    # Just for testing purposes right now...
+    # No use for first two tables...Needs to be removed.
     cursor.execute('''
         DROP TABLE IF EXISTS users;
     ''')
@@ -13,13 +13,17 @@ def drop_tables(connection):
         DROP TABLE IF EXISTS results;
     ''')
 
+    cursor.execute('''
+        DROP TABLE IF EXISTS saves;
+    ''')
+
     connection.commit()
 
 
 def create_tables(connection):
     cursor = connection.cursor()
 
-    # Just for testing purposes right now...
+    # No use for first two tables...Needs to be removed.
     cursor.execute('''
         CREATE TABLE users (
             id INTEGER PRIMARY KEY,
@@ -35,7 +39,15 @@ def create_tables(connection):
             time TIMESTAMP
         );
     ''')
-
+    cursor.execute('''
+        CREATE TABLE saves (
+            id INTEGER PRIMARY KEY,
+            nickname TEXT,
+            progress INTEGER,
+            created_at TIMESTAMP,
+            ed_at TIMESTAMP
+        );
+    ''')
     connection.commit()
 
 

@@ -19,4 +19,5 @@
 | 10.4 | 2    | Käyttöliittymän ja sovelluslogiikan eriyttäminen |
 | 10.4 | 2    | Valikot ja siirtymät |
 | 11.4 | 3    | Valikot ja siirtymät |
-| yht   | 33    | | 
+| 12.4 | 4    | Tietokannan käyttöönotto (alustavasti ja osa toiminnoista) |
+| yht   | 37    | | 

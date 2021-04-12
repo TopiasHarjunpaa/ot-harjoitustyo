@@ -1,3 +1,4 @@
+# Useless right now. Needs to be removed.
 class Result:
 
     def __init__(self, user_id, points, time, result_id=None):
@@ -5,8 +6,3 @@ class Result:
         self.user_id = user_id
         self.points = points
         self.time = time
-
-    # Just for debugging purposes
-    def __str__(self):
-        return f"id: {self.result_id}, user_id: {self.user_id}, \
-                points: {self.points}, time: {self.time}"

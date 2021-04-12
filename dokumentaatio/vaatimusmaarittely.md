@@ -41,7 +41,7 @@ Pelissä on vain peruskäyttäjän rooli.
 - Tason valinnan jälkeen peli käynnistyy
 - Pelivalikosta voidaan palata takaisin aloitusvalikkoon
 
-*Tällä hetkellä pelivalikon ulkoasu ja siirtymät ovat melkein valmiita. Tästäkin puuttuu tietokantayhteys*
+*Tällä hetkellä pelivalikon ulkoasu ja siirtymät ovat melkein valmiita. Tietokantayhteys keskeneräinen*
 
 #### Pelinäkymä
 
@@ -55,7 +55,7 @@ Pelissä on vain peruskäyttäjän rooli.
     * Mahdollisuus palata takaisin pelivalikkoon (ja yrittää seuraavaa tasoa)
     * Mahdollisuus palata aloitusvalikkoon
 
-*Tällä hetkellä peliin toteutettu yksi taso, jonka voi läpäistä. Valikoiden ulkoasu ja siirtymät ovat melkein valmiita. Tästäkin puuttuu tietokantayhteys*
+*Tällä hetkellä peliin toteutettu yksi taso, jonka voi läpäistä. Valikoiden ulkoasu ja siirtymät ovat melkein valmiita. Tietokantayhteys keskeneräinen*
 
 ## Jatkokehitysideoita
 

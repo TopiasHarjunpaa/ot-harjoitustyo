@@ -2,6 +2,8 @@ import unittest
 from repositories.user_repository import user_repository
 from entities.user import User
 
+# Useless right now. Needs to be removed.
+
 
 class TestUserRepository(unittest.TestCase):
     def setUp(self):

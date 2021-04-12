@@ -1,6 +1,8 @@
 from entities.result import Result
 from database_connection import get_database_connection
 
+# Useless right now. Needs to be removed.
+
 
 class ResultRepository:
 

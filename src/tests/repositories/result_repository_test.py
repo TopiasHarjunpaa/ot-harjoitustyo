@@ -3,11 +3,12 @@ from repositories.result_repository import result_repository
 from entities.user import User
 from entities.result import Result
 
+# Useless right now. Needs to be removed.
+
 
 class TestResultRepository(unittest.TestCase):
     def setUp(self):
         result_repository.delete()
-        #self.names = ["Hannu Huuru", "Topias", "Testaaja"]
         self.user_ids = [1, 2, 3]
         self.points = [50, 150, 500]
 

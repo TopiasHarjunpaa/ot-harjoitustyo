@@ -1,6 +1,8 @@
 from entities.user import User
 from database_connection import get_database_connection
 
+# Useless right now. Needs to be removed.
+
 
 class UserRepository:
 

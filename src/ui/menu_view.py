@@ -9,12 +9,19 @@ class MenuView:
         self.lines = []
 
     def show(self, records):
-        # TODO: Clean up this.
+        # TODO: Just temp solution. Clean up later...
         self.lines.append(["TOP3 RECORDS:", self.extra_small,
                           self.width / 2, self.height / 2 - (self.extra_small * 2.4)])
-        rank1 = f"{records[0].nickname} - SCORE: {records[0].progress}%"
-        rank2 = f"{records[1].nickname} - SCORE: {records[1].progress}%"
-        rank3 = f"{records[2].nickname} - SCORE: {records[2].progress}%"
+
+        rank1 = "EMPTY"
+        rank2 = "EMPTY"
+        rank3 = "EMPTY"
+        if len(records) >= 1:
+            rank1 = f"{records[0].nickname} - SCORE: {records[0].progress}%"
+        if len(records) >= 2:
+            rank2 = f"{records[1].nickname} - SCORE: {records[1].progress}%"
+        if len(records) >= 3:
+            rank3 = f"{records[2].nickname} - SCORE: {records[2].progress}%"
         self.lines.append([rank1, self.extra_small, self.width / 2,
                           self.height / 2 - (self.extra_small * 1.2), (255, 215, 0)])
         self.lines.append(

@@ -15,7 +15,8 @@ def main():
     display = pygame.display.set_mode((display_width, display_heigth))
     pygame.display.set_caption(TITLE)
 
-    level = LevelService(display_width, display_heigth)
+    # TODO: Re-think order between UI and GameService.
+    level = LevelService(display_width, display_heigth, 1)
     renderer = RenderService(display, level, BACKGROUND)
     clock = ClockService(FPS)
     event_queue = EventQueueService()

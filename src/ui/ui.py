@@ -20,9 +20,10 @@ class UI:
         self.show_menu_view()
 
     def show_menu_view(self):
-        # TODO: Get all time records from the database and render
+        # TODO: Re-think if records needs own method for infos.
+        records = self.infos.list_saves()
         self.menu_view_is_open = True
-        MenuView(self.renderer).show()
+        MenuView(self.renderer).show(records)
         key = self.wait_and_check_accepted_keys([pygame.K_n, pygame.K_l])
         self.menu_view_is_open = False
         if key == pygame.K_n:
@@ -35,7 +36,8 @@ class UI:
         continue_text_color = (70, 70, 70)
         NewGameView(self.renderer).show(nickname, continue_text_color)
         for i in range(4):
-            asc = self.wait_for_nickname_keys()
+            asc = self.wait_and_check_accepted_keys(
+                range(97, 123), pygame.KEYDOWN)
             nickname = nickname[:i] + chr(asc - 32) + (3 - i) * "*"
             if i == 3:
                 continue_text_color = (255, 255, 255)
@@ -47,29 +49,41 @@ class UI:
     def show_load_game_view(self):
         saves = self.infos.list_saves()
         LoadGameView(self.renderer).show(saves)
-        # TODO: Loop users choice and activate chosen save
-        self.wait_and_check_accepted_keys([pygame.K_1])  # Temp for testing
-        self.infos.open_save(saves[0].nickname)  # Temp for testing
+        key = self.wait_and_check_accepted_keys(
+            range(49, len(saves) + 49)) - 49
+        self.infos.open_save(saves[key].id)
         self.show_start_view()
 
     def show_start_view(self):
         information = self.infos.get_progress_information()
         StartView(self.renderer).show(information)
-        # TODO: Add functionality to choose level if unlocked...
-        self.wait_and_check_accepted_keys([pygame.K_1])
-        self.game.start_gameloop()
+        number_of_levels = information["number_of_levels"]
+        level = self.wait_and_check_accepted_keys(
+            range(49, number_of_levels + 49)) - 49
+        # TODO: Add more levels to the game.
+        level = 1  # As long as there are no more levels.
+        self.game.start_gameloop(level)
 
     def show_game_over_view(self):
-        # TODO: Check discovered percentage and render into screen
-        # TODO: Save into database if that's new record
-        GameOverView(self.renderer).show()
+        # TODO: Get progress percentage from Game/Level Service.
+        progress = 50  # Testing as long as there are no service available.
+        # TODO: Check if progress is new record for this save and level.
+        level = self.game.level.level_number
+        information = self.infos.get_progress_information()
+        if progress > information[f"level{level}"]:
+            total_progress = (level - 1) * 100 + progress
+            self.infos.update_save(total_progress, information["id"])
+        GameOverView(self.renderer).show(information, progress, level)
         self.wait_and_check_accepted_keys([pygame.K_RETURN])
         self.show_start_view()
 
     def show_finish_view(self):
-        # TODO: Check if the level is already completed
-        # TODO: Unlock new level if needed (update progress at database)
-        FinishView(self.renderer).show()
+        level = self.game.level.level_number
+        information = self.infos.get_progress_information()
+        if information[f"level{level}"] != 100:
+            total_progress = level * 100
+            self.infos.update_save(total_progress, information["id"])
+        FinishView(self.renderer).show(information, level)
         self.wait_and_check_accepted_keys([pygame.K_RETURN])
         self.show_start_view()
 
@@ -77,7 +91,7 @@ class UI:
         pygame.quit()
         sys.exit()
 
-    def wait_and_check_accepted_keys(self, keys: list):
+    def wait_and_check_accepted_keys(self, keys: list, event_type=pygame.KEYUP):
         input_key = None
         waiting = True
         while waiting:
@@ -92,26 +106,8 @@ class UI:
                         if self.menu_view_is_open:
                             self.quit()
                         self.show_menu_view()
-                if event.type == pygame.KEYUP:
+                if event.type == event_type:
                     if event.key in keys:
-                        input_key = event.key
-                        waiting = False
-        return input_key
-
-    def wait_for_nickname_keys(self):
-        input_key = None
-        waiting = True
-        while waiting:
-            self.game.clock.tick()
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    waiting = False
-                    self.quit()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        waiting = False
-                        self.show_menu_view()
-                    if 97 <= event.key <= 122:
                         input_key = event.key
                         waiting = False
         return input_key

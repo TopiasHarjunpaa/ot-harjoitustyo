@@ -20,4 +20,5 @@
 | 10.4 | 2    | Valikot ja siirtymät |
 | 11.4 | 3    | Valikot ja siirtymät |
 | 12.4 | 4    | Tietokannan käyttöönotto (alustavasti ja osa toiminnoista) |
-| yht   | 37    | | 
+| 13.4 | 3    | Tietokantatoimintojen lisääminen ja käyttöliittymän parantaminen |
+| yht   | 40    | | 

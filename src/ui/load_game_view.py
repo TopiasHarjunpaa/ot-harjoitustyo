@@ -5,15 +5,20 @@ class LoadGameView:
         self.height = self.renderer.height
         self.big = int(self.height / 10)
         self.small = int(self.height / 20)
-        self.extra_small = int(self.height / 30)
+        self.extra_small = int(self.height / 25)
         self.lines = []
 
     def show(self, saves: list):
-        # TODO: If less than 9 saves. Fill with blank saves.
-        for i in range(len(saves)):
-            text = f"{saves[i].nickname} ( press {i + 1})"
-            self.lines.append(
-                [text, self.extra_small, self.width / 2, self.height / 2 + (self.extra_small * i * 1.2)])
+        row = 1
+        for save in saves:
+            text = f"{save.nickname} - {save.progress}% - CREATED: {save.created_at} ( press {row} )"
+            self.lines.append([text, self.extra_small, self.width / 2,
+                              self.height / 2 + (self.extra_small * (row - 2) * 1.2)])
+            row += 1
+        while row <= 8:
+            self.lines.append(["EMPTY SAVE", self.extra_small, self.width / 2,
+                              self.height / 2 + (self.extra_small * (row - 2) * 1.2), (70, 70, 70)])
+            row += 1
         self.lines.append(["BACK TO MAIN MENU ( press ESC )", self.small,
-                          self.width / 2, self.height / 2 + (self.extra_small * len(saves) * 1.2 + self.small)])
+                          self.width / 2, self.height / 2 + (self.extra_small * (row - 1.5) * 1.2)])
         self.renderer.render_menu("LOAD YOUR GAME", self.lines)

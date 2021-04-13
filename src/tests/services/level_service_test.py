@@ -8,7 +8,7 @@ class TestLevelService(unittest.TestCase):
     def setUp(self):
         self.width = 640
         self.height = 480
-        self.level = LevelService(self.width, self.height)
+        self.level = LevelService(self.width, self.height, 0)
         self.base_height = self.height / 4 * 3
         self.floor_thickness = self.height / 80
         self.player = self.level.player

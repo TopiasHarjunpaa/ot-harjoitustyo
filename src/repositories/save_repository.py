@@ -1,8 +1,6 @@
 from entities.save import Save
 from database_connection import get_database_connection
 
-# TODO: Find a way to deal with the same nicknames... Handle exception or search by id instead?
-
 
 class SaveRepository:
 
@@ -11,28 +9,34 @@ class SaveRepository:
 
     def create(self, nickname):
         cursor = self._conn.cursor()
-        sql = "INSERT INTO saves (nickname, progress, created_at) VALUES (?, 0, datetime())"
+        sql = "INSERT INTO saves (nickname, progress, created_at) VALUES (?, 0, date())"
         cursor.execute(sql, (nickname,))
         self._conn.commit()
+        return self.find_by_id(cursor.lastrowid)
 
-    def find_by_nickname(self, nickname):
+    def update(self, progress, id):
         cursor = self._conn.cursor()
-        sql = "SELECT * FROM saves WHERE nickname = ?"
-        cursor.execute(sql, (nickname,))
+        sql = "UPDATE saves SET progress = ? WHERE id = ?"
+        cursor.execute(sql, (progress, id))
+        self._conn.commit()
+
+    def find_by_id(self, id):
+        cursor = self._conn.cursor()
+        sql = "SELECT * FROM saves WHERE id = ?"
+        cursor.execute(sql, (id,))
         result = cursor.fetchone()
         if result is not None:
-            return Save(result[1], result[2], result[3])
+            return Save(result[0], result[1], result[2], result[3])
         return None
 
     def find_all_saves(self):
-        # TODO: Filter max 9 results and rank with highest progress.
         cursor = self._conn.cursor()
-        sql = "SELECT * FROM saves"
+        sql = "SELECT * FROM saves ORDER BY progress DESC LIMIT 8"
         cursor.execute(sql)
         rows = cursor.fetchall()
         save_list = []
         for row in rows:
-            save = Save(row[1], row[2], row[3])
+            save = Save(row[0], row[1], row[2], row[3])
             save_list.append(save)
         return save_list
 

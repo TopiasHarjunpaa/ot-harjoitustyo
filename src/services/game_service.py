@@ -16,9 +16,9 @@ class GameService:
     def launch(self):
         self.menu.start_menu()
 
-    def start_gameloop(self):
+    def start_gameloop(self, level):
         self.playing = True
-        self.level.__init__(self.width, self.heigth)
+        self.level.__init__(self.width, self.heigth, level)
         while self.playing:
             self.clock.tick()
             self.check_events()

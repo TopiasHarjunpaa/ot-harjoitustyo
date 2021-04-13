@@ -5,7 +5,7 @@ from entities.obstacle import Obstacle
 
 
 class LevelService:
-    def __init__(self, width, height):
+    def __init__(self, width, height, level_number):
         self.width = width
         self.height = height
         self.all_sprites = pygame.sprite.Group()
@@ -15,6 +15,7 @@ class LevelService:
         self.obstacle = pygame.sprite.Group()
         self.player = Player(self, self.width/2, self.height /
                              4 * 3, self.width / 40)
+        self.level_number = level_number
         self.init_sprites()
         self.speed = 10
         self.finished = False
@@ -56,8 +57,11 @@ class LevelService:
         object_h = self.height / 12
         floor_thickness = self.width / 40
 
-        filename = "src/assets/maps/level_1.csv"
-        # filename = "src/assets/maps/level_1_test.csv" #for testing
+        # TODO: Improve map search and add more levels.
+        if self.level_number == 0:
+            filename = "src/assets/maps/level_1_test.csv"
+        if self.level_number == 1:
+            filename = "src/assets/maps/level_1.csv"
 
         with open(filename) as file:
             row_nr = 0

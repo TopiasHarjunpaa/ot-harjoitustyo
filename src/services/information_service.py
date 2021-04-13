@@ -2,8 +2,6 @@ from entities.save import Save
 from repositories.save_repository import (
     save_repository as default_save_repository)
 
-# TODO: Needs some rethinking...
-
 
 class InformationService:
     def __init__(self, save_repository=default_save_repository):
@@ -11,11 +9,14 @@ class InformationService:
         self._save_repository = save_repository
 
     def create_new_save(self, nickname):
-        self._save_repository.create(nickname)
-        self.open_save(nickname)
+        self._save = self._save_repository.create(nickname)
 
-    def open_save(self, nickname):
-        self._save = self._save_repository.find_by_nickname(nickname)
+    def open_save(self, id):
+        self._save = self._save_repository.find_by_id(id)
+
+    def update_save(self, progress, id):
+        self._save_repository.update(progress, id)
+        self.open_save(id)
 
     def get_save(self):
         return self._save
@@ -24,6 +25,7 @@ class InformationService:
         self._save = None
 
     def get_progress_information(self):
+        # TODO: Clean up the logic
         return self._save.get_information()
 
     def list_saves(self):

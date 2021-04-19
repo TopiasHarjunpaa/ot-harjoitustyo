@@ -2,9 +2,9 @@ import pygame
 
 
 class Floor(pygame.sprite.Sprite):
-    def __init__(self, game, x, y, width, height, type):
+    def __init__(self, level, x, y, width, height, type):
         super().__init__()
-        self.game = game
+        self.level = level
         self.type = type
         self.image = pygame.Surface((width, height), pygame.SRCALPHA)
         self.visualize(width, height)
@@ -13,7 +13,7 @@ class Floor(pygame.sprite.Sprite):
         self.rect.y = y
 
     def update(self):
-        self.rect.x -= self.game.speed
+        self.rect.x -= self.level.speed
         if self.rect.right < 0:
             self.kill()
 

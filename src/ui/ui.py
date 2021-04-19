@@ -57,17 +57,14 @@ class UI:
     def show_start_view(self):
         information = self.infos.get_progress_information()
         StartView(self.renderer).show(information)
-        number_of_levels = information["number_of_levels"]
+        available_levels = min(
+            information["number_of_levels"], information["levels_completed"] + 1)
         level = self.wait_and_check_accepted_keys(
-            range(49, number_of_levels + 49)) - 49
-        # TODO: Add more levels to the game.
-        level = 1  # As long as there are no more levels.
+            range(49, available_levels + 49)) - 48
         self.game.start_gameloop(level)
 
     def show_game_over_view(self):
-        # TODO: Get progress percentage from Game/Level Service.
-        progress = 50  # Testing as long as there are no service available.
-        # TODO: Check if progress is new record for this save and level.
+        progress = int(self.game.level.progress)
         level = self.game.level.level_number
         information = self.infos.get_progress_information()
         if progress > information[f"level{level}"]:

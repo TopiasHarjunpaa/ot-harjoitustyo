@@ -21,4 +21,5 @@
 | 11.4 | 3    | Valikot ja siirtymät |
 | 12.4 | 4    | Tietokannan käyttöönotto (alustavasti ja osa toiminnoista) |
 | 13.4 | 3    | Tietokantatoimintojen lisääminen ja käyttöliittymän parantaminen |
-| yht   | 40    | | 
+| 19.4 | 4   | Pisteiden laskenta ominaisuus, taustakuvan testailuja ja muita pieniä parannuksia |
+| yht   | 44    | | 

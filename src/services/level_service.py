@@ -2,6 +2,7 @@ import pygame
 from entities.player import Player
 from entities.floor import Floor
 from entities.obstacle import Obstacle
+from config import MAP_PATHS
 
 
 class LevelService:
@@ -19,12 +20,14 @@ class LevelService:
         self.init_sprites()
         self.speed = 10
         self.finished = False
+        self.progress = 0
         self.update()
 
     def update(self):
         self.all_sprites.update()
         self.handle_jump()
         self.handle_goal()
+        self.progress += self.speed / 220
         if self.finished:
             self.speed -= 1
             if self.speed == 0:
@@ -56,12 +59,7 @@ class LevelService:
         object_w = self.width / 20
         object_h = self.height / 12
         floor_thickness = self.width / 40
-
-        # TODO: Improve map search and add more levels.
-        if self.level_number == 0:
-            filename = "src/assets/maps/level_1_test.csv"
-        if self.level_number == 1:
-            filename = "src/assets/maps/level_1.csv"
+        filename = MAP_PATHS[self.level_number]
 
         with open(filename) as file:
             row_nr = 0

@@ -1,3 +1,5 @@
+# To be removed... Changed into config
+
 TITLE = "The Possible Game"
 BACKGROUND = (0, 0, 0)
 FPS = 60

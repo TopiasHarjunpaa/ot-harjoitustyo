@@ -4,7 +4,7 @@ from services.level_service import LevelService
 from services.clock_service import ClockService
 from services.render_service import RenderService
 from services.event_queue_service import EventQueueService
-from settings import BACKGROUND, FPS, TITLE
+from settings import FPS, TITLE
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
 
     # TODO: Re-think order between UI and GameService.
     level = LevelService(display_width, display_heigth, 1)
-    renderer = RenderService(display, level, BACKGROUND)
+    renderer = RenderService(display, level)
     clock = ClockService(FPS)
     event_queue = EventQueueService()
 

@@ -14,61 +14,60 @@ Sovellus on yksinkertainen tasohyppelypeli, jonka esikuvana toimii [The Impossib
 
 Pelissä on vain peruskäyttäjän rooli.
 
-## Käyttöliittymäluonnos (Placeholder)
-
 ## Perusversion tarjoama toiminnallisuus
 
-#### Aloitusvalikko
+### Aloitusvalikko
+
+#### Perustoiminnallisuus
 
 - Aloitusnäkymässä käyttäjälle näytetään pelin ennätykset **[Done]**
 - Käyttäjä voi aloittaa uuden pelin: **[Done]**
-    * Uuden pelin luominen tapahtuu omassa ikkunassa syöttämällä neljän merkin pituinen nimimerkki
+    * Uuden pelin luominen tapahtuu omassa ikkunassa syöttämällä neljän merkin pituinen nimimerkki **[Done]**
+    * Nimimerkkiä voi muuttaa ilman, että tarvitsee palata takaisin aloitussivulle ja aloittaa uudestaan **[]**
 - Käyttäjä voi jatkaa olemassa olevaa peliä: **[Done]**
-    * Sovellus tallentaa kaikki uudet pelit nimimerkin perusteella tietokantaan
-    * Pelin jatkaminen tapahtuu omassa ikkunassa, josta löytyy lista tallennetuista nimimerkeistä.
+    * Sovellus tallentaa kaikki uudet pelit nimimerkin perusteella tietokantaan **[Done]**
+    * Pelin jatkaminen tapahtuu omassa ikkunassa, josta löytyy lista tallennetuista nimimerkeistä **[Done]**
 
-**Huom!** alustavan suunnitelman mukaan tarkoituksena oli luoda yksilöllinen käyttäjätunnus ja salasana, jonka avulla käyttäjä- ja pelitiedot talletetaan. Kyseessä on kuitenkin yksittäisellä laitteella oleva peli, joten tätä ei nähty tarpeelliseksi. Tästä syystä tiedot talletetaan ns. olemassa oleviin peleihin, jotka ovat kaikkien valittavissa / jatkettavissa.
+#### Jatkokehitysideoita
 
-*Aloitusvalikko on pientä viilausta vailla valmis. Pieniä parannuksia voisivat olla mm:*
-*- Nimimerkin korjaaminen ilman, että tarvitsee palata takaisin aloitussivulle*
-*- Tallennettujen nimimerkkien poistaminen (näyttää tällä hetkellä vain 8 edistymisen mukaan parasta tallennusta)*
+- Käyttäjät pystyvät poistaa tallennettuja nimimerkkejä (pelejä) **[]**
+- Visuaaliset parannukset (parempi taustakuva yms.) **[]**  
+- Asetusvalikko, jossa voisi säätää painikkeita, ääniä tai vaikka pelin vaikeusastetta (tavallinen, nopea, extra nopea jne...) **[]** 
 
-#### Pelivalikko
+### Pelivalikko
+
+#### Perustoiminnallisuus
 
 - Käyttäjä näkee listan tasoista **[Done]**
 - Käyttäjä näkee oman nimimerkkinsä **[Done]**
 - Käyttäjä näkee kussakin tasossa oman ennätyksensä **[Done]**
-- Käyttäjä voi valita haluamansa tason (perusversiossa on vain yksi taso) **[Done]**
+- Käyttäjä voi valita haluamansa tason **[Done]**
 - Saavuttamattomat tasot ovat lukittuja **[Done]**
 - Tason valinnan jälkeen peli käynnistyy **[Done]**
 - Pelivalikosta voidaan palata takaisin aloitusvalikkoon **[Done]**
 
-*Myös pelivalikko on pientä viilausta vailla valmis. Joitain muutoksia kuitenkin tarvitaan siinä vaiheessa, kun tasoja tullaan lisäämään peliin* 
+### Pelinäkymä
 
-#### Pelinäkymä
+#### Perustoiminnallisuus
 
 - Yksinkertainen laatikkomainen grafiikka **[Done]**
-- Yksi taso, jossa pisteitä kertyy esimerkiksi piste per sekunti.
+- Pisteiden laskeminen pelin edetessä (matkaa maaliin kuvataan prosentteina) **[Done]**
+- Pelissä on neljä erilaista tasoa **[Done]**
 - Pelaajan *"kuolema"* käynnistää *Game Over -valikon*: **[Done]**
-    * Tässä näytetään tason läpäisemisprosentti
-    * Mahdollisuus palata takaisin pelivalikkoon ja aloittaa uudelleen
-    * Mahdollisuus palata aloitusvalikkoon
+    * Tässä näytetään tason läpäisemisprosentti **[Done]**
+    * Mahdollisuus palata takaisin pelivalikkoon ja aloittaa uudelleen **[Done]**
+    * Mahdollisuus palata aloitusvalikkoon **[Done]**
 - Tason läpäiseminen käynnistää *maalivalikon*: **[Done]**
-    * Mahdollisuus palata takaisin pelivalikkoon (ja yrittää seuraavaa tasoa)
-    * Mahdollisuus palata aloitusvalikkoon
+    * Mahdollisuus palata takaisin pelivalikkoon (ja yrittää seuraavaa tasoa) **[Done]**
+    * Mahdollisuus palata aloitusvalikkoon **[Done]**
 
-*Tällä hetkellä peliin toteutettu yksi taso, jonka voi läpäistä. Valikoiden ulkoasu ja siirtymät ovat melkein valmiita, mutta itse pelissä on vielä reilusti parannettavaa.*
-
-## Jatkokehitysideoita
+#### Jatkokehitysideoita
 
 Perusversion jälkeen mahdollisia kehitysideoita. Tuskin kuitenkaan realistista toteuttaa kaikkia kurssin aikataulun puitteissa:
 
-- Parannuksia pelin pelattavuuteen (lähinnä siitä näkökulmasta, että pelaajat tykkäävät enemmän pelistä)
-- Parannuksia pelin grafiikkaan:
-    * Pelaajan hahmo ja muut objektit.
-    * Tausta ja tasot.
-- Äänet ja musiikki.
-- Tasojen lisääminen (ovat käyttöliittymässä olemassa, mutta toiminnallisuudet odottavat jatkokehitystä)
-- Asetusvalikko, jossa voisi säätää painikkeita, ääniä tai vaikka pelin vaikeusastetta (tavallinen, nopea, extra nopea jne...)
-- Tallennettujen pelien suojaaminen salasanalla.
-- Tallennettujen pelien poistaminen.
+- Parannuksia pelin pelattavuuteen **[]** 
+- Parannuksia pelin grafiikkaan **[]** 
+    * Pelaajan hahmo ja muut objektit **[]** 
+    * Tausta **[]** 
+- Äänet ja musiikki **[]** 
+- Useita tasoja **[Done]**

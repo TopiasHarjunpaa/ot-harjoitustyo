@@ -51,7 +51,7 @@ class UI:
         LoadGameView(self.renderer).show(saves)
         key = self.wait_and_check_accepted_keys(
             range(49, len(saves) + 49)) - 49
-        self.infos.open_save(saves[key].id)
+        self.infos.open_save(saves[key].save_id)
         self.show_start_view()
 
     def show_start_view(self):

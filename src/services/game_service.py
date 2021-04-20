@@ -9,7 +9,7 @@ class GameService:
         self.renderer = renderer
         self.event_queue = event_queue
         self.playing = False
-        self.menu = UI(self)  # Maybe change name of the file...
+        self.menu = UI(self)
         self.width = width
         self.heigth = height
 
@@ -30,12 +30,12 @@ class GameService:
 
     def check_events(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:  # pylint: disable=no-member
                 self.menu.quit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
+            if event.type == pygame.KEYDOWN:  # pylint: disable=no-member
+                if event.key == pygame.K_SPACE:  # pylint: disable=no-member
                     self.level.player.jump()
-                if event.key == pygame.K_ESCAPE:
+                if event.key == pygame.K_ESCAPE:  # pylint: disable=no-member
                     self.playing = False
                     self.menu.show_start_view()
 

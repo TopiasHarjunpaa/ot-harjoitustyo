@@ -22,4 +22,5 @@
 | 12.4 | 4    | Tietokannan käyttöönotto (alustavasti ja osa toiminnoista) |
 | 13.4 | 3    | Tietokantatoimintojen lisääminen ja käyttöliittymän parantaminen |
 | 19.4 | 4   | Pisteiden laskenta ominaisuus, taustakuvan testailuja ja muita pieniä parannuksia |
-| yht   | 44    | | 
+| 20.4 | 4   | Alustava luokkakaavio, pylint korjauksia sekä lisää testejä |
+| yht   | 48    | | 

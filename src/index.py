@@ -8,14 +8,13 @@ from settings import FPS, TITLE
 
 
 def main():
-    pygame.init()
+    pygame.init()  # pylint: disable=no-member
     display_info = pygame.display.Info()
     display_width = display_info.current_w
     display_heigth = display_info.current_h
     display = pygame.display.set_mode((display_width, display_heigth))
     pygame.display.set_caption(TITLE)
 
-    # TODO: Re-think order between UI and GameService.
     level = LevelService(display_width, display_heigth, 1)
     renderer = RenderService(display, level)
     clock = ClockService(FPS)

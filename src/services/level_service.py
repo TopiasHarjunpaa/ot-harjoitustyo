@@ -44,13 +44,13 @@ class LevelService:
     def handle_jump(self):
         touch = pygame.sprite.spritecollide(self.player, self.floors, False)
         if touch:
-            self.player.y = touch[0].rect.top
+            self.player.position.y = touch[0].rect.top
             self.player.speed = 0
 
     def handle_goal(self):
         touch = pygame.sprite.spritecollide(self.player, self.goals, False)
         if touch:
-            self.player.y = touch[0].rect.top
+            self.player.position.y = touch[0].rect.top
             self.player.speed = 0
             self.finished = True
 
@@ -58,7 +58,6 @@ class LevelService:
         obstacle_size = self.width / 40
         object_w = self.width / 20
         object_h = self.height / 12
-        floor_thickness = self.width / 40
         filename = MAP_PATHS[self.level_number]
 
         with open(filename) as file:
@@ -70,16 +69,16 @@ class LevelService:
                     if part == "f":
                         floor = Floor(self, column_nr * object_w,
                                       row_nr * object_h, object_w,
-                                      floor_thickness, "f")
+                                      obstacle_size, "f")
                         self.floors.add(floor)
                     if part == "l":
                         lava = Floor(self, column_nr * object_w,
                                      row_nr * object_h, object_w,
-                                     floor_thickness, "l")
+                                     obstacle_size, "l")
                         self.lavas.add(lava)
                     if part == "g":
                         goal = Floor(self, column_nr * object_w, row_nr * object_h,
-                                     object_w, floor_thickness, "g")
+                                     object_w, obstacle_size, "g")
                         self.goals.add(goal)
                     if part == "x":
                         obstacle = Obstacle(self, column_nr * object_w + object_w / 2,

@@ -2,13 +2,14 @@ import pygame
 
 
 class Obstacle(pygame.sprite.Sprite):
-    def __init__(self, level, x, y, width, height):
+    def __init__(self, level, x_coordinate, y_coordinate, width, height):
         super().__init__()
         self.level = level
-        self.image = pygame.Surface((width, height), pygame.SRCALPHA)
+        self.image = pygame.Surface(
+            (width, height), pygame.SRCALPHA)  # pylint: disable=no-member
         self.visualize(width, height)
         self.rect = self.image.get_rect()
-        self.rect.midbottom = (x, y)
+        self.rect.midbottom = (x_coordinate, y_coordinate)
 
     def update(self):
         self.rect.x -= self.level.speed

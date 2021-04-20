@@ -14,7 +14,7 @@ class RenderService:
         self.extra_small = int(self.height / 30)
 
     def render_game(self):
-        #self.display.blit(self.bg_image, (0, 0))
+        # self.display.blit(self.bg_image, (0, 0))
         self.display.fill((0, 0, 0))
         self._level.all_sprites.draw(self.display)
         self.draw_text(f"LEVEL {self._level.level_number}",
@@ -48,9 +48,9 @@ class RenderService:
                 self.draw_text(line[0], line[1], line[2], line[3])
         pygame.display.flip()
 
-    def draw_text(self, text, font_size, x, y, color=(255, 255, 255)):
+    def draw_text(self, text, font_size, x_coordinate, y_coordinate, color=(255, 255, 255)):
         font = pygame.font.Font(FONT_PATH, font_size)
         text_surf = font.render(text, True, color)
         text_rect = text_surf.get_rect()
-        text_rect.center = (x, y)
+        text_rect.center = (x_coordinate, y_coordinate)
         self.display.blit(text_surf, text_rect)

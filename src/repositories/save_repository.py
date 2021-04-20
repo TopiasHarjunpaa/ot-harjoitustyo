@@ -14,16 +14,16 @@ class SaveRepository:
         self._conn.commit()
         return self.find_by_id(cursor.lastrowid)
 
-    def update(self, progress, id):
+    def update(self, progress, save_id):
         cursor = self._conn.cursor()
         sql = "UPDATE saves SET progress = ? WHERE id = ?"
-        cursor.execute(sql, (progress, id))
+        cursor.execute(sql, (progress, save_id))
         self._conn.commit()
 
-    def find_by_id(self, id):
+    def find_by_id(self, save_id):
         cursor = self._conn.cursor()
         sql = "SELECT * FROM saves WHERE id = ?"
-        cursor.execute(sql, (id,))
+        cursor.execute(sql, (save_id,))
         result = cursor.fetchone()
         if result is not None:
             return Save(result[0], result[1], result[2], result[3])

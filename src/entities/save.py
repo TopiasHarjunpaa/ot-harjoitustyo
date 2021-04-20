@@ -3,14 +3,13 @@ from settings import NUMBER_OF_LEVELS
 
 class Save:
 
-    def __init__(self, id, nickname, progress, created_at):
-        self.id = id
+    def __init__(self, save_id, nickname, progress, created_at):
+        self.save_id = save_id
         self.nickname = nickname
         self.progress = progress
         self.created_at = created_at
 
     def get_information(self):
-        # TODO: Clean up the logic. Maybe ditch the logic here and just pass the params.
         progress = {}
         levels_completed = self.progress // 100
         progress["levels_completed"] = levels_completed
@@ -28,7 +27,7 @@ class Save:
                 progress[f"level{level}"] = 0
                 progress[f"unlocked{level}"] = False
                 level += 1
-        progress["id"] = self.id
+        progress["id"] = self.save_id
         progress["nickname"] = self.nickname
         progress["created_at"] = self.created_at
         progress["progress"] = self.progress

@@ -8,6 +8,8 @@ from ui.new_game_view import NewGameView
 from ui.load_game_view import LoadGameView
 from services.information_service import InformationService
 
+from services.audio_service import AudioService
+
 
 class UI:
     def __init__(self, game):
@@ -15,11 +17,13 @@ class UI:
         self.renderer = game.renderer
         self.menu_view_is_open = False
         self.infos = InformationService()
+        self.audio = AudioService()
 
     def start_menu(self):
         self.show_menu_view()
 
     def show_menu_view(self):
+        self.audio.play_music()
         # TODO: Re-think if records needs own method for infos.
         records = self.infos.list_saves()
         self.menu_view_is_open = True
@@ -55,15 +59,18 @@ class UI:
         self.show_start_view()
 
     def show_start_view(self):
+        self.audio.play_music()
         information = self.infos.get_progress_information()
         StartView(self.renderer).show(information)
         available_levels = min(
             information["number_of_levels"], information["levels_completed"] + 1)
         level = self.wait_and_check_accepted_keys(
             range(49, available_levels + 49)) - 48
+        self.audio.play_music(level)
         self.game.start_gameloop(level)
 
     def show_game_over_view(self):
+        self.audio.play_music()
         progress = int(self.game.level.progress)
         level = self.game.level.level_number
         information = self.infos.get_progress_information()
@@ -75,6 +82,7 @@ class UI:
         self.show_start_view()
 
     def show_finish_view(self):
+        self.audio.play_music()
         level = self.game.level.level_number
         information = self.infos.get_progress_information()
         if information[f"level{level}"] != 100:
@@ -95,11 +103,13 @@ class UI:
             self.game.clock.tick()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    self.audio.play_back_sound()
                     waiting = False
                     self.quit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         waiting = False
+                        self.audio.play_back_sound()
                         if self.menu_view_is_open:
                             self.quit()
                         self.show_menu_view()
@@ -107,4 +117,5 @@ class UI:
                     if event.key in keys:
                         input_key = event.key
                         waiting = False
+                        self.audio.play_forward_sound()
         return input_key

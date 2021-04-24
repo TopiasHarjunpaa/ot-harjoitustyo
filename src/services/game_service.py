@@ -18,7 +18,7 @@ class GameService:
 
     def start_gameloop(self, level):
         self.playing = True
-        self.level.__init__(self.width, self.heigth, level)
+        self.level.__init__(self.width, self.heigth, level, self.menu.audio)
         while self.playing:
             self.clock.tick()
             self.check_events()
@@ -26,6 +26,7 @@ class GameService:
             self.render()
         if self.level.finished:
             self.menu.show_finish_view()
+        self.menu.audio.play_die_sound()  # Maybe make some delay before transition...?
         self.menu.show_game_over_view()
 
     def check_events(self):

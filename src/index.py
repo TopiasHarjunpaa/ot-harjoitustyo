@@ -8,6 +8,7 @@ from settings import FPS, TITLE
 
 
 def main():
+    # Needs to be changed thru UI instead...
     pygame.init()  # pylint: disable=no-member
     display_info = pygame.display.Info()
     display_width = display_info.current_w

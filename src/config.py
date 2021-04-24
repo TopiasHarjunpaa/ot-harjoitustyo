@@ -27,3 +27,15 @@ FONT_PATH = os.path.join(dirname, "assets", "fonts", FONT_FILENAME)
 
 BG_FILENAME = "test_background.png"
 BG_PATH = os.path.join(dirname, "assets", "images", BG_FILENAME)
+
+MENU_MUSIC_FILENAME = "menu.ogg"
+MENU_MUSIC = os.path.join(dirname, "assets", "audio", MENU_MUSIC_FILENAME)
+
+LEVEL1_MUSIC_FILENAME = "level1.ogg"
+LEVEL1_MUSIC = os.path.join(dirname, "assets", "audio", LEVEL1_MUSIC_FILENAME)
+
+BACK = os.path.join(dirname, "assets", "audio", "back.wav")
+DIE = os.path.join(dirname, "assets", "audio", "die.wav")
+JUMP = os.path.join(dirname, "assets", "audio", "jump.wav")
+KEY = os.path.join(dirname, "assets", "audio", "key.wav")
+FORWARD = os.path.join(dirname, "assets", "audio", "forward.wav")

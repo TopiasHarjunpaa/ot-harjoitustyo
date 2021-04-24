@@ -23,4 +23,5 @@
 | 13.4 | 3    | Tietokantatoimintojen lisääminen ja käyttöliittymän parantaminen |
 | 19.4 | 4   | Pisteiden laskenta ominaisuus, taustakuvan testailuja ja muita pieniä parannuksia |
 | 20.4 | 4   | Alustava luokkakaavio, pylint korjauksia sekä lisää testejä |
-| yht   | 48    | | 
+| 23.4 | 2   | Musiikin ja äänien luominen ja lisääminen |
+| yht   | 50    | | 

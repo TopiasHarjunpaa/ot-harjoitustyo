@@ -2,9 +2,9 @@ import pygame
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, game, x_coordinate, y_coordinate, size):
+    def __init__(self, level, x_coordinate, y_coordinate, size):
         super().__init__()
-        self.game = game
+        self.level = level
         self.original_img = pygame.Surface(
             (size, size), pygame.SRCALPHA)  # pylint: disable=no-member
         self.visualize(size)
@@ -18,10 +18,12 @@ class Player(pygame.sprite.Sprite):
         self.angle = 0
 
     def jump(self):
-        floor_hit = pygame.sprite.spritecollide(self, self.game.floors, False)
+        floor_hit = pygame.sprite.spritecollide(self, self.level.floors, False)
         if floor_hit:
             self.speed -= 14
             self.jumping = True
+            if self.level.audio != None:  # For tests at the moment...
+                self.level.audio.play_jump_sound()
 
     def update(self):
         self.speed += 0.7

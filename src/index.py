@@ -4,7 +4,8 @@ from services.level_service import LevelService
 from services.clock_service import ClockService
 from services.render_service import RenderService
 from services.event_queue_service import EventQueueService
-from settings import FPS, TITLE
+from services.audio_service import AudioService
+from config import FPS, TITLE
 
 
 def main():
@@ -16,13 +17,14 @@ def main():
     display = pygame.display.set_mode((display_width, display_heigth))
     pygame.display.set_caption(TITLE)
 
-    level = LevelService(display_width, display_heigth, 1)
+    audio = AudioService()
+    level = LevelService(display_width, display_heigth, 1, audio)
     renderer = RenderService(display, level)
     clock = ClockService(FPS)
     event_queue = EventQueueService()
-
     game = GameService(level, renderer, event_queue, clock,
-                       display_width, display_heigth)
+                       display_width, display_heigth, audio)
+
     game.launch()
 
 

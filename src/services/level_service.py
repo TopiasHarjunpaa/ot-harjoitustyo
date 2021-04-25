@@ -7,6 +7,7 @@ from config import MAP_PATHS
 
 class LevelService:
     def __init__(self, width, height, level_number, audio=None):
+        self.audio = audio
         self.width = width
         self.height = height
         self.all_sprites = pygame.sprite.Group()
@@ -22,7 +23,6 @@ class LevelService:
         self.finished = False
         self.progress = 0
         self.update()
-        self.audio = audio
 
     def update(self):
         self.all_sprites.update()

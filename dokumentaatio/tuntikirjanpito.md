@@ -23,5 +23,7 @@
 | 13.4 | 3    | Tietokantatoimintojen lisääminen ja käyttöliittymän parantaminen |
 | 19.4 | 4   | Pisteiden laskenta ominaisuus, taustakuvan testailuja ja muita pieniä parannuksia |
 | 20.4 | 4   | Alustava luokkakaavio, pylint korjauksia sekä lisää testejä |
-| 23.4 | 2   | Musiikin ja äänien luominen ja lisääminen |
-| yht   | 50    | | 
+| 23.4 | 2   | Musiikin ja äänien luominen sekä niiden lisääminen peliin |
+| 24.4 | 1   | Pieniä parannuksia mm. ohjelman käynnistämiseen |
+| 25.4 | 2   | Nimimerkin muuttaminen ja musiikin lisääminen puuttuviin tasoihin |
+| yht   | 53    | | 

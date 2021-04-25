@@ -1,15 +1,16 @@
 import pygame
-from config import MENU_MUSIC, LEVEL1_MUSIC, BACK, JUMP, KEY, FORWARD, DIE
+from config import PLAYLIST, BACK, JUMP, KEY, FORWARD, DIE
 
 
 class AudioService:
     def __init__(self):
-        self.playlist = [MENU_MUSIC, LEVEL1_MUSIC]
+        self.playlist = PLAYLIST
         self.music = pygame.mixer.music
         self.music.set_volume(0.4)
         self.back = pygame.mixer.Sound(BACK)
         self.forward = pygame.mixer.Sound(FORWARD)
         self.key = pygame.mixer.Sound(KEY)
+        self.key.set_volume(0.5)
         self.jump = pygame.mixer.Sound(JUMP)
         self.jump.set_volume(0.5)
         self.die = pygame.mixer.Sound(DIE)

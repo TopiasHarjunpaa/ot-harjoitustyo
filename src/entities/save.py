@@ -1,4 +1,4 @@
-from settings import NUMBER_OF_LEVELS
+from config import NUMBER_OF_LEVELS
 
 
 class Save:

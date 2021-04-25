@@ -8,16 +8,14 @@ from ui.new_game_view import NewGameView
 from ui.load_game_view import LoadGameView
 from services.information_service import InformationService
 
-from services.audio_service import AudioService
-
 
 class UI:
     def __init__(self, game):
         self.game = game
         self.renderer = game.renderer
         self.menu_view_is_open = False
-        self.infos = InformationService()
-        self.audio = AudioService()
+        self.info = InformationService()
+        self.audio = game.audio
 
     def start_menu(self):
         self.show_menu_view()
@@ -25,7 +23,7 @@ class UI:
     def show_menu_view(self):
         self.audio.play_music()
         # TODO: Re-think if records needs own method for infos.
-        records = self.infos.list_saves()
+        records = self.info.list_saves()
         self.menu_view_is_open = True
         MenuView(self.renderer).show(records)
         key = self.wait_and_check_accepted_keys([pygame.K_n, pygame.K_l])
@@ -39,28 +37,29 @@ class UI:
         nickname = "****"
         continue_text_color = (70, 70, 70)
         NewGameView(self.renderer).show(nickname, continue_text_color)
-        for i in range(4):
-            asc = self.wait_and_check_accepted_keys(
-                range(97, 123), pygame.KEYDOWN)
-            nickname = nickname[:i] + chr(asc - 32) + (3 - i) * "*"
-            if i == 3:
-                continue_text_color = (255, 255, 255)
+        nickname = self.wait_for_nickname(nickname, 1)
+        key = self.wait_and_check_accepted_keys(
+            [pygame.K_RETURN, pygame.K_BACKSPACE], pygame.KEYDOWN)
+        while key == pygame.K_BACKSPACE:
+            nickname = nickname[:3] + "*"
             NewGameView(self.renderer).show(nickname, continue_text_color)
-        self.wait_and_check_accepted_keys([pygame.K_RETURN])
-        self.infos.create_new_save(nickname)
+            nickname = self.wait_for_nickname(nickname, 4)
+            key = self.wait_and_check_accepted_keys(
+                [pygame.K_RETURN, pygame.K_BACKSPACE], pygame.KEYDOWN)
+        self.info.create_new_save(nickname)
         self.show_start_view()
 
     def show_load_game_view(self):
-        saves = self.infos.list_saves()
+        saves = self.info.list_saves()
         LoadGameView(self.renderer).show(saves)
         key = self.wait_and_check_accepted_keys(
             range(49, len(saves) + 49)) - 49
-        self.infos.open_save(saves[key].save_id)
+        self.info.open_save(saves[key].save_id)
         self.show_start_view()
 
     def show_start_view(self):
         self.audio.play_music()
-        information = self.infos.get_progress_information()
+        information = self.info.get_progress_information()
         StartView(self.renderer).show(information)
         available_levels = min(
             information["number_of_levels"], information["levels_completed"] + 1)
@@ -73,10 +72,10 @@ class UI:
         self.audio.play_music()
         progress = int(self.game.level.progress)
         level = self.game.level.level_number
-        information = self.infos.get_progress_information()
+        information = self.info.get_progress_information()
         if progress > information[f"level{level}"]:
             total_progress = (level - 1) * 100 + progress
-            self.infos.update_save(total_progress, information["id"])
+            self.info.update_save(total_progress, information["id"])
         GameOverView(self.renderer).show(information, progress, level)
         self.wait_and_check_accepted_keys([pygame.K_RETURN])
         self.show_start_view()
@@ -84,10 +83,10 @@ class UI:
     def show_finish_view(self):
         self.audio.play_music()
         level = self.game.level.level_number
-        information = self.infos.get_progress_information()
+        information = self.info.get_progress_information()
         if information[f"level{level}"] != 100:
             total_progress = level * 100
-            self.infos.update_save(total_progress, information["id"])
+            self.info.update_save(total_progress, information["id"])
         FinishView(self.renderer).show(information, level)
         self.wait_and_check_accepted_keys([pygame.K_RETURN])
         self.show_start_view()
@@ -95,6 +94,30 @@ class UI:
     def quit(self):
         pygame.quit()
         sys.exit()
+
+    def wait_for_nickname(self, nickname, char_number):
+        accepted_keys = list(range(97, 123))
+        accepted_keys.append(pygame.K_BACKSPACE)
+        while char_number <= 4:
+            asc = self.wait_and_check_accepted_keys(
+                accepted_keys, pygame.KEYDOWN)
+            if asc == pygame.K_BACKSPACE:
+                if char_number == 1:
+                    char_number -= 1
+                    nickname = "****"
+                else:
+                    char_number -= 2
+                    nickname = nickname[:char_number] + (4 - char_number) * "*"
+            else:
+                nickname = nickname[:char_number - 1] + \
+                    chr(asc - 32) + (4 - char_number) * "*"
+            if char_number == 4:
+                continue_text_color = (255, 255, 255)
+            else:
+                continue_text_color = (70, 70, 70)
+            NewGameView(self.renderer).show(nickname, continue_text_color)
+            char_number += 1
+        return nickname
 
     def wait_and_check_accepted_keys(self, keys: list, event_type=pygame.KEYUP):
         input_key = None
@@ -117,5 +140,8 @@ class UI:
                     if event.key in keys:
                         input_key = event.key
                         waiting = False
-                        self.audio.play_forward_sound()
+                        if event.type == pygame.KEYUP:
+                            self.audio.play_forward_sound()
+                        else:
+                            self.audio.play_key_sound()
         return input_key

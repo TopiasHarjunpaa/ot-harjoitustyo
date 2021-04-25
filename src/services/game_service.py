@@ -3,12 +3,13 @@ from ui.ui import UI
 
 
 class GameService:
-    def __init__(self, level, renderer, event_queue, clock, width, height):
+    def __init__(self, level, renderer, event_queue, clock, width, height, audio):
         self.clock = clock
         self.level = level
         self.renderer = renderer
         self.event_queue = event_queue
         self.playing = False
+        self.audio = audio
         self.menu = UI(self)
         self.width = width
         self.heigth = height
@@ -18,7 +19,7 @@ class GameService:
 
     def start_gameloop(self, level):
         self.playing = True
-        self.level.__init__(self.width, self.heigth, level, self.menu.audio)
+        self.level.__init__(self.width, self.heigth, level, self.audio)
         while self.playing:
             self.clock.tick()
             self.check_events()

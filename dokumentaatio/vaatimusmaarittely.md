@@ -23,7 +23,7 @@ Pelissä on vain peruskäyttäjän rooli.
 - Aloitusnäkymässä käyttäjälle näytetään pelin ennätykset **[Done]**
 - Käyttäjä voi aloittaa uuden pelin: **[Done]**
     * Uuden pelin luominen tapahtuu omassa ikkunassa syöttämällä neljän merkin pituinen nimimerkki **[Done]**
-    * Nimimerkkiä voi muuttaa ilman, että tarvitsee palata takaisin aloitussivulle ja aloittaa uudestaan **[]**
+    * Nimimerkkiä voi muuttaa ilman, että tarvitsee palata takaisin aloitussivulle ja aloittaa uudestaan **[Done]**
 - Käyttäjä voi jatkaa olemassa olevaa peliä: **[Done]**
     * Sovellus tallentaa kaikki uudet pelit nimimerkin perusteella tietokantaan **[Done]**
     * Pelin jatkaminen tapahtuu omassa ikkunassa, josta löytyy lista tallennetuista nimimerkeistä **[Done]**
@@ -69,5 +69,5 @@ Perusversion jälkeen mahdollisia kehitysideoita. Tuskin kuitenkaan realistista 
 - Parannuksia pelin grafiikkaan **[]** 
     * Pelaajan hahmo ja muut objektit **[]** 
     * Tausta **[]** 
-- Äänet ja musiikki **[]** 
+- Äänet ja musiikki **[Done]** 
 - Useita tasoja **[Done]**

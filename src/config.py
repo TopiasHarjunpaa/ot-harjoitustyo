@@ -30,9 +30,11 @@ BG_PATH = os.path.join(dirname, "assets", "images", BG_FILENAME)
 
 MENU_MUSIC_FILENAME = "menu.ogg"
 MENU_MUSIC = os.path.join(dirname, "assets", "audio", MENU_MUSIC_FILENAME)
-
-LEVEL1_MUSIC_FILENAME = "level1.ogg"
-LEVEL1_MUSIC = os.path.join(dirname, "assets", "audio", LEVEL1_MUSIC_FILENAME)
+PLAYLIST = []
+PLAYLIST.append(MENU_MUSIC)
+for i in range(1,5):
+    MUSIC_PATH = os.path.join(dirname, "assets", "audio", f"level{i}.ogg")
+    PLAYLIST.append(MUSIC_PATH)
 
 BACK = os.path.join(dirname, "assets", "audio", "back.wav")
 DIE = os.path.join(dirname, "assets", "audio", "die.wav")

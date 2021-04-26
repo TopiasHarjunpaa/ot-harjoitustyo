@@ -1,16 +1,15 @@
 import pygame
-from services.game_service import GameService
-from services.level_service import LevelService
 from services.clock_service import ClockService
-from services.render_service import RenderService
 from services.event_queue_service import EventQueueService
 from services.audio_service import AudioService
+from services.information_service import InformationService
+from ui.renderer import Renderer
+from ui.ui import UI
 from config import FPS, TITLE
 
 
 def main():
-    # Needs to be changed thru UI instead...
-    pygame.init()  # pylint: disable=no-member
+    pygame.init()
     display_info = pygame.display.Info()
     display_width = display_info.current_w
     display_heigth = display_info.current_h
@@ -18,14 +17,13 @@ def main():
     pygame.display.set_caption(TITLE)
 
     audio = AudioService()
-    level = LevelService(display_width, display_heigth, 1, audio)
-    renderer = RenderService(display, level)
-    clock = ClockService(FPS)
+    renderer = Renderer(display, display_width, display_heigth)
     event_queue = EventQueueService()
-    game = GameService(level, renderer, event_queue, clock,
-                       display_width, display_heigth, audio)
+    clock = ClockService(FPS)
+    info = InformationService()
+    user_interface = UI(audio, renderer, event_queue, clock, info)
 
-    game.launch()
+    user_interface.start_menu()
 
 
 if __name__ == "__main__":

@@ -6,16 +6,21 @@ from ui.game_over_view import GameOverView
 from ui.finish_view import FinishView
 from ui.new_game_view import NewGameView
 from ui.load_game_view import LoadGameView
-from services.information_service import InformationService
+from services.level_service import LevelService
+from services.game_service import GameService
 
 
 class UI:
-    def __init__(self, game):
-        self.game = game
-        self.renderer = game.renderer
+    def __init__(self, audio, renderer, event_queue, clock, info):
+        self.audio = audio
+        self.renderer = renderer
+        self.event_queue = event_queue
+        self.clock = clock
+        self.info = info
         self.menu_view_is_open = False
-        self.info = InformationService()
-        self.audio = game.audio
+        self.level = LevelService(renderer.width, renderer.height, 1, audio)
+        self.game = GameService(
+            self, self.level, renderer, event_queue, clock, audio)
 
     def start_menu(self):
         self.show_menu_view()
@@ -70,8 +75,8 @@ class UI:
 
     def show_game_over_view(self):
         self.audio.play_music()
-        progress = int(self.game.level.progress)
-        level = self.game.level.level_number
+        progress = int(self.level.progress)
+        level = self.level.level_number
         information = self.info.get_progress_information()
         if progress > information[f"level{level}"]:
             total_progress = (level - 1) * 100 + progress
@@ -82,7 +87,7 @@ class UI:
 
     def show_finish_view(self):
         self.audio.play_music()
-        level = self.game.level.level_number
+        level = self.level.level_number
         information = self.info.get_progress_information()
         if information[f"level{level}"] != 100:
             total_progress = level * 100
@@ -123,7 +128,7 @@ class UI:
         input_key = None
         waiting = True
         while waiting:
-            self.game.clock.tick()
+            self.clock.tick()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.audio.play_back_sound()

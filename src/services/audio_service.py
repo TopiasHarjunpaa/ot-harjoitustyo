@@ -7,13 +7,6 @@ class AudioService:
         self.playlist = PLAYLIST
         self.music = pygame.mixer.music
         self.music.set_volume(0.4)
-        self.back = pygame.mixer.Sound(BACK)
-        self.forward = pygame.mixer.Sound(FORWARD)
-        self.key = pygame.mixer.Sound(KEY)
-        self.key.set_volume(0.5)
-        self.jump = pygame.mixer.Sound(JUMP)
-        self.jump.set_volume(0.5)
-        self.die = pygame.mixer.Sound(DIE)
         self.menu_music_active = False
         self.music_on = True
         self.sound_effects_on = True
@@ -47,20 +40,27 @@ class AudioService:
 
     def play_back_sound(self):
         if self.sound_effects_on:
-            self.back.play()
+            back = pygame.mixer.Sound(BACK)
+            back.play()
 
     def play_forward_sound(self):
         if self.sound_effects_on:
-            self.forward.play()
+            forward = pygame.mixer.Sound(FORWARD)
+            forward.play()
 
     def play_key_sound(self):
         if self.sound_effects_on:
-            self.key.play()
+            key = pygame.mixer.Sound(KEY)
+            key.set_volume(0.5)
+            key.play()
 
     def play_jump_sound(self):
         if self.sound_effects_on:
-            self.jump.play()
+            jump = pygame.mixer.Sound(JUMP)
+            jump.set_volume(0.5)
+            jump.play()
 
     def play_die_sound(self):
         if self.sound_effects_on:
-            self.die.play()
+            die = pygame.mixer.Sound(DIE)
+            die.play()

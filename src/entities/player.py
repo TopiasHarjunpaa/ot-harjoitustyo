@@ -6,11 +6,11 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.level = level
         self.original_img = pygame.Surface(
-            (size, size), pygame.SRCALPHA)  # pylint: disable=no-member
+            (size, size), pygame.SRCALPHA)
         self.visualize(size)
         self.image = self.original_img
         self.rect = self.image.get_rect()
-        self.position = pygame.math.Vector2(  # pylint: disable=c-extension-no-member
+        self.position = pygame.math.Vector2(
             x_coordinate, y_coordinate)
         self.speed = 0
         self.rect.midbottom = (x_coordinate, y_coordinate)
@@ -18,11 +18,12 @@ class Player(pygame.sprite.Sprite):
         self.angle = 0
 
     def jump(self):
-        floor_hit = pygame.sprite.spritecollide(self, self.level.floors, False)
+        floor_hit = pygame.sprite.spritecollide(
+            self, self.level.sprites.floors, False)
         if floor_hit:
             self.speed -= 14
             self.jumping = True
-            if self.level.audio != None:  # For tests at the moment...
+            if self.level.audio is not None:  # For tests at the moment...
                 self.level.audio.play_jump_sound()
 
     def update(self):

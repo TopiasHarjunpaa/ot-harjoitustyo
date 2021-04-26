@@ -27,17 +27,17 @@ class TestLevelService(unittest.TestCase):
         self.assertTrue(self.level.player_is_alive())
 
     def test_player_is_not_alive_when_collide_with_lava(self):
-        self.level.lavas.add(
+        self.level.sprites.lavas.add(
             Floor(self, 0, self.base_height, self.width, self.floor_thickness, "l"))
         self.assertFalse(self.level.player_is_alive())
 
     def test_player_is_not_alive_when_collide_with_obstacle(self):
-        self.level.obstacle.add(
+        self.level.sprites.obstacle.add(
             Obstacle(self, self.width/2, self.base_height, 50, 50))
         self.assertFalse(self.level.player_is_alive())
 
     def test_handle_goal(self):
-        self.level.goals.add(
+        self.level.sprites.goals.add(
             Floor(self, 0, self.base_height, self.width, self.floor_thickness, "g"))
         self.level.handle_goal()
         self.assertTrue(self.level.finished)
@@ -54,10 +54,3 @@ class TestLevelService(unittest.TestCase):
         self.level.finished = True
         self.level.speed = 1
         self.assertFalse(self.level.update())
-
-    def test_init_sprites_creates_every_sprite_types(self):
-        self.level = LevelService(self.width, self.height, 1)
-        self.assertNotEqual(len(self.level.floors), 0)
-        self.assertNotEqual(len(self.level.lavas), 0)
-        self.assertNotEqual(len(self.level.goals), 0)
-        self.assertNotEqual(len(self.level.obstacle), 0)

@@ -7,7 +7,7 @@ class Floor(pygame.sprite.Sprite):
         self.level = level
         self.floor_type = floor_type
         self.image = pygame.Surface(
-            (width, height), pygame.SRCALPHA)  # pylint: disable=no-member
+            (width, height), pygame.SRCALPHA)
         self.visualize(width, height)
         self.rect = self.image.get_rect()
         self.rect.x = x_coordinate

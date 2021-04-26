@@ -6,7 +6,7 @@ class Obstacle(pygame.sprite.Sprite):
         super().__init__()
         self.level = level
         self.image = pygame.Surface(
-            (width, height), pygame.SRCALPHA)  # pylint: disable=no-member
+            (width, height), pygame.SRCALPHA)
         self.visualize(width, height)
         self.rect = self.image.get_rect()
         self.rect.midbottom = (x_coordinate, y_coordinate)

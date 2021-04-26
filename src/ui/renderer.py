@@ -2,24 +2,23 @@ import pygame
 from config import BG_PATH, FONT_PATH
 
 
-class RenderService:
-    def __init__(self, display, level):
+class Renderer:
+    def __init__(self, display, width, height):
         self.display = display
-        self._level = level
         self.bg_color = ()
         self.bg_image = pygame.image.load(BG_PATH)
-        self.width = self._level.width
-        self.height = self._level.height
+        self.width = width
+        self.height = height
         self.big = int(self.height / 10)
         self.extra_small = int(self.height / 30)
 
-    def render_game(self):
+    def render_game(self, level):
         # self.display.blit(self.bg_image, (0, 0))
         self.display.fill((0, 0, 0))
-        self._level.all_sprites.draw(self.display)
-        self.draw_text(f"LEVEL {self._level.level_number}",
+        level.all_sprites.draw(self.display)
+        self.draw_text(f"LEVEL {level.level_number}",
                        self.extra_small, self.width / 2, self.height / 8)
-        self.draw_text(f"PROGRESS: {int(self._level.progress)}%", self.extra_small,
+        self.draw_text(f"PROGRESS: {int(level.progress)}%", self.extra_small,
                        self.width / 2, self.height / 8 + self.extra_small * 1.2)
         # Just testing...
         fill_width = self.width / 10

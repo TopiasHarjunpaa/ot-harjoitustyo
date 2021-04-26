@@ -26,4 +26,5 @@
 | 23.4 | 2   | Musiikin ja äänien luominen sekä niiden lisääminen peliin |
 | 24.4 | 1   | Pieniä parannuksia mm. ohjelman käynnistämiseen |
 | 25.4 | 2   | Nimimerkin muuttaminen ja musiikin lisääminen puuttuviin tasoihin |
-| yht   | 53    | | 
+| 26.4 | 3   | Käyttöliittymän ja sovelluslogiikan eriyttäminen sekä pieniä parannuksia |
+| yht   | 56    | | 

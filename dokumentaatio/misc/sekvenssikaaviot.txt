@@ -1,0 +1,115 @@
+Ohjelman alustaminen
+
+Main->audio: AudioService()
+Main->renderer: Renderer(display, width, height)
+Main->event_queue: EventQueueService()
+Main->clock: ClockService()
+Main->+info: InformationService()
+info->+save_repository: SaveRepository(get_database_connection())
+save_repository-->-info: save_repository
+info-->-Main:
+Main->UI: UI(audio, renderer, event_queue, clock, info)
+Main->UI: start_menu()
+
+Peliluokkien alustaminen
+
+UI->+level: LevelService(width, height, 1 audio)
+level->+sprites: Sprites(level, width, heigth)
+sprites->sprites: init_sprites()
+sprites->*floor: Floor(level)
+sprites->*obstacle: Obstacle(level)
+sprites->*player: Player(level)
+sprites-->-level:
+level->level: update()
+level-->-UI:
+UI->+game: GameService(UI, level, renderer, event_queue, clock, audio)
+game-->-UI:
+
+Menuvalikko:
+
+UI->UI: show_menu_view()
+UI->audio: play_music()
+UI->+info: list_saves()
+info->+save_repository: find_all_saves()
+    note right of save_repository: sql query
+    loop for row in rows:
+    save_repository->*save: Save(row[0], row[1], row[2], row[3])
+    save_repository->save_repository: append(save)
+    end
+save_repository-->-info: save_list
+info-->-UI: records
+UI->+MenuView: show(records)
+MenuView-> Renderer: render_menu(render_params)
+MenuView-->-UI:
+UI->UI: wait_keys()
+alt key = n
+    UI->UI: show_new_game_view()
+else key = l
+    UI->UI: show_load_game_view()
+end
+
+New Game -valikko:
+
+UI->UI: show_new_game_view()
+UI->+NewGameView: show(nickname, continue_text)
+NewGameView-> Renderer: render_menu(render_params)
+NewGameView-->-UI:
+loop while char <= 4
+UI->UI: wait_for_nickname(nickname, char = 1)
+end
+UI->UI: wait_keys()
+loop while key = backspace
+    UI->+NewGameView: show(nickname[:3], continue_text)
+    NewGameView-> Renderer: render_menu(render_params)
+    NewGameView-->-UI:
+    loop while char <= 4
+    UI->UI: wait_for_nickname(nickname, char = 4)
+    end
+end
+UI->+info: create_new_save(nickname)
+info->+save_repository: create(nickname)
+note right of save_repository: sql query
+save_repository->save_repository: find_by_id(save_id)
+save_repository->*save: Save(result[0], result[1], result[2], result[3])
+save_repository-->-info: Save
+info-->-UI:
+UI->UI: show_start_view()
+
+Load Game -valikko:
+
+UI->UI: show_load_game_view()
+UI->+info: list_saves()
+info->+save_repository: find_all_saves()
+    note right of save_repository: sql query
+    loop for row in rows:
+    save_repository->*save: Save(row[0], row[1], row[2], row[3])
+    save_repository->save_repository: append(save)
+    end
+save_repository-->-info: save_list
+info-->-UI: saves
+UI->+LoadGameView: show(saves)
+LoadGameView-> Renderer: render_menu(render_params)
+LoadGameView-->-UI:
+UI->UI: wait_keys()
+UI->+info: open_saves(save_id)
+info->+save_repository: find_by_id(save_id)
+note right of save_repository: sql query
+save_repository->*save: Save(result[0], result[1], result[2], result[3])
+save_repository-->-info: Save
+info-->-UI:
+UI->UI: show_start_view()
+
+Start Game -valikko:
+
+UI->UI: show_load_game_view()
+UI->audio: play_music()
+UI->+info: get_progress_information()
+info->+save: get_information()
+save-->-info: progress
+info-->-UI: information
+UI->+StartView: show(information)
+StartView-> Renderer: render_menu(render_params)
+StartView-->-UI:
+UI->UI: level = wait_keys()
+UI->audio: play_music(level)
+UI->game: start_gameloop(level)

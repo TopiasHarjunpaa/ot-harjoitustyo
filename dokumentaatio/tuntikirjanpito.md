@@ -27,4 +27,5 @@
 | 24.4 | 1   | Pieniä parannuksia mm. ohjelman käynnistämiseen |
 | 25.4 | 2   | Nimimerkin muuttaminen ja musiikin lisääminen puuttuviin tasoihin |
 | 26.4 | 3   | Käyttöliittymän ja sovelluslogiikan eriyttäminen sekä pieniä parannuksia |
-| yht   | 56    | | 
+| 27.4 | 3   | Sekvenssikaavioiden tekeminen ja lisääminen arkkitehtuurikuvaukseen |
+| yht   | 59    | | 

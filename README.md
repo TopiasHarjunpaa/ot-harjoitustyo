@@ -5,10 +5,7 @@ The Possible Game on ohjelmistotekniikan kurssin harjoitustyö. Tarkemmat tiedot
 
 ## Release
 
-Projektista on tehty GitHub release (0.25p)
-Release sisältää ohjelman uusimman version lähdekoodin (GitHub-lisää tämän automaattisesti releasin tehdessä)
-Ohje releasen tekemiseen
-Releaseen on linkki projektin README:stä
+[Viikko 5 -release](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentaatio
 

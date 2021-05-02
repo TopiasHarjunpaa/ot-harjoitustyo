@@ -13,7 +13,7 @@ class Renderer:
         self.extra_small = int(self.height / 30)
 
     def render_game(self, level):
-        # self.display.blit(self.bg_image, (0, 0))
+        #self.display.blit(self.bg_image, (0, 0))
         self.display.fill((0, 0, 0))
         level.all_sprites.draw(self.display)
         self.draw_text(f"LEVEL {level.level_number}",

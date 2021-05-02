@@ -6,7 +6,23 @@ from config import MAP_PATHS
 
 
 class Sprites:
+    """A class to represent sprites object. This object initialises all sprites.
+
+    Attributes:
+        level: Level object
+        width: Width of the display.
+        heigth: Heigth of the display.
+    """
+
     def __init__(self, level, width, height):
+        """Constructs all the necessary attributes for the sprites object and inits all sprites.
+
+        Args:
+            level (Level): Level object
+            width (int): Width of the display.
+            heigth (int): Heigth of the display.
+        """
+
         self.level = level
         self.size = (width, height)
         self.all_sprites = pygame.sprite.Group()
@@ -19,6 +35,15 @@ class Sprites:
         self.init_sprites()
 
     def init_sprites(self):
+        """Initialises all sprites according to display size and filemap.
+
+        Sprite size parameters will be adjusted depending from the display size.
+        Spawn location for all sprites will be obtained from the .csv file.
+        Each level has own .csv file with spawn information.
+
+        Each sprite types will be separated into own groups and also into list of all sprites.
+        """
+
         obstacle_size = self.size[0] / 40
         object_w = self.size[0] / 20
         object_h = self.size[1] / 12

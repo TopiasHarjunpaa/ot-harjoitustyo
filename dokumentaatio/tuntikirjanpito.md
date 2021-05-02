@@ -28,4 +28,5 @@
 | 25.4 | 2   | Nimimerkin muuttaminen ja musiikin lisääminen puuttuviin tasoihin |
 | 26.4 | 3   | Käyttöliittymän ja sovelluslogiikan eriyttäminen sekä pieniä parannuksia |
 | 27.4 | 3   | Sekvenssikaavioiden tekeminen ja lisääminen arkkitehtuurikuvaukseen |
-| yht   | 59    | | 
+| 2.5  | 2   | Docstringien luominen |
+| yht   | 61    | | 

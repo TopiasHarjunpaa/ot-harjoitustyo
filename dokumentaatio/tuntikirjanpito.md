@@ -29,4 +29,5 @@
 | 26.4 | 3   | Käyttöliittymän ja sovelluslogiikan eriyttäminen sekä pieniä parannuksia |
 | 27.4 | 3   | Sekvenssikaavioiden tekeminen ja lisääminen arkkitehtuurikuvaukseen |
 | 2.5  | 2   | Docstringien luominen |
-| yht   | 61    | | 
+| 2.5  | 2   | Testikattavuuden kasvattaminen |
+| yht   | 63    | | 

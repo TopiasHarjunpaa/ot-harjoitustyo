@@ -46,11 +46,11 @@ class AudioService:
                 self.menu_music_active = False
 
     def set_music_off(self):
-        """Flags the music off and fadeouts the current music.
+        """Flags the music off and stops the current music.
         """
 
         self.music_on = False
-        self.music.fadeout(500)
+        self.music.stop()
 
     def set_sound_effects_off(self):
         """Flags the sound effects off.

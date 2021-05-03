@@ -43,7 +43,7 @@ class Player(pygame.sprite.Sprite):
         will start lifting up during each update.
 
         Play the jumping sound unless the audio has not initialised.
-        For example audio has not initialised at the test cases.
+        For example if audio has not initialised at the test cases.
         """
 
         floor_hit = pygame.sprite.spritecollide(
@@ -51,7 +51,7 @@ class Player(pygame.sprite.Sprite):
         if floor_hit:
             self.speed -= 14
             self.jumping = True
-            if self.level.audio is not None:  # For tests at the moment...
+            if self.level.audio is not None:
                 self.level.audio.play_jump_sound()
 
     def update(self):

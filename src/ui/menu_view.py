@@ -1,5 +1,17 @@
 class MenuView:
+    """A class to represent menu view of UI.
+
+    Attributes:
+        renderer: Renderer object.
+    """
+
     def __init__(self, renderer):
+        """Constructs all the necessary attributes for finish view.
+
+        Args:
+            renderer (Renderer): Renderer object which renders the display.
+        """
+
         self.renderer = renderer
         self.width = self.renderer.width
         self.height = self.renderer.height
@@ -9,7 +21,19 @@ class MenuView:
         self.lines = []
 
     def show(self, records):
-        # TODO: Just temp solution. Clean up later...
+        """Prepares all information to show for the renderer object.
+
+        Information is forwarded inside list of lines.
+
+        Note: Currently TOP3 RECORDS lines are using list of save objects.
+        This list is not ideal for this purposes and requires some ugly filtering here.
+        Better solution could be to create another method at information service to
+        recieve own list for TOP3 RECORDS.
+
+        Args:
+            records (list): List of save objects.
+        """
+
         self.lines.append(["TOP3 RECORDS:", self.extra_small,
                           self.width / 2, self.height / 2 - (self.extra_small * 2.4)])
 

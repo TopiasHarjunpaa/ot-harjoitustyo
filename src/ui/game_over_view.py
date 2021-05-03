@@ -1,5 +1,18 @@
 class GameOverView:
+    """A class to represent game over view of UI.
+
+    Attributes:
+        renderer: Renderer object.
+
+    """
+
     def __init__(self, renderer):
+        """Constructs all the necessary attributes for finish view.
+
+        Args:
+            renderer (Renderer): Renderer object which renders the display.
+        """
+
         self.renderer = renderer
         self.width = self.renderer.width
         self.height = self.renderer.height
@@ -8,6 +21,16 @@ class GameOverView:
         self.lines = []
 
     def show(self, information, progress, level):
+        """Prepares all information to show for the renderer object.
+
+        Information is forwarded inside list of lines.
+
+        Args:
+            information (dict): Dictionary type progress information from save object.
+            progress (int): Progress percentage during previous game event before death.
+            level (int): Level number.
+        """
+
         current_record = information[f"level{level}"]
         text1 = f"YOU REACHED {progress}% OF THE LEVEL {level}"
         self.lines.append([text1, self.small, self.width /

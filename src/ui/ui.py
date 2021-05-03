@@ -11,7 +11,20 @@ from services.game_service import GameService
 
 
 class UI:
+    """A class to represent main UI which handles every view.
+    """
+
     def __init__(self, audio, renderer, event_queue, clock, info):
+        """Constructs all the necessary attributes for UI.
+
+        Args:
+            audio (AudioService): Audio service object.
+            renderer (Renderer): Renderer object.
+            event_queue (EventQueueService: Event and queue service object.
+            clock (Clock): Clock object.
+            info (InformationService): Information service object.
+        """
+
         self.audio = audio
         self.renderer = renderer
         self.event_queue = event_queue
@@ -23,11 +36,28 @@ class UI:
             self, self.level, renderer, event_queue, clock, audio)
 
     def start_menu(self):
+        """Starts main menu. Is used to launch the game.
+        """
+
         self.show_menu_view()
 
     def show_menu_view(self):
+        """Shows the menu view.
+
+        Start menu music.
+        Gets the records from database.
+        Shows the menu view.
+        Waits for player key and forwards to the next view:
+        n = new game view
+        l = load game view
+
+        Note: Currently records are using list of save objects.
+        This list is not ideal for this purposes and requires some ugly filtering menu view.
+        Better solution could be to create another method at information service to
+        recieve own list for records.
+        """
+
         self.audio.play_music()
-        # TODO: Re-think if records needs own method for infos.
         records = self.info.list_saves()
         self.menu_view_is_open = True
         MenuView(self.renderer).show(records)
@@ -39,6 +69,15 @@ class UI:
             self.show_load_game_view()
 
     def show_new_game_view(self):
+        """Shows the new game view.
+
+        Sets continue text color to grey and nickname with four asterix.
+        Shows the new game view and wait for player to type all 4 letters.
+        Change continue text color to default (black) and wait for player to continue or edit text.
+        Create new save with nickname after player has chosen to continue.
+        Show start screen.
+        """
+
         nickname = "****"
         continue_text_color = (70, 70, 70)
         NewGameView(self.renderer).show(nickname, continue_text_color)
@@ -55,6 +94,9 @@ class UI:
         self.show_start_view()
 
     def show_load_game_view(self):
+        """Placeholder...
+        """
+
         saves = self.info.list_saves()
         LoadGameView(self.renderer).show(saves)
         key = self.wait_and_check_accepted_keys(

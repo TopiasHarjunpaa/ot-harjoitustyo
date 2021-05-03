@@ -20,7 +20,7 @@ class GameService:
             ui (UI): UI object
             level (Level): Level object.
             renderer (Renderer): Renderer object.
-            event_queue (Event_queue): Event_queue object.
+            event_queue (EventQueueService: Event and queue service object.
             clock (Clock): Clock object.
             audio (Audio): Audio object.
         """

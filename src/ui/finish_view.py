@@ -1,5 +1,18 @@
 class FinishView:
+    """A class to represent finish view of UI.
+
+    Attributes:
+        renderer: Renderer object.
+
+    """
+
     def __init__(self, renderer):
+        """Constructs all the necessary attributes for finish view.
+
+        Args:
+            renderer (Renderer): Renderer object which renders the display.
+        """
+
         self.renderer = renderer
         self.width = self.renderer.width
         self.height = self.renderer.height
@@ -8,6 +21,15 @@ class FinishView:
         self.lines = []
 
     def show(self, information, level):
+        """Prepares all information to show for the renderer object.
+
+        Information is forwarded inside list of lines.
+
+        Args:
+            information (dict): Dictionary type progress information from save object.
+            level (int): Level number.
+        """
+
         current_record = information[f"level{level}"]
         text1 = f"YOUR PREVIOUS RECORD WAS {current_record}%"
         self.lines.append([text1, self.small, self.width /

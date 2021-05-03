@@ -1,5 +1,17 @@
 class StartView:
+    """A class to represent start view of UI.
+
+    Attributes:
+        renderer: Renderer object.
+    """
+
     def __init__(self, renderer):
+        """Constructs all the necessary attributes for finish view.
+
+        Args:
+            renderer (Renderer): Renderer object which renders the display.
+        """
+
         self.renderer = renderer
         self.width = self.renderer.width
         self.height = self.renderer.height
@@ -8,7 +20,19 @@ class StartView:
         self.lines = []
 
     def show(self, information):
-        # TODO: Clean up the logic. Maybe ditch the logic from class Save and remake here from few params.
+        """Prepares all information to show for the renderer object.
+
+        Information is forwarded inside list of lines.
+
+        Start view shows list of levels at the game. Only levels which are
+        unlocked at the current save will be rendered with white color. Unlocked
+        levels will be rendered with grey color. These are determined according
+        to the save object information.
+
+        Args:
+             information (dict): Dictionary type progress information from save object.
+        """
+
         nickname = information["nickname"]
         progress = information["progress"]
         number_of_levels = information["number_of_levels"]

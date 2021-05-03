@@ -1,5 +1,17 @@
 class LoadGameView:
+    """A class to represent load game view of UI.
+
+    Attributes:
+        renderer: Renderer object.
+    """
+
     def __init__(self, renderer):
+        """Constructs all the necessary attributes for finish view.
+
+        Args:
+            renderer (Renderer): Renderer object which renders the display.
+        """
+
         self.renderer = renderer
         self.width = self.renderer.width
         self.height = self.renderer.height
@@ -9,6 +21,14 @@ class LoadGameView:
         self.lines = []
 
     def show(self, saves: list):
+        """Prepares all information to show for the renderer object.
+
+        Information is forwarded inside list of lines.
+
+        Args:
+            saves (list): List of save objects.
+        """
+
         row = 1
         for save in saves:
             text = f"{save.nickname} - {save.progress}% - CREATED: {save.created_at} ( press {row} )"

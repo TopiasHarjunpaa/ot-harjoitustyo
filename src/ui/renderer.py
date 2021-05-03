@@ -3,7 +3,23 @@ from config import BG_PATH, FONT_PATH
 
 
 class Renderer:
+    """A class to represent renderer object which renders the display.
+
+    Attributes:
+        display: Pygame display object.
+        width (int): Width of the display.
+        heigth (int): Heigth of the display.
+    """
+
     def __init__(self, display, width, height):
+        """Constructs all the necessary attributes for the renderer object.
+
+        Args:
+            display (Display): Pygame display object.
+            width (int): Width of the display.
+            height (int): Heigth of the display.
+        """
+
         self.display = display
         self.bg_color = ()
         self.bg_image = pygame.image.load(BG_PATH)
@@ -13,24 +29,46 @@ class Renderer:
         self.extra_small = int(self.height / 30)
 
     def render_game(self, level):
-        #self.display.blit(self.bg_image, (0, 0))
+        """Renders the display during game loop.
+
+        Fills the display with black background
+        TODO: Fills the display with background image.
+
+        Draws all sprites and texts to the screen.
+        Creates black vertical borders to the edges of the screen.
+
+        Args:
+            level (LevelService): Level service object.
+        """
+
         self.display.fill((0, 0, 0))
         level.all_sprites.draw(self.display)
         self.draw_text(f"LEVEL {level.level_number}",
                        self.extra_small, self.width / 2, self.height / 8)
         self.draw_text(f"PROGRESS: {int(level.progress)}%", self.extra_small,
                        self.width / 2, self.height / 8 + self.extra_small * 1.2)
-        # Just testing...
         fill_width = self.width / 10
         rect1 = pygame.Rect(0, 0, fill_width, self.height)
         rect2 = pygame.Rect(self.width - fill_width,
                             0, fill_width, self.height)
         pygame.draw.rect(self.display, (0, 0, 0), rect1)
         pygame.draw.rect(self.display, (0, 0, 0), rect2)
-        # Testing ends...
         pygame.display.flip()
 
     def render_menu(self, title, lines: list):
+        """Renders the display during menu screens.
+
+        Fills the display with background image.
+        Draw game name and title texts with multiple colors.
+
+        Read the information from each line and draw text according
+        to the information.
+
+        Args:
+            title (str): Screen title text.
+            lines (list): Information which is stored into multiple lines.
+        """
+
         self.display.blit(self.bg_image, (0, 0))
         self.draw_text("THE POSSIBLE GAME", self.big,
                        self.width / 2 + 3, self.height / 5 + 3)
@@ -48,6 +86,16 @@ class Renderer:
         pygame.display.flip()
 
     def draw_text(self, text, font_size, x_coordinate, y_coordinate, color=(255, 255, 255)):
+        """Draws the text according to all necessary attributes.
+
+        Args:
+            text (str): Text
+            font_size (int): Font size
+            x_coordinate (int): Spawn location at the x-axis.
+            y_coordinate (int): Spawn location at the y-axis.
+            color (tuple, optional): Text color. Defaults to (255, 255, 255).
+        """
+
         font = pygame.font.Font(FONT_PATH, font_size)
         text_surf = font.render(text, True, color)
         text_rect = text_surf.get_rect()

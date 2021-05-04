@@ -1,5 +1,5 @@
 import pygame
-from config import BG_PATH, FONT_PATH
+from config import BG_PATH, BG_PATH2, FONT_PATH
 
 
 class Renderer:
@@ -23,6 +23,13 @@ class Renderer:
         self.display = display
         self.bg_color = ()
         self.bg_image = pygame.image.load(BG_PATH)
+
+        # Game background testing begins.
+        self.bg_i = pygame.image.load(BG_PATH2)
+        self.bg_i = pygame.transform.scale(self.bg_i, (12 * height, height))
+        self.pic_loc = 0
+        # Game background testing ends.
+
         self.width = width
         self.height = height
         self.big = int(self.height / 10)
@@ -41,7 +48,14 @@ class Renderer:
             level (LevelService): Level service object.
         """
 
-        self.display.fill((0, 0, 0))
+        # Game background testing begins.
+        self.display.blit(self.bg_i, (self.pic_loc, 0))
+        self.pic_loc -= 3
+        #self.display.fill((0, 0, 0))
+        rect3 = pygame.Rect(0, self.height / 12 * 9, self.width, self.height)
+        pygame.draw.rect(self.display, (0, 0, 0), rect3)
+        # Game background testing ends.
+
         level.all_sprites.draw(self.display)
         self.draw_text(f"LEVEL {level.level_number}",
                        self.extra_small, self.width / 2, self.height / 8)

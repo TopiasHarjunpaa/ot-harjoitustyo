@@ -31,4 +31,5 @@
 | 2.5  | 2   | Docstringien luominen |
 | 3.5  | 2   | Testikattavuuden kasvattaminen |
 | 3.5  | 2   | Lisää docstringejä |
-| yht   | 65    | | 
+| 4.5  | 4   | Käyttöohjeen laatiminen, pelitilanteen taustakuvan luonnostelu sekä arkkitehtuurikuvauksen parantaminen |
+| yht   | 69    | | 

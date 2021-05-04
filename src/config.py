@@ -28,6 +28,10 @@ FONT_PATH = os.path.join(dirname, "assets", "fonts", FONT_FILENAME)
 BG_FILENAME = "test_background.png"
 BG_PATH = os.path.join(dirname, "assets", "images", BG_FILENAME)
 
+# Test
+BG_FN2 = "test_bg2.jpg"
+BG_PATH2 = os.path.join(dirname, "assets", "images", BG_FN2)
+
 MENU_MUSIC_FILENAME = "menu.ogg"
 MENU_MUSIC = os.path.join(dirname, "assets", "audio", MENU_MUSIC_FILENAME)
 PLAYLIST = []

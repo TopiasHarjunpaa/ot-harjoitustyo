@@ -2,21 +2,46 @@
 
 ## Rakenne
 
-Pakkaus ja luokkakaavio tarvitsee päivitystä...
+Ohjelman pakkausrakenne koostuu (Korjaa RenderService -nimi ja paranna kuvan laatua):
+
+1. Käyttöliittymä `ui`
+2. Sovelluslogiikka `services`
+3. Tietojen tallennus `repositories`
+4. Tietokohteet ja objektit `entities`
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/arkkitehtuuri-pakkaus-luokat.png" width="1000">
 
 ## UI
 
-Placeholder...
+Käyttöliittymä pitää sisällään seuraavat näkymät:
+
+1. Aloitusvalikko `MenuView`
+2. Asetukset `SetupView` (työn alla)
+3. Uuden pelin aloittamisnäkymä `NewGameView`
+4. Aiemman pelin latausnäkymä `LoadGameView`
+5. Pelin käynnistysnäkymä `StartView`
+6. Game Over näkymä `GameOverView`
+7. Level Completed näkymä `FinishView`
+
+Jokainen näistä on toteutettu omana luokkana. Näkymien näyttämisestä vastaa `UI` -luokka, joka käyttää apunaan näkymien piirtämisestä vastaavaa `Renderer` -luokkaa.
 
 ## Sovelluslogiikka
 
-Placeholder...
+Sovelluslogiista vastaa paketti `Services`, joka pitää sisällään kolme päätehtävää:
+
+1. Pelin ja tason toiminnallisuudet
+2. Tiedon välittämisen
+3. Äänen ja musiikin toistamisen.
+
+Pelin ja tason toiminnallisuuksista vastaavat luokat `GameService` sekä `LevelService`. Nämä huolehtivat pelitilanteen päivittämisestä sekä mahdollisesta pelin loppumisesta kuoleman tai maalin pääsemisen seurauksena.
+
+Tiedon välittämisestä vastaa `InformationService` luokka, joka pääsee tietoihin käsiksi tallennuksesta vastaavan `SaveRepository` -luokan kautta.
+
+Äänen ja musiikin toistamisesta vastaa `AudioService` luokka, joka huolehtii oikean ääniefektin tai musiikin toistamisesta tilanteeseen sopivalla tavalla.
 
 ## Tallennus
 
-Placeholder...
+Tiedon tallentamisesta ja hakemisesta SQLite-tietokannasta huolehtii `SaveRepository` luokka.
 
 ## Päätoiminnallisuudet
 

@@ -68,6 +68,6 @@ Perusversion jälkeen mahdollisia kehitysideoita. Tuskin kuitenkaan realistista 
 - Parannuksia pelin pelattavuuteen **[]** 
 - Parannuksia pelin grafiikkaan **[]** 
     * Pelaajan hahmo ja muut objektit **[]** 
-    * Tausta **[]** 
+    * Tausta **[Edistetty]** *(vaatii vielä parantamista)* 
 - Äänet ja musiikki **[Done]** 
 - Useita tasoja **[Done]**

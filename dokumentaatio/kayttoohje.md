@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa projektin viimeisin [release](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/releases/tag/viikko5)
+Lataa projektin viimeisin [release (viikko 6)](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Konfigurointi
 

@@ -2,11 +2,11 @@
 
 tekstiä...
 
-![](./kuvat/ohjekuva-menu.png)
+<img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-menu.png" width="500">
 
 tekstiä...
 
-![](./kuvat/ohjekuva-new.png)
+<img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-new.png" width="500">
 
 tekstiä...
 

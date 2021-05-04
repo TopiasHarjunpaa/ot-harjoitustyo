@@ -23,7 +23,7 @@ $ poetry run invoke start
 
 ## Pelaaminen
 
-#### Ohjelman käynnistäminen avaa aloitusvalikon:
+### Ohjelman käynnistäminen avaa aloitusvalikon:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-menu.png" width="700">
 
@@ -32,7 +32,7 @@ Aloitusvalikossa näytetään TOP3 -tulokset. Pelaaja voi:
 2. Ladata aiemman pelin painamalla näppäimistöllä kirjainta `L`
 3. Poistua pelistä painamalla `ESC` tai sivun ylälaidassa olevaa raksia.
 
-#### Pelaajan siirtyessä uuden pelin aloittamisnäkymään:
+### Pelaajan siirtyessä uuden pelin aloittamisnäkymään:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-new.png" width="700">
 
@@ -40,7 +40,7 @@ Uuden pelin aloittamisnäkymässä pelaaja pyydetään syöttämään neljä kir
 
 Nimimerkin syöttämisen jälkeen pelaajalla avautuu mahdollisuus jatkaa eteenpäin pelin käynnistysnäkymään painamalla `ENTER`. Paluu takaisin aloitusvalikkoon tapahtuu painamalla `ESC`.
 
-#### Pelaajan siirtyessä lataamaan aiempaa peliä:
+### Pelaajan siirtyessä lataamaan aiempaa peliä:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-load.png" width="700">
 
@@ -48,7 +48,7 @@ Aiemman pelin lataamisnäkymässä näytetään korkeintaan 8 tallennettua peli�
 
 Tallennetun pelin voi valita painamalla näppäintä `1 - 8` riippuen siitä, millä rivillä valittu peli sijaitsee listalla. Paluu takaisin aloitusvalikkoon tapahtuu painamalla `ESC`.
 
-#### Pelin valitsemisen jälkeen siirrytään pelin käynnistysnäkymään:
+### Pelin valitsemisen jälkeen siirrytään pelin käynnistysnäkymään:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-start.png" width="700">
 
@@ -56,17 +56,17 @@ Käynnistysnäkymässä näytetään pelin tunnisteena käytetty nimimerkki sek�
 
 Aluksi pelaaja voi valita vain ensimmäisen tason muiden tasojen ollessa lukittuna. Kunkin tason läpäiseminen avaa oikeuden pelata seuraavaa tasoa. Tason käynnistäminen tapahtuu painamalla näppäintä `1 - tasojen lukumäärä`. Paluu takaisin aloitusvalikkoon tapahtuu painamalla `ESC`.
 
-#### Tason käynnistäminen avaa pelinäkymän:
+### Tason käynnistäminen avaa pelinäkymän:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-game.png" width="700">
 
 Pelissä ruudun keskellä on purppuran värinen neliö, joka kuvaa pelaajan hahmoa. Pelaajan hahmo liikkuu automaattisesti kohti maalia ja pelaajan tehtävänä on hyppiä näppäimellä `SPACE` kohti maalia väistellen sinisiä hahmoja sekä välttäen koskemasta *laavaan*. Peli päättyy mikäli pelaaja koskettaa sinisiä hahmoja tai laavaa.
 
-Näytön yläreunassa kerrotaan tason numero sekä pelin edetessä kasvavat prosentit, jotka kuvaavat kyseisen tason edistymistä `0% = alkupiste ja 100% = maali`.
+Näytön yläreunassa kerrotaan tason numero sekä pelin edetessä kasvavat prosentit, jotka kuvaavat kyseisen tason edistymistä.
 
 Pelin voi keskeyttää painamalla `ESC` joka palauttaa pelaajan takaisin pelin käynnistysnäkymään.
 
-#### Pelaajan kuolema avaa Game Over näkymän:
+### Pelaajan kuolema avaa Game Over näkymän:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-game-over.png" width="700">
 
@@ -74,7 +74,7 @@ Game Over näkymässä pelaajalle kerrotaan kyseisen tason edistyminen prosentte
 
 Pelaaja voi jatkaa pelaamista painamalla `ENTER`, jolloin näytetään pelin käynnistysnäkymä. Paluu takaisin aloitusvalikkoon tapahtuu painamalla `ESC`.
 
-#### Tason läpäiseminen avaa Level Completed näkymän:
+### Tason läpäiseminen avaa Level Completed näkymän:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-level-finish.png" width="700">
 

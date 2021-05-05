@@ -32,4 +32,5 @@
 | 3.5  | 2   | Testikattavuuden kasvattaminen |
 | 3.5  | 2   | Lisää docstringejä |
 | 4.5  | 4   | Käyttöohjeen laatiminen, pelitilanteen taustakuvan luonnostelu sekä arkkitehtuurikuvauksen parantaminen |
-| yht   | 69    | | 
+| 5.5  | 3   | Pelitasojen erilaistaminen sekä taustakuvan ja objektien parantaminen |
+| yht   | 72    | | 

@@ -14,6 +14,8 @@ class Renderer:
     def __init__(self, display, width, height):
         """Constructs all the necessary attributes for the renderer object.
 
+        Background images will be scaled according to screen size.
+
         Args:
             display (Display): Pygame display object.
             width (int): Width of the display.
@@ -21,25 +23,23 @@ class Renderer:
         """
 
         self.display = display
-        self.bg_color = ()
-        self.bg_image = pygame.image.load(BG_PATH)
-
-        # Game background testing begins.
-        self.bg_i = pygame.image.load(BG_PATH2)
-        self.bg_i = pygame.transform.scale(self.bg_i, (12 * height, height))
-        self.pic_loc = 0
-        # Game background testing ends.
-
         self.width = width
         self.height = height
         self.big = int(self.height / 10)
         self.extra_small = int(self.height / 30)
+        self.bg_image = pygame.image.load(BG_PATH)
+        self.bg_image = pygame.transform.scale(
+            self.bg_image, (self.width, self.height))
+        self.bg_image2 = pygame.image.load(BG_PATH2)
+        self.bg_image2 = pygame.transform.scale(
+            self.bg_image2, (9 * self.height, int(self.height * 0.8)))
+        self.image2_x_coordinate = 0
 
     def render_game(self, level):
         """Renders the display during game loop.
 
-        Fills the display with black background
-        TODO: Fills the display with background image.
+        Fills the display with slowly moving extrawide background image
+        with some marginals to the edge.
 
         Draws all sprites and texts to the screen.
         Creates black vertical borders to the edges of the screen.
@@ -48,20 +48,20 @@ class Renderer:
             level (LevelService): Level service object.
         """
 
-        # Game background testing begins.
-        self.display.blit(self.bg_i, (self.pic_loc, 0))
-        self.pic_loc -= 3
-        #self.display.fill((0, 0, 0))
-        rect3 = pygame.Rect(0, self.height / 12 * 9, self.width, self.height)
-        pygame.draw.rect(self.display, (0, 0, 0), rect3)
-        # Game background testing ends.
-
+        self.display.fill((0, 0, 0))
+        self.display.blit(
+            self.bg_image2, (self.image2_x_coordinate, self.height / 14))
+        self.image2_x_coordinate -= 2
         level.all_sprites.draw(self.display)
         self.draw_text(f"LEVEL {level.level_number}",
-                       self.extra_small, self.width / 2, self.height / 8)
+                       self.extra_small, self.width / 2 + 3, self.height / 8 + 3, (0, 0, 0))
         self.draw_text(f"PROGRESS: {int(level.progress)}%", self.extra_small,
-                       self.width / 2, self.height / 8 + self.extra_small * 1.2)
-        fill_width = self.width / 10
+                       self.width / 2 + 3, self.height / 8 + self.extra_small * 1.2 + 3, (0, 0, 0))
+        self.draw_text(f"LEVEL {level.level_number}",
+                       self.extra_small, self.width / 2, self.height / 8, (255, 0, 255))
+        self.draw_text(f"PROGRESS: {int(level.progress)}%", self.extra_small,
+                       self.width / 2, self.height / 8 + self.extra_small * 1.2, (255, 0, 255))
+        fill_width = self.width / 12
         rect1 = pygame.Rect(0, 0, fill_width, self.height)
         rect2 = pygame.Rect(self.width - fill_width,
                             0, fill_width, self.height)
@@ -115,3 +115,6 @@ class Renderer:
         text_rect = text_surf.get_rect()
         text_rect.center = (x_coordinate, y_coordinate)
         self.display.blit(text_surf, text_rect)
+
+    def reset_game_background_position(self):
+        self.image2_x_coordinate = 0

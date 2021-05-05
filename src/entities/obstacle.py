@@ -43,15 +43,16 @@ class Obstacle(pygame.sprite.Sprite):
     def visualize(self, width, height):
         """Creates visualization for the obstacle object.
 
-        Obstacle object has blue color with white borders.
+        Obstacle object has blue color with black borders.
 
         Args:
             width (int): Width of the obstacle object.
             height (int): Heigth of the obstacle object.
         """
 
-        white = (255, 255, 255)
+        black = (0, 0, 0)
         blue = (0, 0, 255)
-        pygame.draw.rect(self.image, (white), (0, 0, width, height))
+        pygame.draw.rect(self.image, (black), (0, 0, width, height))
         pygame.draw.rect(self.image, (blue),
-                         (2, 2, width - 4, height - 4))
+                         (3, 3, width - 6, height - 6))
+

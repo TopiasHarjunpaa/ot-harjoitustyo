@@ -112,6 +112,7 @@ class UI:
             information["number_of_levels"], information["levels_completed"] + 1)
         level = self.wait_and_check_accepted_keys(
             range(49, available_levels + 49)) - 48
+        self.renderer.reset_game_background_position()
         self.audio.play_music(level)
         self.game.start_gameloop(level)
 

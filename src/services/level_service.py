@@ -24,7 +24,7 @@ class LevelService:
 
         self.audio = audio
         self.level_number = level_number
-        self.speed = 10
+        self.speed = 9 + level_number
         self.sprites = Sprites(self, width, height)
         self.all_sprites = self.sprites.all_sprites
         self.player = self.sprites.player

@@ -81,14 +81,14 @@ class Player(pygame.sprite.Sprite):
     def visualize(self, size):
         """Creates visualization for the player object.
 
-        Player object has purple color with white borders.
+        Player object has purple color with black borders.
 
         Args:
             size (int): side length of the rectangular player object.
         """
 
-        white = (255, 255, 255)
+        black = (0, 0, 0)
         purple = (255, 0, 255)
-        pygame.draw.rect(self.original_img, (white), (0, 0, size, size))
+        pygame.draw.rect(self.original_img, (black), (0, 0, size, size))
         pygame.draw.rect(self.original_img, (purple),
-                         (2, 2, size - 4, size - 4))
+                         (3, 3, size - 6, size - 6))

@@ -33,4 +33,5 @@
 | 3.5  | 2   | Lisää docstringejä |
 | 4.5  | 4   | Käyttöohjeen laatiminen, pelitilanteen taustakuvan luonnostelu sekä arkkitehtuurikuvauksen parantaminen |
 | 5.5  | 3   | Pelitasojen erilaistaminen sekä taustakuvan ja objektien parantaminen |
-| yht   | 72    | | 
+| 6.5  | 3   | Asetusvalikon lisääminen sekä ui docstringit |
+| yht   | 75    | | 

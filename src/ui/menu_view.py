@@ -57,6 +57,8 @@ class MenuView:
                           self.width / 2, self.height / 2 + (self.small * 2.4)])
         self.lines.append(["LOAD GAME ( press L )", self.small, self.width /
                           2, self.height / 2 + (self.small * 3.6)])
+        self.lines.append(["GAME SETUP ( press S )", self.small, self.width /
+                          2, self.height / 2 + (self.small * 4.8)])
         self.lines.append(["EXIT ( press ESC )", self.small,
-                          self.width / 2, self.height / 2 + (self.small * 4.8)])
+                          self.width / 2, self.height / 2 + (self.small * 6)])
         self.renderer.render_menu("MAIN MENU", self.lines)

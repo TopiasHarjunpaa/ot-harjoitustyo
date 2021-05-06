@@ -6,6 +6,7 @@ from ui.game_over_view import GameOverView
 from ui.finish_view import FinishView
 from ui.new_game_view import NewGameView
 from ui.load_game_view import LoadGameView
+from ui.setup_view import SetupView
 from services.level_service import LevelService
 from services.game_service import GameService
 
@@ -47,9 +48,10 @@ class UI:
         Start menu music.
         Gets the records from database.
         Shows the menu view.
-        Waits for player key and forwards to the next view:
+        Waits for key and forwards to the next view:
         n = new game view
         l = load game view
+        s = game setup view
 
         Note: Currently records are using list of save objects.
         This list is not ideal for this purposes and requires some ugly filtering menu view.
@@ -61,12 +63,42 @@ class UI:
         records = self.info.list_saves()
         self.menu_view_is_open = True
         MenuView(self.renderer).show(records)
-        key = self.wait_and_check_accepted_keys([pygame.K_n, pygame.K_l])
+        key = self.wait_and_check_accepted_keys(
+            [pygame.K_n, pygame.K_l, pygame.K_s])
         self.menu_view_is_open = False
         if key == pygame.K_n:
             self.show_new_game_view()
         if key == pygame.K_l:
             self.show_load_game_view()
+        if key == pygame.K_s:
+            self.show_setup_view()
+
+    def show_setup_view(self):
+        """Shows the game setup view.
+
+        Check music and sound fx status from audio service (on / off)
+        Show the setup view with two setting types:
+        1. music on / music off
+        2. sound fx on / sound fx on
+        
+        Wait for key (1 = music and 2 = sound fx) and make the changes.
+        Loop ends when esc or quit event happens while waiting for a key.
+        """
+
+        while True:
+            audio_info = self.audio.get_audio_information()
+            SetupView(self.renderer).show(audio_info)
+            key = self.wait_and_check_accepted_keys([49, 50]) - 48
+            if key == 1:
+                if audio_info[0]:
+                    self.audio.set_music_off()
+                else:
+                    self.audio.set_music_on()
+            if key == 2:
+                if audio_info[1]:
+                    self.audio.set_sound_effects_off()
+                else:
+                    self.audio.set_sound_effects_on()
 
     def show_new_game_view(self):
         """Shows the new game view.
@@ -94,7 +126,11 @@ class UI:
         self.show_start_view()
 
     def show_load_game_view(self):
-        """Placeholder...
+        """Shows the load game view
+
+        Get list of saves (min. 0 saves and max. 8 saves ) from information service.
+        Wait for key and open the save according to key number.
+        Show the start view.
         """
 
         saves = self.info.list_saves()
@@ -105,6 +141,20 @@ class UI:
         self.show_start_view()
 
     def show_start_view(self):
+        """Shows the start game view
+
+        Start menu music (if player returns from the game, otherwise nothing happens)
+        Get progress information from the current save and show the start game view.
+        Wait for key (available keys depends from the save progress):
+        1. At least one level available
+        2. 2nd key is available if 1st level is completed
+        3. 3rd key is available if 2nd level is completed etc...
+
+        Game has moving background. Reset its position back to beginning.
+        Start playing music according to the level and key choice.
+        Start game loop according to the level and key choice. 
+        """
+
         self.audio.play_music()
         information = self.info.get_progress_information()
         StartView(self.renderer).show(information)
@@ -117,6 +167,17 @@ class UI:
         self.game.start_gameloop(level)
 
     def show_game_over_view(self):
+        """Shows the game over view
+
+        Start playing menu music.
+        Get the progress from previous game event.
+        Compare the progress with earlier record and update if previous was higher.
+        Show the game over screen-
+        Waits for key and forwards to the next view:
+        enter = start game view (ie. try again).
+        esc = back to main menu.
+        """
+
         self.audio.play_music()
         progress = int(self.level.progress)
         level = self.level.level_number
@@ -129,6 +190,17 @@ class UI:
         self.show_start_view()
 
     def show_finish_view(self):
+        """Shows the finish view
+
+        Start playing menu music.
+        Get the progress from previous game event.
+        Check if current level was already completed. Update if it was not.
+        Show the finish screen.
+        Waits for key and forwards to the next view:
+        enter = start game view (ie. continue playing).
+        esc = back to main menu.
+        """
+
         self.audio.play_music()
         level = self.level.level_number
         information = self.info.get_progress_information()
@@ -140,10 +212,31 @@ class UI:
         self.show_start_view()
 
     def quit(self):
+        """Quits the game.
+        """
+        
         pygame.quit()
         sys.exit()
 
     def wait_for_nickname(self, nickname, char_number):
+        """Waits for key presses and updates nickname.
+
+        This is used to form 4 letter nickname. Only
+        alphabets are accepted (not numbers or special letters)
+
+        Start collecting the alphabets and fill remaining
+        letters with asterix. Update the screen after every accepted key press.
+        Continue text will be rendered as grey until four letters has been typed.
+        Backspace replaces last letter with asterix and takes one step back in wait loop.
+
+        Args:
+            nickname (str): String of letters
+            char_number (int): Number of letter in nickname.
+
+        Returns:
+            str: Returns nickname with big letters.
+        """
+        
         accepted_keys = list(range(97, 123))
         accepted_keys.append(pygame.K_BACKSPACE)
         while char_number <= 4:
@@ -168,6 +261,25 @@ class UI:
         return nickname
 
     def wait_and_check_accepted_keys(self, keys: list, event_type=pygame.KEYUP):
+        """Waits and checks accepted keys.
+
+        Check escape and quit keys:
+        1. QUIT = game ends
+        2. ESC = returns to menu and game ends if menu view is open
+
+        Waits for accepted keys. When proper key is found:
+        1. Play key press sound
+        2. Save the key
+        3. Stop wait loop
+
+        Args:
+            keys (list): List of accepted keys
+            event_type ((pygame.event), optional): Defaults to pygame.KEYUP.
+
+        Returns:
+            int: Returns ascii number of pressed key.
+        """
+        
         input_key = None
         waiting = True
         while waiting:

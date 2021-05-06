@@ -48,7 +48,7 @@ class AudioService:
     def set_music_off(self):
         """Flags the music off and stops the current music.
         """
-
+        self.menu_music_active = False
         self.music_on = False
         self.music.stop()
 
@@ -70,6 +70,9 @@ class AudioService:
         """
 
         self.sound_effects_on = True
+
+    def get_audio_information(self):
+        return (self.music_on, self.sound_effects_on)
 
     def play_back_sound(self):
         """Play the sound effect "back" if sound effects are flagged on.

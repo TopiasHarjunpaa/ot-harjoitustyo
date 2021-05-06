@@ -55,4 +55,3 @@ class Obstacle(pygame.sprite.Sprite):
         pygame.draw.rect(self.image, (black), (0, 0, width, height))
         pygame.draw.rect(self.image, (blue),
                          (3, 3, width - 6, height - 6))
-

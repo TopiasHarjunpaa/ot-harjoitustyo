@@ -18,7 +18,7 @@ Kun kaikki toiminnallisuudet yllä ovat valmiita:
 4. Päivitä arkkitehtuurikuvaus (puuttuvia osioita)
 5. Luo testausdokumentti.
 6. Tsekkaa tuntikirjanpito ja tarkista tuntien summat.
-7. Tarkasta tarvitseeko README lisätä jotain.
+7. Tarkasta README ja lisää ainakin creditit (musa, fontti yms.).
 8. Lue vielä kertaalleen arvosteluperusteet.
 9. Luo uusi release ja lisää linkki sekä README ja käyttöohje.
 10. Poista nämä ja tee viimeinen push.

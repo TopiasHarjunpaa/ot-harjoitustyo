@@ -24,6 +24,10 @@ class LoadGameView:
         """Prepares all information to show for the renderer object.
 
         Information is forwarded inside list of lines.
+        Following information will be rendered:
+        1. Game and view name
+        2. List of available saves and their keys (8 rows, empty rows are greyed)
+        4. Back to main menu key
 
         Args:
             saves (list): List of save objects.

@@ -72,6 +72,12 @@ class AudioService:
         self.sound_effects_on = True
 
     def get_audio_information(self):
+        """Get information if audio and sound fx are on or off.
+
+        Returns:
+            (tuple): Return tuple with two booleans.
+        """
+
         return (self.music_on, self.sound_effects_on)
 
     def play_back_sound(self):

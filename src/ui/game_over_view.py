@@ -24,6 +24,11 @@ class GameOverView:
         """Prepares all information to show for the renderer object.
 
         Information is forwarded inside list of lines.
+        Following information will be rendered:
+        1. Game and view name
+        2. Previus and current records of the level
+        3. Try again key
+        4. Back to main menu key
 
         Args:
             information (dict): Dictionary type progress information from save object.

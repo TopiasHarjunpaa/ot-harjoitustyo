@@ -67,16 +67,19 @@ class SaveRepository:
             return Save(result[0], result[1], result[2], result[3])
         return None
 
-    def find_all_saves(self):
-        """Finds 8 saves from the database sorted by highest progress.
+    def find_and_sort_saves(self, number_of_saves=1000):
+        """Finds certain number of saves from the database sorted by highest progress.
+
+        Args:
+            number_of_saves (int, optional): Number of needed saves. Defaults to 1000.
 
         Returns:
             save_list (list): Returns list of save objects.
         """
 
         cursor = self._conn.cursor()
-        sql = "SELECT * FROM saves ORDER BY progress DESC LIMIT 8"
-        cursor.execute(sql)
+        sql = "SELECT * FROM saves ORDER BY progress DESC LIMIT ?"
+        cursor.execute(sql, (number_of_saves,))
         rows = cursor.fetchall()
         save_list = []
         for row in rows:

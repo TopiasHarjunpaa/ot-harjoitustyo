@@ -7,7 +7,7 @@ class LevelService:
 
     Attributes:
         width: Width of the display.
-        heigth: Heigth of the display.
+        height: Heigth of the display.
         level_number: Number of the level in game.
         audio: Audio service object.
     """
@@ -17,7 +17,7 @@ class LevelService:
 
         Args:
             width (int): Width of the display.
-            heigth (int): Heigth of the display.
+            height (int): Heigth of the display.
             level_number (int): Number of the level in game.
             audio (AudioService, optional): Audio service object. Defaults to None.
         """

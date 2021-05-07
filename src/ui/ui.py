@@ -46,21 +46,16 @@ class UI:
         """Shows the menu view.
 
         Start menu music.
-        Gets the records from database.
+        Get top 3 records from the database.
         Shows the menu view.
         Waits for key and forwards to the next view:
         n = new game view
         l = load game view
         s = game setup view
-
-        Note: Currently records are using list of save objects.
-        This list is not ideal for this purposes and requires some ugly filtering menu view.
-        Better solution could be to create another method at information service to
-        recieve own list for records.
         """
 
         self.audio.play_music()
-        records = self.info.list_saves()
+        records = self.info.get_top_records(3)
         self.menu_view_is_open = True
         MenuView(self.renderer).show(records)
         key = self.wait_and_check_accepted_keys(
@@ -80,7 +75,7 @@ class UI:
         Show the setup view with two setting types:
         1. music on / music off
         2. sound fx on / sound fx on
-        
+
         Wait for key (1 = music and 2 = sound fx) and make the changes.
         Loop ends when esc or quit event happens while waiting for a key.
         """
@@ -133,7 +128,7 @@ class UI:
         Show the start view.
         """
 
-        saves = self.info.list_saves()
+        saves = self.info.list_saves(8)
         LoadGameView(self.renderer).show(saves)
         key = self.wait_and_check_accepted_keys(
             range(49, len(saves) + 49)) - 49
@@ -214,7 +209,7 @@ class UI:
     def quit(self):
         """Quits the game.
         """
-        
+
         pygame.quit()
         sys.exit()
 
@@ -236,7 +231,7 @@ class UI:
         Returns:
             str: Returns nickname with big letters.
         """
-        
+
         accepted_keys = list(range(97, 123))
         accepted_keys.append(pygame.K_BACKSPACE)
         while char_number <= 4:
@@ -279,7 +274,7 @@ class UI:
         Returns:
             int: Returns ascii number of pressed key.
         """
-        
+
         input_key = None
         waiting = True
         while waiting:

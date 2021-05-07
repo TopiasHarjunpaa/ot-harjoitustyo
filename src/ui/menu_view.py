@@ -24,11 +24,12 @@ class MenuView:
         """Prepares all information to show for the renderer object.
 
         Information is forwarded inside list of lines.
-
-        Note: Currently TOP3 RECORDS lines are using list of save objects.
-        This list is not ideal for this purposes and requires some ugly filtering here.
-        Better solution could be to create another method at information service to
-        recieve own list for TOP3 RECORDS.
+        Following information will be rendered:
+        1. Game and view name
+        2. TOP3 records (text colors: gold, silver, bronze)
+        3. New game view key
+        4. Load game view key
+        5. Exit key
 
         Args:
             records (list): List of save objects.
@@ -37,20 +38,11 @@ class MenuView:
         self.lines.append(["TOP3 RECORDS:", self.extra_small,
                           self.width / 2, self.height / 2 - (self.extra_small * 2.4)])
 
-        rank1 = "EMPTY"
-        rank2 = "EMPTY"
-        rank3 = "EMPTY"
-        if len(records) >= 1:
-            rank1 = f"{records[0].nickname} - SCORE: {records[0].progress}%"
-        if len(records) >= 2:
-            rank2 = f"{records[1].nickname} - SCORE: {records[1].progress}%"
-        if len(records) >= 3:
-            rank3 = f"{records[2].nickname} - SCORE: {records[2].progress}%"
-        self.lines.append([rank1, self.extra_small, self.width / 2,
+        self.lines.append([records[0], self.extra_small, self.width / 2,
                           self.height / 2 - (self.extra_small * 1.2), (255, 215, 0)])
-        self.lines.append(
-            [rank2, self.extra_small, self.width / 2, self.height / 2, (192, 192, 192)])
-        self.lines.append([rank3, self.extra_small, self.width / 2,
+        self.lines.append([records[1], self.extra_small,
+                          self.width / 2, self.height / 2, (192, 192, 192)])
+        self.lines.append([records[2], self.extra_small, self.width / 2,
                           self.height / 2 + (self.extra_small * 1.2), (205, 127, 50)])
 
         self.lines.append(["NEW GAME ( press N )", self.small,

@@ -34,4 +34,5 @@
 | 4.5  | 4   | Käyttöohjeen laatiminen, pelitilanteen taustakuvan luonnostelu sekä arkkitehtuurikuvauksen parantaminen |
 | 5.5  | 3   | Pelitasojen erilaistaminen sekä taustakuvan ja objektien parantaminen |
 | 6.5  | 3   | Asetusvalikon lisääminen sekä ui docstringit |
-| yht   | 75    | | 
+| 7.5  | 2   | Pieniä parannuksia ja testikattavuuden lisääminen |
+| yht   | 77    | | 

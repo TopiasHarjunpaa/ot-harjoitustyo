@@ -67,3 +67,26 @@ class TestAudioService(unittest.TestCase):
         self.assertTrue(pygame.mixer.get_busy())
         self.audio.play_key_sound()
         self.assertTrue(pygame.mixer.get_busy())
+
+    def test_get_audio_information_when_both_on(self):
+        audio_info = self.audio.get_audio_information()
+        self.assertTrue(audio_info[0])
+        self.assertTrue(audio_info[1])
+
+    def test_get_audio_information_when_both_off(self):
+        self.audio.set_music_off()
+        self.audio.set_sound_effects_off()
+        audio_info = self.audio.get_audio_information()
+        self.assertFalse(audio_info[0])
+        self.assertFalse(audio_info[1])
+
+    def test_get_audio_information_when_one_off_and_one_on(self):
+        self.audio.set_sound_effects_off()
+        audio_info = self.audio.get_audio_information()
+        self.assertTrue(audio_info[0])
+        self.assertFalse(audio_info[1])
+        self.audio.set_sound_effects_on()
+        self.audio.set_music_off()
+        audio_info = self.audio.get_audio_information()
+        self.assertFalse(audio_info[0])
+        self.assertTrue(audio_info[1])

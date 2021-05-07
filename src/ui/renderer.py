@@ -8,7 +8,7 @@ class Renderer:
     Attributes:
         display: Pygame display object.
         width (int): Width of the display.
-        heigth (int): Heigth of the display.
+        height (int): Heigth of the display.
     """
 
     def __init__(self, display, width, height):

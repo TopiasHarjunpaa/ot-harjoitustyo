@@ -56,3 +56,30 @@ class TestInformationService(unittest.TestCase):
         self.assertEqual(save_list[1].nickname, "AAAA")
         self.assertEqual(save_list[2].nickname, "BBBB")
         self.assertEqual(len(save_list), 3)
+
+    def test_get_top_records_when_no_saves(self):
+        records = self.info.get_top_records(5)
+        for record in records:
+            self.assertEqual(record, "EMPTY")
+        self.assertEqual(len(records), 5)
+
+    def test_get_top_records_when_full_with_saves(self):
+        self.info.create_new_save("TEST")
+        id_number = self.info.get_save().save_id
+        self.info.update_save(250, id_number)
+        self.info.create_new_save("AAAA")
+        self.info.create_new_save("BBBB")
+        records = self.info.get_top_records(3)
+        self.assertEqual(records[0], "TEST - SCORE: 250%")
+        self.assertEqual(records[1], "AAAA - SCORE: 0%")
+        self.assertEqual(records[2], "BBBB - SCORE: 0%")
+        self.assertEqual(len(records), 3)
+
+    def test_get_top_records_when_empties_and_saves(self):
+        self.info.create_new_save("TEST")
+        self.info.create_new_save("AAAA")
+        records = self.info.get_top_records(3)
+        self.assertEqual(records[0], "TEST - SCORE: 0%")
+        self.assertEqual(records[1], "AAAA - SCORE: 0%")
+        self.assertEqual(records[2], "EMPTY")
+        self.assertEqual(len(records), 3)

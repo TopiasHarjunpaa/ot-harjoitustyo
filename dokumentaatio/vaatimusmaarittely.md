@@ -2,13 +2,14 @@
 
 TODO:t ennen lopullista palautusta:
 
-1. Tee TOP3 records paremmin.
-2. Siisti hieman progress informaatiota.
-3. Tee puuttuvat testi.
+1. Tee TOP3 records paremmin. [Done]
+2. Siisti hieman progress informaatiota. [Done]
+3. Tee puuttuvat testi. [Done]
 4. Tee puuttuvat docstringit.
 5. Lisää ympäristömuuttujat
 6. Päivitä taustakuvat ja lisää jokaiselle maalle oma tausta.
-7. Tarkasta koodi (tyylitarkistus, testit sekä visuaalinen tsekki)
+7. Piilota tarpeettomat muuttujat ja funktiot muilta luokilta.
+8. Tarkasta koodi (tyylitarkistus, testit sekä visuaalinen tsekki)
 
 Kun kaikki toiminnallisuudet yllä ovat valmiita:
 

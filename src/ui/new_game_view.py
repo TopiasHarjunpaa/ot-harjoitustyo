@@ -27,6 +27,11 @@ class NewGameView:
         letters for nickname.
 
         Information is forwarded inside list of lines.
+        Following information will be rendered:
+        1. Game and view name
+        2. Nickname status
+        3. Continue key
+        4. Back to main menu key
 
         Args:
             nickname (str): Nickname of the save

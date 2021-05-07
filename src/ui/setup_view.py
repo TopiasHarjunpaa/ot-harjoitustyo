@@ -23,10 +23,15 @@ class SetupView:
     def show(self, audio_info):
         """Prepares all information to show for the renderer object.
 
-        Information is forwarded inside list of lines.
-
         Check music and sound fx status from audio_info (on / off).
         Update status text and color (on = white text and off = grey text)
+
+        Information is forwarded inside list of lines.
+        Following information will be rendered:
+        1. Game and view name
+        2. Music and fx status keys
+        4. Back to main menu key
+
         """
 
         if audio_info[0]:

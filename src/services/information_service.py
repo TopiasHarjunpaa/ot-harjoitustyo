@@ -72,12 +72,40 @@ class InformationService:
         Returns:
             progress (dict): A dictionary of all information from the save object.
         """
+
         return self._save.get_information()
 
-    def list_saves(self):
-        """Finds 8 saves from the database sorted by highest progress.
+    def list_saves(self, number_of_saves=1000):
+        """Finds certain number of saves from the database sorted by highest progress.
+
+        Args:
+            number_of_saves (int, optional): Number of needed saves. Defaults to 1000.
 
         Returns:
             save_list (list): Returns list of save objects.
         """
-        return self._save_repository.find_all_saves()
+
+        return self._save_repository.find_and_sort_saves(number_of_saves)
+
+    def get_top_records(self, number_of_records):
+        """Get top records from the database.
+
+        Fill remaining slots with text EMPTY if there are no enough saves in the database.
+
+        Args:
+            number_of_records (int): Number of needed records
+
+        Returns:
+            list: Returns list of records with nickname and score.
+        """
+
+        saves = self.list_saves(number_of_records)
+        records = []
+        for save in saves:
+            record_info = f"{save.nickname} - SCORE: {save.progress}%"
+            records.append(record_info)
+        empty_slots = number_of_records - len(records)
+        while empty_slots > 0:
+            records.append("EMPTY")
+            empty_slots -= 1
+        return records

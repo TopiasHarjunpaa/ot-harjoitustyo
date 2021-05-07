@@ -29,6 +29,13 @@ class StartView:
         levels will be rendered with grey color. These are determined according
         to the save object information.
 
+        Information is forwarded inside list of lines.
+        Following information will be rendered:
+        1. Game and view name
+        2. Nickname and progress of the save
+        3. List of available levels and best progress for each (unavailable levels are greyed)
+        4. Back to main menu key
+
         Args:
              information (dict): Dictionary type progress information from save object.
         """

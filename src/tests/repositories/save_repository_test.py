@@ -13,7 +13,7 @@ class TestSaveRepository(unittest.TestCase):
     def test_create_save(self):
         for i in range(len(self.nicknames)):
             save_repository.create(self.nicknames[i])
-        saves = save_repository.find_all_saves()
+        saves = save_repository.find_and_sort_saves()
 
         self.assertEqual(len(saves), 3)
         self.assertEqual(saves[0].nickname, self.nicknames[0])
@@ -23,10 +23,10 @@ class TestSaveRepository(unittest.TestCase):
     def test_update_save(self):
         for i in range(len(self.nicknames)):
             save_repository.create(self.nicknames[i])
-        saves = save_repository.find_all_saves()
+        saves = save_repository.find_and_sort_saves()
         for i, save in enumerate(saves):
             save_repository.update(self.updates[i], save.save_id)
-        saves = save_repository.find_all_saves()
+        saves = save_repository.find_and_sort_saves()
 
         self.assertEqual(saves[0].progress, self.updates[0])
         self.assertNotEqual(saves[1].progress, 0)
@@ -54,17 +54,21 @@ class TestSaveRepository(unittest.TestCase):
     def test_find_saves_by_id_limits(self):
         for i in range(100):
             save_repository.create("TEST")
-        saves = save_repository.find_all_saves()
+        saves = save_repository.find_and_sort_saves(8)
+        saves2 = save_repository.find_and_sort_saves()
+        saves3 = save_repository.find_and_sort_saves(3)
 
         self.assertEqual(len(saves), 8)
+        self.assertEqual(len(saves2), 100)
+        self.assertEqual(len(saves3), 3)
 
     def test_find_saves_by_id_orders_by_progress(self):
         for i in range(len(self.nicknames)):
             save_repository.create(self.nicknames[i])
-        saves = save_repository.find_all_saves()
+        saves = save_repository.find_and_sort_saves()
         for i, save in enumerate(saves):
             save_repository.update(self.mixed_updates[i], save.save_id)
-        saves = save_repository.find_all_saves()
+        saves = save_repository.find_and_sort_saves()
 
         self.assertEqual(saves[0].progress, self.updates[0])
         self.assertEqual(saves[1].progress, self.updates[1])
@@ -75,6 +79,6 @@ class TestSaveRepository(unittest.TestCase):
         for i in range(len(self.nicknames)):
             save_repository.create(self.nicknames[i])
         save_repository.delete()
-        saves = save_repository.find_all_saves()
+        saves = save_repository.find_and_sort_saves()
 
         self.assertEqual(len(saves), 0)

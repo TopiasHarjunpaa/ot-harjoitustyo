@@ -32,6 +32,7 @@ BG_PATH2 = os.path.join(dirname, "assets", "images", BG_FILENAME2)
 
 MENU_MUSIC_FILENAME = "menu.ogg"
 MENU_MUSIC = os.path.join(dirname, "assets", "audio", MENU_MUSIC_FILENAME)
+
 PLAYLIST = []
 PLAYLIST.append(MENU_MUSIC)
 for i in range(1, 5):

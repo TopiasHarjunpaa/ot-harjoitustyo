@@ -93,7 +93,7 @@ class TestGameService(unittest.TestCase):
 
         gameloop.start_gameloop(1)
         self.assertFalse(self.level.finished)
-    
+
     def test_jump_call_works_when_key_is_pressed(self):
         events = [StubEvent(pygame.KEYDOWN, pygame.K_SPACE), ]
 

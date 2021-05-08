@@ -36,21 +36,21 @@ class MenuView:
         """
 
         self.lines.append(["TOP3 RECORDS:", self.extra_small,
-                          self.width / 2, self.height / 2 - (self.extra_small * 2.4)])
+                           self.width / 2, self.height / 2 - (self.extra_small * 2.4)])
 
         self.lines.append([records[0], self.extra_small, self.width / 2,
-                          self.height / 2 - (self.extra_small * 1.2), (255, 215, 0)])
+                           self.height / 2 - (self.extra_small * 1.2), (255, 215, 0)])
         self.lines.append([records[1], self.extra_small,
-                          self.width / 2, self.height / 2, (192, 192, 192)])
+                           self.width / 2, self.height / 2, (192, 192, 192)])
         self.lines.append([records[2], self.extra_small, self.width / 2,
-                          self.height / 2 + (self.extra_small * 1.2), (205, 127, 50)])
+                           self.height / 2 + (self.extra_small * 1.2), (205, 127, 50)])
 
         self.lines.append(["NEW GAME ( press N )", self.small,
-                          self.width / 2, self.height / 2 + (self.small * 2.4)])
+                           self.width / 2, self.height / 2 + (self.small * 2.4)])
         self.lines.append(["LOAD GAME ( press L )", self.small, self.width /
-                          2, self.height / 2 + (self.small * 3.6)])
+                           2, self.height / 2 + (self.small * 3.6)])
         self.lines.append(["GAME SETUP ( press S )", self.small, self.width /
-                          2, self.height / 2 + (self.small * 4.8)])
+                           2, self.height / 2 + (self.small * 4.8)])
         self.lines.append(["EXIT ( press ESC )", self.small,
-                          self.width / 2, self.height / 2 + (self.small * 6)])
+                           self.width / 2, self.height / 2 + (self.small * 6)])
         self.renderer.render_menu("MAIN MENU", self.lines)

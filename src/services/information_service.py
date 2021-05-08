@@ -10,7 +10,6 @@ class InformationService:
 
     Attributes:
         save_repository: Save repository object.
-
     """
 
     def __init__(self, save_repository=default_save_repository):
@@ -29,6 +28,7 @@ class InformationService:
         Args:
             nickname (str): Name of the save object.
         """
+
         self._save = self._save_repository.create(nickname)
 
     def open_save(self, save_id):

@@ -76,7 +76,6 @@ class LevelService:
         Touching the floor allows player to jump.
         Also players vertical speed will be reseted and location will be
         updated on top of the floor surface (prevents player falling through floor).
-
         """
 
         touch = pygame.sprite.spritecollide(
@@ -90,7 +89,6 @@ class LevelService:
 
         Touching the goal starts preparation of level finish
         event at the update method.
-
         """
 
         touch = pygame.sprite.spritecollide(

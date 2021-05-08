@@ -9,6 +9,11 @@ from config import FPS, TITLE
 
 
 def main():
+    """Start the game.
+
+    Read display size, set title and create classes needed for UI.
+
+    """
     pygame.init()
     display_info = pygame.display.Info()
     display_width = display_info.current_w

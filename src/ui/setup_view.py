@@ -48,9 +48,9 @@ class SetupView:
                                2, self.height / 2 + (self.small * 1.8), (70, 70, 70)])
 
         self.lines.append(["( press 1 to change )", self.extra_small,
-                          self.width / 2, self.height / 2 + (self.small * 0.2)])
+                           self.width / 2, self.height / 2 + (self.small * 0.2)])
         self.lines.append(["( press 2 to change )", self.extra_small,
-                          self.width / 2, self.height / 2 + (self.small * 2.6)])
+                           self.width / 2, self.height / 2 + (self.small * 2.6)])
         self.lines.append(["EXIT ( press ESC )", self.small,
-                          self.width / 2, self.height / 2 + (self.small * 4.4)])
+                           self.width / 2, self.height / 2 + (self.small * 4.4)])
         self.renderer.render_menu("GAME SETUP", self.lines)

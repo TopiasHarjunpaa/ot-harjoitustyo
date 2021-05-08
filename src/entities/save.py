@@ -29,6 +29,13 @@ class Save:
     def get_information(self):
         """Calculates and wraps all necessary information from the save object.
 
+        Calculation uses progress attribute value and generates the following information:
+        1. Individual progress for each level
+        2. Unlocked boolean value for each level
+
+        Other information will be recieved directly from the class attributes and
+        from the config (number of levels in the game).
+
         Returns:
             progress (dict): A dictionary of all information from the save object.
         """

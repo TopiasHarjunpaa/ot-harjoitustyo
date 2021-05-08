@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 
 NUMBER_OF_LEVELS = 4
 TITLE = "The Possible Game"
-BACKGROUND = (0, 0, 0)
 FPS = 60
 
 dirname = os.path.dirname(__file__)

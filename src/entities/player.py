@@ -22,18 +22,18 @@ class Player(pygame.sprite.Sprite):
         """
 
         super().__init__()
-        self.level = level
-        self.original_img = pygame.Surface(
+        self._level = level
+        self._orig_img = pygame.Surface(
             (size, size), pygame.SRCALPHA)
-        self.visualize(size)
-        self.image = self.original_img
+        self._visualize(size)
+        self.image = self._orig_img
         self.rect = self.image.get_rect()
         self.position = pygame.math.Vector2(
             x_coordinate, y_coordinate)
         self.speed = 0
         self.rect.midbottom = (x_coordinate, y_coordinate)
         self.jumping = False
-        self.angle = 0
+        self._angle = 0
 
     def jump(self):
         """Makes player object to jump if standing at the floor.
@@ -47,12 +47,12 @@ class Player(pygame.sprite.Sprite):
         """
 
         floor_hit = pygame.sprite.spritecollide(
-            self, self.level.sprites.floors, False)
+            self, self._level.sprites.floors, False)
         if floor_hit:
             self.speed -= 14
             self.jumping = True
-            if self.level.audio is not None:
-                self.level.audio.play_jump_sound()
+            if self._level.audio is not None:
+                self._level.audio.play_jump_sound()
 
     def update(self):
         """Updates location of the player object.
@@ -68,17 +68,17 @@ class Player(pygame.sprite.Sprite):
         self.speed += 0.7
         self.position.y += self.speed + 0.4
         self.rect.midbottom = (self.position.x, self.position.y)
-        if self.jumping and self.angle >= -90:
+        if self.jumping and self._angle >= -90:
             self.image = pygame.transform.rotate(
-                self.original_img, self.angle)
-            self.angle -= 3
+                self._orig_img, self._angle)
+            self._angle -= 3
         else:
             self.jumping = False
-            self.angle = 0
+            self._angle = 0
             self.image = pygame.transform.rotate(
-                self.original_img, self.angle)
+                self._orig_img, self._angle)
 
-    def visualize(self, size):
+    def _visualize(self, size):
         """Creates visualization for the player object.
 
         Player object has purple color with black borders.
@@ -89,6 +89,6 @@ class Player(pygame.sprite.Sprite):
 
         black = (0, 0, 0)
         purple = (255, 0, 255)
-        pygame.draw.rect(self.original_img, (black), (0, 0, size, size))
-        pygame.draw.rect(self.original_img, (purple),
+        pygame.draw.rect(self._orig_img, (black), (0, 0, size, size))
+        pygame.draw.rect(self._orig_img, (purple),
                          (3, 3, size - 6, size - 6))

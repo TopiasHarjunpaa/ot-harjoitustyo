@@ -26,11 +26,11 @@ class Floor(pygame.sprite.Sprite):
         """
 
         super().__init__()
-        self.level = level
-        self.floor_type = floor_type
+        self._level = level
+        self._floor_type = floor_type
         self.image = pygame.Surface(
             (width, height), pygame.SRCALPHA)
-        self.visualize(width, height)
+        self._visualize(width, height)
         self.rect = self.image.get_rect()
         self.rect.x = x_coordinate
         self.rect.y = y_coordinate
@@ -41,11 +41,11 @@ class Floor(pygame.sprite.Sprite):
         Floor object will be deleted once it has moved outside of the screen.
         """
 
-        self.rect.x -= self.level.speed
+        self.rect.x -= self._level.speed
         if self.rect.right < 0:
             self.kill()
 
-    def visualize(self, width, height):
+    def _visualize(self, width, height):
         """Creates visualization for the floor object.
 
         Each of the floor type has different colors.
@@ -55,13 +55,13 @@ class Floor(pygame.sprite.Sprite):
             height (int): Heigth of the floor object.
         """
 
-        if self.floor_type == "f":
+        if self._floor_type == "f":
             color1 = (255, 255, 255)
             color2 = (178, 34, 34)
-        if self.floor_type == "l":
+        if self._floor_type == "l":
             color1 = (178, 34, 34)
             color2 = (0, 0, 0)
-        if self.floor_type == "g":
+        if self._floor_type == "g":
             color1 = (255, 255, 255)
             color2 = (0, 255, 0)
 

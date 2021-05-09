@@ -106,7 +106,7 @@ class TestGameService(unittest.TestCase):
             self.menu.audio
         )
 
-        gameloop.check_events()
+        gameloop._check_events()
         self.level.update()
         self.assertNotEqual(self.level.player.speed, 0)
 

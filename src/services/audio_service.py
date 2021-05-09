@@ -13,7 +13,7 @@ class AudioService:
         Audio filepaths are obtained from the config -file.
         """
 
-        self.playlist = PLAYLIST
+        self._playlist = PLAYLIST
         self.music = pygame.mixer.music
         self.music.set_volume(0.4)
         self.menu_music_active = False
@@ -36,12 +36,12 @@ class AudioService:
         if self.music_on:
             if not self.menu_music_active and index == 0:
                 self.music.fadeout(500)
-                self.music.load(self.playlist[index])
+                self.music.load(self._playlist[index])
                 self.music.play(loops=-1)
                 self.menu_music_active = True
             elif index >= 1:
                 self.music.fadeout(500)
-                self.music.load(self.playlist[index])
+                self.music.load(self._playlist[index])
                 self.music.play(loops=-1)
                 self.menu_music_active = False
 

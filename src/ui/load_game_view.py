@@ -12,13 +12,12 @@ class LoadGameView:
             renderer (Renderer): Renderer object which renders the display.
         """
 
-        self.renderer = renderer
-        self.width = self.renderer.width
-        self.height = self.renderer.height
-        self.big = int(self.height / 10)
-        self.small = int(self.height / 20)
-        self.extra_small = int(self.height / 25)
-        self.lines = []
+        self._renderer = renderer
+        self._width = self._renderer.width
+        self._height = self._renderer.height
+        self._small = int(self._height / 20)
+        self._extra_small = int(self._height / 25)
+        self._lines = []
 
     def show(self, saves: list):
         """Prepares all information to show for the renderer object.
@@ -36,20 +35,20 @@ class LoadGameView:
         row = 1
         for save in saves:
             txt = f"{save.nickname} - {save.progress}% - CREATED: {save.created_at} ( press {row} )"
-            self.lines.append([txt, self.extra_small, self.width / 2,
-                               self.height / 2 + (self.extra_small * (row - 2) * 1.2)])
+            self._lines.append([txt, self._extra_small, self._width / 2,
+                               self._height / 2 + (self._extra_small * (row - 2) * 1.2)])
             row += 1
 
         while row <= 8:
-            self.lines.append(["EMPTY SAVE",
-                               self.extra_small,
-                               self.width / 2,
-                               self.height / 2 +
-                               (self.extra_small * (row - 2) * 1.2),
+            self._lines.append(["EMPTY SAVE",
+                               self._extra_small,
+                               self._width / 2,
+                               self._height / 2 +
+                               (self._extra_small * (row - 2) * 1.2),
                                (70, 70, 70)])
             row += 1
 
-        self.lines.append(["BACK TO MAIN MENU ( press ESC )",
-                           self.small, self.width / 2,
-                           self.height / 2 + (self.extra_small * (row - 1.5) * 1.2)])
-        self.renderer.render_menu("LOAD YOUR GAME", self.lines)
+        self._lines.append(["BACK TO MAIN MENU ( press ESC )",
+                           self._small, self._width / 2,
+                           self._height / 2 + (self._extra_small * (row - 1.5) * 1.2)])
+        self._renderer.render_menu("LOAD YOUR GAME", self._lines)

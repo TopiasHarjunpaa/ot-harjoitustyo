@@ -12,12 +12,12 @@ class NewGameView:
             renderer (Renderer): Renderer object which renders the display.
         """
 
-        self.renderer = renderer
-        self.width = self.renderer.width
-        self.height = self.renderer.height
-        self.big = int(self.height / 10)
-        self.small = int(self.height / 20)
-        self.lines = []
+        self._renderer = renderer
+        self._width = self._renderer.width
+        self._height = self._renderer.height
+        self._big = int(self._height / 10)
+        self.small = int(self._height / 20)
+        self._lines = []
 
     def show(self, nickname, color=(255, 255, 255)):
         """Prepares all information to show for the renderer object.
@@ -37,12 +37,12 @@ class NewGameView:
             nickname (str): Nickname of the save
             color (tuple, optional): Color of the continue text. Defaults to (255, 255, 255).
         """
-        self.lines.append(["ENTER YOUR NICKNAME", self.small,
-                           self.width / 2, self.height / 2])
-        self.lines.append([nickname, self.big, self.width / 2,
-                           self.height / 2 + (self.small * 2.4)])
-        self.lines.append(["CONTINUE ( press ENTER )", self.small,
-                           self.width / 2, self.height / 2 + (self.small * 4.8), color])
-        self.lines.append(["BACK TO MAIN MENU ( press ESC )", self.small,
-                           self.width / 2, self.height / 2 + (self.small * 6)])
-        self.renderer.render_menu("CREATE NEW GAME", self.lines)
+        self._lines.append(["ENTER YOUR NICKNAME", self.small,
+                            self._width / 2, self._height / 2])
+        self._lines.append([nickname, self._big, self._width / 2,
+                            self._height / 2 + (self.small * 2.4)])
+        self._lines.append(["CONTINUE ( press ENTER )", self.small,
+                            self._width / 2, self._height / 2 + (self.small * 4.8), color])
+        self._lines.append(["BACK TO MAIN MENU ( press ESC )", self.small,
+                            self._width / 2, self._height / 2 + (self.small * 6)])
+        self._renderer.render_menu("CREATE NEW GAME", self._lines)

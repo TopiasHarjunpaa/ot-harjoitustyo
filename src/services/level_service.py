@@ -45,16 +45,16 @@ class LevelService:
         """
 
         self.all_sprites.update()
-        self.handle_jump()
-        self.handle_goal()
+        self._handle_jump()
+        self._handle_goal()
         self.progress += self.speed / 220
         if self.finished:
             self.speed -= 1
             if self.speed == 0:
                 return False
-        return self.player_is_alive()
+        return self._player_is_alive()
 
-    def player_is_alive(self):
+    def _player_is_alive(self):
         """Checks if player is alive during game loop.
 
         Checks collision with both obstacles and lavas (ie. non-friendly objects).
@@ -70,7 +70,7 @@ class LevelService:
             return False
         return True
 
-    def handle_jump(self):
+    def _handle_jump(self):
         """Checks if player is touching the floor.
 
         Touching the floor allows player to jump.
@@ -84,7 +84,7 @@ class LevelService:
             self.player.position.y = touch[0].rect.top
             self.player.speed = 0
 
-    def handle_goal(self):
+    def _handle_goal(self):
         """Checks if player reaches the goal.
 
         Touching the goal starts preparation of level finish

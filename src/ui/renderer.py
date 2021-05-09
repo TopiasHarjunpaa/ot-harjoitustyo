@@ -22,21 +22,21 @@ class Renderer:
             height (int): Heigth of the display.
         """
 
-        self.display = display
+        self._display = display
         self.width = width
         self.height = height
-        self.big = int(self.height / 10)
-        self.extra_small = int(self.height / 30)
-        self.menu_image = pygame.image.load(MENU_BG_PATH)
-        self.menu_image = pygame.transform.scale(
-            self.menu_image, (self.width, self.height))
-        self.level_images = []
+        self._big = int(self.height / 10)
+        self._extra_small = int(self.height / 30)
+        self._menu_image = pygame.image.load(MENU_BG_PATH)
+        self._menu_image = pygame.transform.scale(
+            self._menu_image, (self.width, self.height))
+        self._level_images = []
         for path in LEVEL_BG_PATHS:
             level_image = pygame.image.load(path)
             level_image = pygame.transform.scale(
                 level_image, (9 * self.height, int(self.height * 0.8)))
-            self.level_images.append(level_image)
-        self.level_image_position = 0
+            self._level_images.append(level_image)
+        self._level_image_postion = 0
 
     def render_game(self, level):
         """Renders the display during game loop.
@@ -51,26 +51,26 @@ class Renderer:
             level (LevelService): Level service object.
         """
 
-        self.display.fill((0, 0, 0))
-        level_image = self.level_images[level.level_number - 1]
-        self.display.blit(
-            level_image, (self.level_image_position, self.height / 14))
-        self.level_image_position -= 2
-        level.all_sprites.draw(self.display)
-        self.draw_text(f"LEVEL {level.level_number}",
-                       self.extra_small, self.width / 2 + 3, self.height / 8 + 3, (0, 0, 0))
-        self.draw_text(f"PROGRESS: {int(level.progress)}%", self.extra_small,
-                       self.width / 2 + 3, self.height / 8 + self.extra_small * 1.2 + 3, (0, 0, 0))
-        self.draw_text(f"LEVEL {level.level_number}",
-                       self.extra_small, self.width / 2, self.height / 8, (255, 0, 255))
-        self.draw_text(f"PROGRESS: {int(level.progress)}%", self.extra_small,
-                       self.width / 2, self.height / 8 + self.extra_small * 1.2, (255, 0, 255))
+        self._display.fill((0, 0, 0))
+        level_image = self._level_images[level.level_number - 1]
+        self._display.blit(
+            level_image, (self._level_image_postion, self.height / 14))
+        self._level_image_postion -= 2
+        level.all_sprites.draw(self._display)
+        self._draw_text(f"LEVEL {level.level_number}",
+                        self._extra_small, self.width / 2 + 3, self.height / 8 + 3, (0, 0, 0))
+        self._draw_text(f"PROGRESS: {int(level.progress)}%", self._extra_small,
+                        self.width / 2 + 3, self.height / 8 + self._extra_small * 1.2 + 3, (0, 0, 0))
+        self._draw_text(f"LEVEL {level.level_number}",
+                        self._extra_small, self.width / 2, self.height / 8, (255, 0, 255))
+        self._draw_text(f"PROGRESS: {int(level.progress)}%", self._extra_small,
+                        self.width / 2, self.height / 8 + self._extra_small * 1.2, (255, 0, 255))
         fill_width = self.width / 12
         rect1 = pygame.Rect(0, 0, fill_width, self.height)
         rect2 = pygame.Rect(self.width - fill_width,
                             0, fill_width, self.height)
-        pygame.draw.rect(self.display, (0, 0, 0), rect1)
-        pygame.draw.rect(self.display, (0, 0, 0), rect2)
+        pygame.draw.rect(self._display, (0, 0, 0), rect1)
+        pygame.draw.rect(self._display, (0, 0, 0), rect2)
         pygame.display.flip()
 
     def render_menu(self, title, lines: list):
@@ -87,23 +87,23 @@ class Renderer:
             lines (list): Information which is stored into multiple lines.
         """
 
-        self.display.blit(self.menu_image, (0, 0))
-        self.draw_text("THE POSSIBLE GAME", self.big,
-                       self.width / 2 + 3, self.height / 5 + 3)
-        self.draw_text("THE POSSIBLE GAME", self.big,
-                       self.width / 2, self.height / 5, (150, 50, 255))
-        self.draw_text(title, self.big, self.width / 2 + 3,
-                       self.height / 5 + 3 + (self.big * 1.2))
-        self.draw_text(title, self.big, self.width / 2,
-                       self.height / 5 + (self.big * 1.2), (0, 200, 0))
+        self._display.blit(self._menu_image, (0, 0))
+        self._draw_text("THE POSSIBLE GAME", self._big,
+                        self.width / 2 + 3, self.height / 5 + 3)
+        self._draw_text("THE POSSIBLE GAME", self._big,
+                        self.width / 2, self.height / 5, (150, 50, 255))
+        self._draw_text(title, self._big, self.width / 2 + 3,
+                        self.height / 5 + 3 + (self._big * 1.2))
+        self._draw_text(title, self._big, self.width / 2,
+                        self.height / 5 + (self._big * 1.2), (0, 200, 0))
         for line in lines:
             if len(line) == 5:
-                self.draw_text(line[0], line[1], line[2], line[3], line[4])
+                self._draw_text(line[0], line[1], line[2], line[3], line[4])
             else:
-                self.draw_text(line[0], line[1], line[2], line[3])
+                self._draw_text(line[0], line[1], line[2], line[3])
         pygame.display.flip()
 
-    def draw_text(self, text, font_size, x_coordinate, y_coordinate, color=(255, 255, 255)):
+    def _draw_text(self, text, font_size, x_coordinate, y_coordinate, color=(255, 255, 255)):
         """Draws the text according to all necessary attributes.
 
         Args:
@@ -118,7 +118,7 @@ class Renderer:
         text_surf = font.render(text, True, color)
         text_rect = text_surf.get_rect()
         text_rect.center = (x_coordinate, y_coordinate)
-        self.display.blit(text_surf, text_rect)
+        self._display.blit(text_surf, text_rect)
 
     def reset_game_background_position(self):
-        self.level_image_position = 0
+        self._level_image_postion = 0

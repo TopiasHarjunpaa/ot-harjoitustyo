@@ -24,10 +24,10 @@ class Obstacle(pygame.sprite.Sprite):
         """
 
         super().__init__()
-        self.level = level
+        self._level = level
         self.image = pygame.Surface(
             (width, height), pygame.SRCALPHA)
-        self.visualize(width, height)
+        self._visualize(width, height)
         self.rect = self.image.get_rect()
         self.rect.midbottom = (x_coordinate, y_coordinate)
 
@@ -36,11 +36,11 @@ class Obstacle(pygame.sprite.Sprite):
 
         Obstacle object will be deleted once it has moved outside of the screen.
         """
-        self.rect.x -= self.level.speed
+        self.rect.x -= self._level.speed
         if self.rect.right < 0:
             self.kill()
 
-    def visualize(self, width, height):
+    def _visualize(self, width, height):
         """Creates visualization for the obstacle object.
 
         Obstacle object has blue color with black borders.

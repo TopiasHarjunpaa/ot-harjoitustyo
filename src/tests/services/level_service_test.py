@@ -24,22 +24,22 @@ class TestLevelService(unittest.TestCase):
         self.assertNotEqual(self.player.position.y, self.base_height)
 
     def test_player_is_alive_at_the_start(self):
-        self.assertTrue(self.level.player_is_alive())
+        self.assertTrue(self.level._player_is_alive())
 
     def test_player_is_not_alive_when_collide_with_lava(self):
         self.level.sprites.lavas.add(
             Floor(self, 0, self.base_height, self.width, self.floor_thickness, "l"))
-        self.assertFalse(self.level.player_is_alive())
+        self.assertFalse(self.level._player_is_alive())
 
     def test_player_is_not_alive_when_collide_with_obstacle(self):
         self.level.sprites.obstacle.add(
             Obstacle(self, self.width/2, self.base_height, 50, 50))
-        self.assertFalse(self.level.player_is_alive())
+        self.assertFalse(self.level._player_is_alive())
 
     def test_handle_goal(self):
         self.level.sprites.goals.add(
             Floor(self, 0, self.base_height, self.width, self.floor_thickness, "g"))
-        self.level.handle_goal()
+        self.level._handle_goal()
         self.assertTrue(self.level.finished)
 
     def test_speed_decreases_to_zero_when_finished(self):

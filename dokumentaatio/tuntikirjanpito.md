@@ -36,4 +36,6 @@
 | 6.5  | 3   | Asetusvalikon lisääminen sekä ui docstringit |
 | 7.5  | 2   | Pieniä parannuksia ja testikattavuuden lisääminen |
 | 8.5  | 1   | Viimeiset docstringit ja tyylikorjauksia |
-| yht   | 77    | | 
+| 9.5  | 2   | Ympäristömuuttujien sekä taustakuvien lisääminen |
+| 9.5  | 2   | Ylimääräisten muuttujien poistaminen sekä luokan sisäisten attribuuttien nimeäminen |
+| yht   | 81    | | 

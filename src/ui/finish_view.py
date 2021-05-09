@@ -13,12 +13,11 @@ class FinishView:
             renderer (Renderer): Renderer object which renders the display.
         """
 
-        self.renderer = renderer
-        self.width = self.renderer.width
-        self.height = self.renderer.height
-        self.big = int(self.height / 10)
-        self.small = int(self.height / 20)
-        self.lines = []
+        self._renderer = renderer
+        self._width = self._renderer.width
+        self._height = self._renderer.height
+        self._small = int(self._height / 20)
+        self._lines = []
 
     def show(self, information, level):
         """Prepares all information to show for the renderer object.
@@ -37,12 +36,12 @@ class FinishView:
 
         current_record = information[f"level{level}"]
         text1 = f"YOUR PREVIOUS RECORD WAS {current_record}%"
-        self.lines.append([text1, self.small, self.width /
-                          2, self.height / 2 - self.small])
-        self.lines.append([text1, self.small, self.width / 2 - 2,
-                          self.height / 2 - self.small - 2, (255, 150, 50)])
-        self.lines.append(["CONTINUE ( press ENTER )", self.small,
-                          self.width / 2, self.height / 2 + (self.small * 1.2)])
-        self.lines.append(["BACK TO MAIN MENU ( press ESC )", self.small,
-                          self.width / 2, self.height / 2 + (self.small * 2.4)])
-        self.renderer.render_menu(f"LEVEL {level} COMPLETED!", self.lines)
+        self._lines.append([text1, self._small, self._width /
+                            2, self._height / 2 - self._small])
+        self._lines.append([text1, self._small, self._width / 2 - 2,
+                            self._height / 2 - self._small - 2, (255, 150, 50)])
+        self._lines.append(["CONTINUE ( press ENTER )", self._small,
+                            self._width / 2, self._height / 2 + (self._small * 1.2)])
+        self._lines.append(["BACK TO MAIN MENU ( press ESC )", self._small,
+                            self._width / 2, self._height / 2 + (self._small * 2.4)])
+        self._renderer.render_menu(f"LEVEL {level} COMPLETED!", self._lines)

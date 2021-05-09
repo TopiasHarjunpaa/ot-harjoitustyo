@@ -8,13 +8,11 @@ TODO:t ennen lopullista palautusta:
 4. Tee puuttuvat docstringit. [Done]
 5. Lisää ympäristömuuttujat [Done]
 6. Päivitä taustakuvat ja lisää jokaiselle maalle oma tausta. [Done]
-
-7. Piilota tarpeettomat muuttujat ja funktiot muilta luokilta.
-8. Tarkasta koodi (tyylitarkistus, testit sekä visuaalinen tsekki)
+7. Piilota tarpeettomat muuttujat ja funktiot muilta luokilta. [Done]
 
 Kun kaikki toiminnallisuudet yllä ovat valmiita:
 
-1. Päivitä vaatimusmäärittely
+1. Päivitä vaatimusmäärittely (paitsi tämä lista)
 2. Päivitä asennusohje ja kuvankaappaukset (lisää puuttuva setup)
 3. Päivitä lopullinen luokka ja pakkauskaavio
 4. Päivitä arkkitehtuurikuvaus (puuttuvia osioita)
@@ -22,6 +20,7 @@ Kun kaikki toiminnallisuudet yllä ovat valmiita:
 6. Tsekkaa tuntikirjanpito ja tarkista tuntien summat.
 7. Tarkasta README ja lisää ainakin creditit (musa, fontti yms.).
 8. Lue vielä kertaalleen arvosteluperusteet.
+9. Viimeinen koodin tarkastus (tyylitarkistus, testit sekä visuaalinen tsekki)
 9. Luo uusi release ja lisää linkki sekä README ja käyttöohje.
 10. Poista nämä ja tee viimeinen push.
 11. Sulje issue.

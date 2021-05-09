@@ -23,18 +23,18 @@ class Sprites:
             heigth (int): Heigth of the display.
         """
 
-        self.level = level
-        self.size = (width, height)
+        self._level = level
+        self._size = (width, height)
         self.all_sprites = pygame.sprite.Group()
         self.floors = pygame.sprite.Group()
         self.lavas = pygame.sprite.Group()
         self.goals = pygame.sprite.Group()
         self.obstacle = pygame.sprite.Group()
-        self.player = Player(self.level, self.size[0]/2,
-                             self.size[1] / 4 * 3, self.size[0] / 40)
-        self.init_sprites()
+        self.player = Player(self._level, self._size[0]/2,
+                             self._size[1] / 4 * 3, self._size[0] / 40)
+        self._init_sprites()
 
-    def init_sprites(self):
+    def _init_sprites(self):
         """Initialises all sprites according to display size and filemap.
 
         Sprite size parameters will be adjusted depending from the display size.
@@ -44,10 +44,10 @@ class Sprites:
         Each sprite types will be separated into own groups and also into list of all sprites.
         """
 
-        obstacle_size = self.size[0] / 40
-        object_w = self.size[0] / 20
-        object_h = self.size[1] / 12
-        filename = LEVEL_PATHS[self.level.level_number]
+        obstacle_size = self._size[0] / 40
+        object_w = self._size[0] / 20
+        object_h = self._size[1] / 12
+        filename = LEVEL_PATHS[self._level.level_number]
 
         with open(filename) as file:
             row_nr = 0
@@ -56,21 +56,21 @@ class Sprites:
                 column_nr = 0
                 for part in parts:
                     if part == "f":
-                        floor = Floor(self.level, column_nr * object_w,
+                        floor = Floor(self._level, column_nr * object_w,
                                       row_nr * object_h, object_w,
                                       obstacle_size, "f")
                         self.floors.add(floor)
                     if part == "l":
-                        lava = Floor(self.level, column_nr * object_w,
+                        lava = Floor(self._level, column_nr * object_w,
                                      row_nr * object_h, object_w,
                                      obstacle_size, "l")
                         self.lavas.add(lava)
                     if part == "g":
-                        goal = Floor(self.level, column_nr * object_w, row_nr * object_h,
+                        goal = Floor(self._level, column_nr * object_w, row_nr * object_h,
                                      object_w, obstacle_size, "g")
                         self.goals.add(goal)
                     if part == "x":
-                        obstacle = Obstacle(self.level, column_nr * object_w + object_w / 2,
+                        obstacle = Obstacle(self._level, column_nr * object_w + object_w / 2,
                                             (row_nr + 1) * object_h,
                                             obstacle_size, obstacle_size)
                         self.obstacle.add(obstacle)

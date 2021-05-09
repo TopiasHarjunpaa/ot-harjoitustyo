@@ -12,13 +12,12 @@ class MenuView:
             renderer (Renderer): Renderer object which renders the display.
         """
 
-        self.renderer = renderer
-        self.width = self.renderer.width
-        self.height = self.renderer.height
-        self.big = int(self.height / 10)
-        self.small = int(self.height / 20)
-        self.extra_small = int(self.height / 30)
-        self.lines = []
+        self._renderer = renderer
+        self._width = self._renderer.width
+        self._height = self._renderer.height
+        self.small = int(self._height / 20)
+        self._extra_small = int(self._height / 30)
+        self._lines = []
 
     def show(self, records):
         """Prepares all information to show for the renderer object.
@@ -35,22 +34,22 @@ class MenuView:
             records (list): List of save objects.
         """
 
-        self.lines.append(["TOP3 RECORDS:", self.extra_small,
-                           self.width / 2, self.height / 2 - (self.extra_small * 2.4)])
+        self._lines.append(["TOP3 RECORDS:", self._extra_small,
+                            self._width / 2, self._height / 2 - (self._extra_small * 2.4)])
 
-        self.lines.append([records[0], self.extra_small, self.width / 2,
-                           self.height / 2 - (self.extra_small * 1.2), (255, 215, 0)])
-        self.lines.append([records[1], self.extra_small,
-                           self.width / 2, self.height / 2, (192, 192, 192)])
-        self.lines.append([records[2], self.extra_small, self.width / 2,
-                           self.height / 2 + (self.extra_small * 1.2), (205, 127, 50)])
+        self._lines.append([records[0], self._extra_small, self._width / 2,
+                            self._height / 2 - (self._extra_small * 1.2), (255, 215, 0)])
+        self._lines.append([records[1], self._extra_small,
+                            self._width / 2, self._height / 2, (192, 192, 192)])
+        self._lines.append([records[2], self._extra_small, self._width / 2,
+                            self._height / 2 + (self._extra_small * 1.2), (205, 127, 50)])
 
-        self.lines.append(["NEW GAME ( press N )", self.small,
-                           self.width / 2, self.height / 2 + (self.small * 2.4)])
-        self.lines.append(["LOAD GAME ( press L )", self.small, self.width /
-                           2, self.height / 2 + (self.small * 3.6)])
-        self.lines.append(["GAME SETUP ( press S )", self.small, self.width /
-                           2, self.height / 2 + (self.small * 4.8)])
-        self.lines.append(["EXIT ( press ESC )", self.small,
-                           self.width / 2, self.height / 2 + (self.small * 6)])
-        self.renderer.render_menu("MAIN MENU", self.lines)
+        self._lines.append(["NEW GAME ( press N )", self.small,
+                            self._width / 2, self._height / 2 + (self.small * 2.4)])
+        self._lines.append(["LOAD GAME ( press L )", self.small, self._width /
+                            2, self._height / 2 + (self.small * 3.6)])
+        self._lines.append(["GAME SETUP ( press S )", self.small, self._width /
+                            2, self._height / 2 + (self.small * 4.8)])
+        self._lines.append(["EXIT ( press ESC )", self.small,
+                            self._width / 2, self._height / 2 + (self.small * 6)])
+        self._renderer.render_menu("MAIN MENU", self._lines)

@@ -2,7 +2,7 @@ import pygame
 from entities.player import Player
 from entities.floor import Floor
 from entities.obstacle import Obstacle
-from config import MAP_PATHS
+from config import LEVEL_PATHS
 
 
 class Sprites:
@@ -47,7 +47,7 @@ class Sprites:
         obstacle_size = self.size[0] / 40
         object_w = self.size[0] / 20
         object_h = self.size[1] / 12
-        filename = MAP_PATHS[self.level.level_number]
+        filename = LEVEL_PATHS[self.level.level_number]
 
         with open(filename) as file:
             row_nr = 0

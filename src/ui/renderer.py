@@ -1,5 +1,5 @@
 import pygame
-from config import BG_PATH, BG_PATH2, FONT_PATH
+from config import MENU_BG_PATH, LEVEL_BG_PATHS, FONT_PATH
 
 
 class Renderer:
@@ -27,13 +27,16 @@ class Renderer:
         self.height = height
         self.big = int(self.height / 10)
         self.extra_small = int(self.height / 30)
-        self.bg_image = pygame.image.load(BG_PATH)
-        self.bg_image = pygame.transform.scale(
-            self.bg_image, (self.width, self.height))
-        self.bg_image2 = pygame.image.load(BG_PATH2)
-        self.bg_image2 = pygame.transform.scale(
-            self.bg_image2, (9 * self.height, int(self.height * 0.8)))
-        self.image2_x_coordinate = 0
+        self.menu_image = pygame.image.load(MENU_BG_PATH)
+        self.menu_image = pygame.transform.scale(
+            self.menu_image, (self.width, self.height))
+        self.level_images = []
+        for path in LEVEL_BG_PATHS:
+            level_image = pygame.image.load(path)
+            level_image = pygame.transform.scale(
+                level_image, (9 * self.height, int(self.height * 0.8)))
+            self.level_images.append(level_image)
+        self.level_image_position = 0
 
     def render_game(self, level):
         """Renders the display during game loop.
@@ -49,9 +52,10 @@ class Renderer:
         """
 
         self.display.fill((0, 0, 0))
+        level_image = self.level_images[level.level_number - 1]
         self.display.blit(
-            self.bg_image2, (self.image2_x_coordinate, self.height / 14))
-        self.image2_x_coordinate -= 2
+            level_image, (self.level_image_position, self.height / 14))
+        self.level_image_position -= 2
         level.all_sprites.draw(self.display)
         self.draw_text(f"LEVEL {level.level_number}",
                        self.extra_small, self.width / 2 + 3, self.height / 8 + 3, (0, 0, 0))
@@ -83,7 +87,7 @@ class Renderer:
             lines (list): Information which is stored into multiple lines.
         """
 
-        self.display.blit(self.bg_image, (0, 0))
+        self.display.blit(self.menu_image, (0, 0))
         self.draw_text("THE POSSIBLE GAME", self.big,
                        self.width / 2 + 3, self.height / 5 + 3)
         self.draw_text("THE POSSIBLE GAME", self.big,
@@ -117,4 +121,4 @@ class Renderer:
         self.display.blit(text_surf, text_rect)
 
     def reset_game_background_position(self):
-        self.image2_x_coordinate = 0
+        self.level_image_position = 0

@@ -6,9 +6,9 @@ TODO:t ennen lopullista palautusta:
 2. Siisti hieman progress informaatiota. [Done]
 3. Tee puuttuvat testi. [Done]
 4. Tee puuttuvat docstringit. [Done]
-5. Lisää ympäristömuuttujat [Osittain Done. Muuta vielä config]
+5. Lisää ympäristömuuttujat [Done]
+6. Päivitä taustakuvat ja lisää jokaiselle maalle oma tausta. [Done]
 
-6. Päivitä taustakuvat ja lisää jokaiselle maalle oma tausta.
 7. Piilota tarpeettomat muuttujat ja funktiot muilta luokilta.
 8. Tarkasta koodi (tyylitarkistus, testit sekä visuaalinen tsekki)
 

@@ -15,32 +15,43 @@ except FileNotFoundError:
 DATABASE_FILENAME = os.getenv("DATABASE_FILENAME") or "database.sqlite"
 DATABASE_FILE_PATH = os.path.join(dirname, "..", "data", DATABASE_FILENAME)
 
-MAP_PATHS = []
+LEVEL_PATHS = []
 for i in range(NUMBER_OF_LEVELS + 1):
-    MAP_FILENAME = f"level_{i}.csv"
-    MAP_FILE_PATH = os.path.join(dirname, "assets", "maps", MAP_FILENAME)
-    MAP_PATHS.append(MAP_FILE_PATH)
+    LEVEL_FILENAME = os.getenv(f"LEVEL{i}_FILENAME") or f"level_{i}.csv"
+    LEVEL_FILE_PATH = os.path.join(dirname, "assets", "maps", LEVEL_FILENAME)
+    LEVEL_PATHS.append(LEVEL_FILE_PATH)
 
-FONT_FILENAME = "fontstyle.ttf"
+FONT_FILENAME = os.getenv("FONT_FILENAME") or "fontstyle.ttf"
 FONT_PATH = os.path.join(dirname, "assets", "fonts", FONT_FILENAME)
 
-BG_FILENAME = "test_background.png"
-BG_PATH = os.path.join(dirname, "assets", "images", BG_FILENAME)
+MENU_BG_FILENAME = os.getenv("MENU_BG_FILENAME") or "menu_background.png"
+MENU_BG_PATH = os.path.join(dirname, "assets", "images", MENU_BG_FILENAME)
 
-BG_FILENAME2 = "test_bg2.jpg"
-BG_PATH2 = os.path.join(dirname, "assets", "images", BG_FILENAME2)
-
-MENU_MUSIC_FILENAME = "menu.ogg"
-MENU_MUSIC = os.path.join(dirname, "assets", "audio", MENU_MUSIC_FILENAME)
+LEVEL_BG_PATHS = []
+for i in range(1, NUMBER_OF_LEVELS + 1):
+    LEVEL_BG_FILENAME = os.getenv(
+        f"LEVEL{i}_BG_FILENAME") or f"level{i}_background.jpg"
+    LEVEL_BG_FILE_PATH = os.path.join(
+        dirname, "assets", "images", LEVEL_BG_FILENAME)
+    LEVEL_BG_PATHS.append(LEVEL_BG_FILE_PATH)
 
 PLAYLIST = []
-PLAYLIST.append(MENU_MUSIC)
+MENU_MUSIC_FILENAME = os.getenv("MENU_MUSIC_FILENAME") or "menu.ogg"
+MENU_MUSIC_PATH = os.path.join(dirname, "assets", "audio", MENU_MUSIC_FILENAME)
+PLAYLIST.append(MENU_MUSIC_PATH)
 for i in range(1, 5):
-    MUSIC_PATH = os.path.join(dirname, "assets", "audio", f"level{i}.ogg")
+    LEVEL_MUSIC_FILENAME = os.getenv(
+        f"LEVEL{i}_MUSIC_FILENAME") or f"level{i}.ogg"
+    MUSIC_PATH = os.path.join(dirname, "assets", "audio", LEVEL_MUSIC_FILENAME)
     PLAYLIST.append(MUSIC_PATH)
 
-BACK = os.path.join(dirname, "assets", "audio", "back.wav")
-DIE = os.path.join(dirname, "assets", "audio", "die.wav")
-JUMP = os.path.join(dirname, "assets", "audio", "jump.wav")
-KEY = os.path.join(dirname, "assets", "audio", "key.wav")
-FORWARD = os.path.join(dirname, "assets", "audio", "forward.wav")
+BACK_FILENAME = os.getenv("BACK_SOUND_FILENAME") or "back.wav"
+BACK = os.path.join(dirname, "assets", "audio", BACK_FILENAME)
+DIE_FILENAME = os.getenv("DIE_SOUND_FILENAME") or "die.wav"
+DIE = os.path.join(dirname, "assets", "audio", DIE_FILENAME)
+JUMP_FILENAME = os.getenv("JUMP_SOUND_FILENAME") or "jump.wav"
+JUMP = os.path.join(dirname, "assets", "audio", JUMP_FILENAME)
+KEY_FILENAME = os.getenv("KEY_SOUND_FILENAME") or "key.wav"
+KEY = os.path.join(dirname, "assets", "audio", KEY_FILENAME)
+FORWARD_FILENAME = os.getenv("FORWARD_SOUND_FILENAME") or "forward.wav"
+FORWARD = os.path.join(dirname, "assets", "audio", FORWARD_FILENAME)

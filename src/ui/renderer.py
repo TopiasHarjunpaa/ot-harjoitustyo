@@ -36,13 +36,13 @@ class Renderer:
             level_image = pygame.transform.scale(
                 level_image, (9 * self.height, int(self.height * 0.8)))
             self._level_images.append(level_image)
-        self._level_image_postion = 0
+        self._level_image_position = 0
 
     def render_game(self, level):
         """Renders the display during game loop.
 
         Fills the display with slowly moving extrawide background image
-        with some marginals to the edge.
+        with some marginals to the edge. Each level has own background.
 
         Draws all sprites and texts to the screen.
         Creates black vertical borders to the edges of the screen.
@@ -54,8 +54,8 @@ class Renderer:
         self._display.fill((0, 0, 0))
         level_image = self._level_images[level.level_number - 1]
         self._display.blit(
-            level_image, (self._level_image_postion, self.height / 14))
-        self._level_image_postion -= 2
+            level_image, (self._level_image_position, self.height / 14))
+        self._level_image_position -= 2
         level.all_sprites.draw(self._display)
         self._draw_text(f"LEVEL {level.level_number}",
                         self._extra_small, self.width / 2 + 3, self.height / 8 + 3, (0, 0, 0))
@@ -121,4 +121,9 @@ class Renderer:
         self._display.blit(text_surf, text_rect)
 
     def reset_game_background_position(self):
-        self._level_image_postion = 0
+        """Resets game background position.
+
+        Reset will be made each time before new game loop begins.
+        """
+
+        self._level_image_position = 0

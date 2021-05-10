@@ -1,7 +1,7 @@
 # Ohjelmistotekniikka, kevät 2021
 ### The Possible Game | harjoitustyö
 
-The Possible Game on ohjelmistotekniikan kurssin harjoitustyö. Tarkemmat tiedot löytyvät dokumentaatiosta.
+The Possible Game on ohjelmistotekniikan kurssin harjoitustyö. Sovellus on yksinkertainen tasohyppelypeli, jonka esikuvana toimii [The Impossible Game](https://impossible.game/). Pelissä pelaajan tulee väistellä vastaan tulevia esteitä ja edetä mahdollisimman pitkälle. Tarkemmat tiedot löytyvät dokumentaatiosta.
 
 ## Releaset
 

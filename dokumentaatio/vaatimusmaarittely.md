@@ -12,7 +12,8 @@ TODO:t ennen lopullista palautusta:
 
 Kun kaikki toiminnallisuudet yllä ovat valmiita:
 
-1. Päivitä vaatimusmäärittely (paitsi tämä lista)
+1. Päivitä vaatimusmäärittely (paitsi tämä lista) [Done]
+
 2. Päivitä asennusohje ja kuvankaappaukset (lisää puuttuva setup)
 3. Päivitä lopullinen luokka ja pakkauskaavio
 4. Päivitä arkkitehtuurikuvaus (puuttuvia osioita)
@@ -31,6 +32,8 @@ DEADLINE: su 16.5
 
 Sovellus on yksinkertainen tasohyppelypeli, jonka esikuvana toimii [The Impossible Game](https://impossible.game/). Pelissä pelaajan tulee väistellä vastaan tulevia esteitä ja edetä mahdollisimman pitkälle.
 
+Pelissä on neljä tasoa ja pelaajan tehtävänä läpäistä yksi kerrallaan. Aluksi vain ensimmäinen taso on auki ja kunkin tason läpäiseminen avaa mahdollisuuden yrittää seuraavaa tasoa. Pelin läpäisemiseksi vaaditaan `400% progress` eli kukin kenttä on läpäistävä `100%` pisteillä.
+
 ## Toteutus
 
 - Ohjelma toteutetaan Pythonilla ja Pygame-kirjaston avulla
@@ -45,25 +48,17 @@ Pelissä on vain peruskäyttäjän rooli.
 
 ### Aloitusvalikko
 
-#### Perustoiminnallisuus
-
-- Aloitusnäkymässä käyttäjälle näytetään pelin ennätykset **[Done]**
+- Aloitusnäkymässä käyttäjälle näytetään pelin 3 parasta **[Done]**
 - Käyttäjä voi aloittaa uuden pelin: **[Done]**
     * Uuden pelin luominen tapahtuu omassa ikkunassa syöttämällä neljän merkin pituinen nimimerkki **[Done]**
     * Nimimerkkiä voi muuttaa ilman, että tarvitsee palata takaisin aloitussivulle ja aloittaa uudestaan **[Done]**
 - Käyttäjä voi jatkaa olemassa olevaa peliä: **[Done]**
     * Sovellus tallentaa kaikki uudet pelit nimimerkin perusteella tietokantaan **[Done]**
     * Pelin jatkaminen tapahtuu omassa ikkunassa, josta löytyy lista tallennetuista nimimerkeistä **[Done]**
+- Pelaaja voi säätää pelin asetuksista musiikin sekä ääniefektit pois päältä tai takaisin päälle **[Done]** 
 
-#### Jatkokehitysideoita
-
-- Käyttäjät pystyvät poistaa tallennettuja nimimerkkejä (pelejä) **[]**
-- Visuaaliset parannukset (parempi taustakuva yms.) **[]**  
-- Asetusvalikko, jossa voisi säätää painikkeita, ääniä tai vaikka pelin vaikeusastetta (tavallinen, nopea, extra nopea jne...) **[]** 
 
 ### Pelivalikko
-
-#### Perustoiminnallisuus
 
 - Käyttäjä näkee listan tasoista **[Done]**
 - Käyttäjä näkee oman nimimerkkinsä **[Done]**
@@ -75,26 +70,22 @@ Pelissä on vain peruskäyttäjän rooli.
 
 ### Pelinäkymä
 
-#### Perustoiminnallisuus
-
-- Yksinkertainen laatikkomainen grafiikka **[Done]**
+- Yksinkertainen laatikkomainen grafiikka (pelaaja sekä esteet) **[Done]**
 - Pisteiden laskeminen pelin edetessä (matkaa maaliin kuvataan prosentteina) **[Done]**
 - Pelissä on neljä erilaista tasoa **[Done]**
 - Pelaajan *"kuolema"* käynnistää *Game Over -valikon*: **[Done]**
     * Tässä näytetään tason läpäisemisprosentti **[Done]**
     * Mahdollisuus palata takaisin pelivalikkoon ja aloittaa uudelleen **[Done]**
-    * Mahdollisuus palata aloitusvalikkoon **[Done]**
+    * Mahdollisuus palata takaisin aloitusvalikkoon **[Done]**
 - Tason läpäiseminen käynnistää *maalivalikon*: **[Done]**
-    * Mahdollisuus palata takaisin pelivalikkoon (ja yrittää seuraavaa tasoa) **[Done]**
+    * Mahdollisuus palata takaisin pelivalikkoon (ja siirtyä yrittämään seuraavaa tasoa) **[Done]**
     * Mahdollisuus palata aloitusvalikkoon **[Done]**
+- Jokaisella tasolla on oma taustakuva **[Done]**
+- Kussakin tasossa hahmon nopeus kasvaa **[Done]**
+- Pelissä on taustamusiikki sekä ääniefektit mm. hyppäämiseen sekä kuolemaan **[Done]**
 
-#### Jatkokehitysideoita
+### Jatkokehitysideoita (ei toteuteta kurssin puitteissa)
 
-Perusversion jälkeen mahdollisia kehitysideoita. Tuskin kuitenkaan realistista toteuttaa kaikkia kurssin aikataulun puitteissa:
-
-- Parannuksia pelin pelattavuuteen **[]** 
-- Parannuksia pelin grafiikkaan **[]** 
-    * Pelaajan hahmo ja muut objektit **[]** 
-    * Tausta **[Edistetty]** *(vaatii vielä parantamista)* 
-- Äänet ja musiikki **[Done]** 
-- Useita tasoja **[Done]**
+- Käyttäjät pystyvät poistamaan tallennettuja nimimerkkejä
+- Animoidut hahmot ja esteet
+- Pelitasojen lisääminen ja sekä lisää erikoisuuksia kuhunkin tasoon

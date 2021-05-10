@@ -30,7 +30,18 @@ $ poetry run invoke start
 Aloitusvalikossa näytetään TOP3 -tulokset. Pelaaja voi:
 1. Aloittaa uuden pelin painamalla näppäimistöllä kirjainta `N`
 2. Ladata aiemman pelin painamalla näppäimistöllä kirjainta `L`
-3. Poistua pelistä painamalla `ESC` tai sivun ylälaidassa olevaa raksia.
+3. Avata asetusvalikon painamalla näppäimistöllä kirjainta `S`
+4. Poistua pelistä painamalla `ESC` tai sivun ylälaidassa olevaa raksia.
+
+### Pelaajan siirtyessä asetusvalikkoon:
+
+<img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-settings.png" width="700">
+
+Asetusvalikossa pelaaja voi säätää ääniasetuksia. Musiikki ja ääniefektit ovat oletusarvoisestä päällä pelin käynnistyessä. Pelaaja voi:
+1. Poistaa musiikin päältä painamalla näppäimistöllä numeroa `1`
+2. Poistaa ääniefektit päältä painamalla näppäimistöllä numeroa `2`
+3. Musiikin ja ääniefektin saa takaisin päälle painamalla samaa numeroa `1 tai 2`uudelleen
+4. Palata takaisin aloitusvalikkoon painamalla `ESC`
 
 ### Pelaajan siirtyessä uuden pelin aloittamisnäkymään:
 

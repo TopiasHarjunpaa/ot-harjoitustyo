@@ -38,4 +38,5 @@
 | 8.5  | 1   | Viimeiset docstringit ja tyylikorjauksia |
 | 9.5  | 2   | Ympäristömuuttujien sekä taustakuvien lisääminen |
 | 9.5  | 2   | Ylimääräisten muuttujien poistaminen sekä luokan sisäisten attribuuttien nimeäminen |
-| yht   | 81    | | 
+| 10.5 | 3   | Dokumentaation päivittäminen (käyttöohje ja testaus) sekä pieniä korjauksia |
+| yht   | 84    | | 

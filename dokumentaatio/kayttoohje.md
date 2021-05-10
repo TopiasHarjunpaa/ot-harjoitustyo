@@ -4,7 +4,34 @@ Lataa projektin viimeisin [release (viikko 6)](https://github.com/TopiasHarjunpa
 
 ## Konfigurointi
 
-Tietokannan nimeä voi muuttaa *.env-tiedostossa*. Testitietokannan nimeä voi muuttaa *.env.test-tiedostossa*. Molemmat tietokannat luodaan automaattisesti *data-kansioon* niiden puuttuessa.
+Tietokannan sekä testitietokannan nimiä voi muuttaa kansioissa `-env` sekä `.env.test`. Molemmat tietokannat luodaan automaattisesti `data` -kansioon niiden puuttuessa.
+
+Myös tiedostojen nimiä voidaan muuttaa `.env` -kansiossa. Huomaa, että tiedostonimien tulee vastata [assets](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/tree/main/src/assets) -kansioon luotujen tiedostojen nimiä. Muussa tapauksessa ohjelman suoritus päättyy `FileNotFoundError` -virheeseen.
+
+```
+DATABASE_FILENAME=TPG_database.sqlite
+LEVEL0_FILENAME=level_0.csv
+LEVEL1_FILENAME=level_1.csv
+LEVEL2_FILENAME=level_2.csv
+LEVEL3_FILENAME=level_3.csv
+LEVEL4_FILENAME=level_4.csv
+FONT_FILENAME=fontstyle.ttf
+MENU_BG_FILENAME=menu_background.png
+LEVEL1_BG_FILENAME=level1_background.jpg
+LEVEL2_BG_FILENAME=level2_background.jpg
+LEVEL3_BG_FILENAME=level3_background.jpg
+LEVEL4_BG_FILENAME=level4_background.jpg
+MENU_MUSIC_FILENAME=menu.ogg
+LEVEL1_MUSIC_FILENAME=level1.ogg
+LEVEL2_MUSIC_FILENAME=level2.ogg
+LEVEL3_MUSIC_FILENAME=level3.ogg
+LEVEL4_MUSIC_FILENAME=level4.ogg
+BACK_SOUND_FILENAME=back.wav
+DIE_SOUND_FILENAME=die.wav
+JUMP_SOUND_FILENAME=jump.wav
+FORWARD_SOUND_FILENAME=forward.wav
+KEY_SOUND_FILENAME=key.wav
+```
 
 ## Asennus ja käynnistäminen
 

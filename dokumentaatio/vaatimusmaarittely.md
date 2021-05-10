@@ -13,18 +13,19 @@ TODO:t ennen lopullista palautusta:
 Kun kaikki toiminnallisuudet yllä ovat valmiita:
 
 1. Päivitä vaatimusmäärittely (paitsi tämä lista) [Done]
+2. Päivitä asennusohje ja kuvankaappaukset (lisää puuttuva setup) [Done]
 
-2. Päivitä asennusohje ja kuvankaappaukset (lisää puuttuva setup)
 3. Päivitä lopullinen luokka ja pakkauskaavio
 4. Päivitä arkkitehtuurikuvaus (puuttuvia osioita)
-5. Luo testausdokumentti.
-6. Tsekkaa tuntikirjanpito ja tarkista tuntien summat.
-7. Tarkasta README ja lisää ainakin creditit (musa, fontti yms.).
-8. Lue vielä kertaalleen arvosteluperusteet.
-9. Viimeinen koodin tarkastus (tyylitarkistus, testit sekä visuaalinen tsekki)
+
+5. Luo testausdokumentti. [Done]
+6. Tarkasta README ja lisää ainakin creditit (musa, fontti yms.).
+7. Lue vielä kertaalleen arvosteluperusteet.
+8. Viimeinen koodin tarkastus (tyylitarkistus, testit sekä visuaalinen tsekki)
 9. Luo uusi release ja lisää linkki sekä README ja käyttöohje.
-10. Poista nämä ja tee viimeinen push.
-11. Sulje issue.
+10. Tsekkaa tuntikirjanpito ja tarkista tuntien summat.
+11. Poista nämä ja tee viimeinen push.
+12. Sulje issue.
 
 DEADLINE: su 16.5
 
@@ -89,3 +90,4 @@ Pelissä on vain peruskäyttäjän rooli.
 - Käyttäjät pystyvät poistamaan tallennettuja nimimerkkejä
 - Animoidut hahmot ja esteet
 - Pelitasojen lisääminen ja sekä lisää erikoisuuksia kuhunkin tasoon
+- Hyppytoiminnallisuuden parantaminen, kun käytettävissä oleva näytön resoluutio on eri suuri kuin 1920 x 1080.

@@ -50,6 +50,8 @@ $ poetry run invoke start
 
 ## Pelaaminen
 
+Pelaamista suositellaan käyttämällä näytön resoluutiona 1920 x 1080. Peli toimii myös muillakin resoluutioilla, mutta tasojen läpäiseminen muuttuu selvästi hankalammaksi mitä enemmän suositusresoluutiosta poiketaan. 
+
 ### Ohjelman käynnistäminen avaa aloitusvalikon:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-menu.png" width="700">

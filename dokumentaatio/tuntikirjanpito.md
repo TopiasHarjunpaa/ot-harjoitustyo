@@ -39,4 +39,5 @@
 | 9.5  | 2   | Ympäristömuuttujien sekä taustakuvien lisääminen |
 | 9.5  | 2   | Ylimääräisten muuttujien poistaminen sekä luokan sisäisten attribuuttien nimeäminen |
 | 10.5 | 3   | Dokumentaation päivittäminen (käyttöohje ja testaus) sekä pieniä korjauksia |
-| yht   | 84    | | 
+| 11.5 | 3   | Dokumentaation päivittäminen (arkkitehtuurikuvaus, sekvenssikaaviot ja README) |
+| yht   | 87    | | 

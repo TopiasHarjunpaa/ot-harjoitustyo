@@ -69,5 +69,18 @@ Käyttöliittymään ja testeihin liittyvä koodi on jätetty pois laatutarkastu
 
 ## Credits
 
-Placeholder...
-Lisää fontit, musiikki yms...
+Fontti:
+* Ladattu osoitteesta [dafont](https://www.dafont.com/no-virus.font)
+* Tekijä **Khurasan**
+
+Musiikki:
+* Ladattu osoitteesta [OpenGameArt](https://opengameart.org/content/5-chiptunes-action)
+* Tekijä **Juhani Junkala**
+
+Ääniefektit:
+* Luotu työkalulla [Bfxr](https://www.bfxr.net/)
+
+Taustakuvat:
+* Luotu [Enscape](https://enscape3d.com/)
+
+

@@ -16,10 +16,10 @@ Kun kaikki toiminnallisuudet yllä ovat valmiita:
 2. Päivitä asennusohje ja kuvankaappaukset (lisää puuttuva setup) [Done]
 
 3. Päivitä lopullinen luokka ja pakkauskaavio
-4. Päivitä arkkitehtuurikuvaus (puuttuvia osioita)
+4. Päivitä arkkitehtuurikuvaus (puuttuvia osioita) [Luo vielä pelisession sekvenssikaavio]
 
 5. Luo testausdokumentti. [Done]
-6. Tarkasta README ja lisää ainakin creditit (musa, fontti yms.).
+6. Tarkasta README ja lisää ainakin creditit (musa, fontti yms.). [Done]
 7. Lue vielä kertaalleen arvosteluperusteet.
 8. Viimeinen koodin tarkastus (tyylitarkistus, testit sekä visuaalinen tsekki)
 9. Luo uusi release ja lisää linkki sekä README ja käyttöohje.

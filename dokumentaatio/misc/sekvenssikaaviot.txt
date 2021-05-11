@@ -29,14 +29,14 @@ Menuvalikko:
 
 UI->UI: show_menu_view()
 UI->audio: play_music()
-UI->+info: list_saves()
-info->+save_repository: find_all_saves()
+UI->+info: get_top_records(3)
+info->+save_repository: list_saves(3)
     note right of save_repository: sql query
     loop for row in rows:
     save_repository->*save: Save(row[0], row[1], row[2], row[3])
     save_repository->save_repository: append(save)
     end
-save_repository-->-info: save_list
+save_repository-->-info: records
 info-->-UI: records
 UI->+MenuView: show(records)
 MenuView-> Renderer: render_menu(render_params)
@@ -46,6 +46,8 @@ alt key = n
     UI->UI: show_new_game_view()
 else key = l
     UI->UI: show_load_game_view()
+else key = s
+    UI->UI: show_setup_view()
 end
 
 New Game -valikko:
@@ -78,8 +80,8 @@ UI->UI: show_start_view()
 Load Game -valikko:
 
 UI->UI: show_load_game_view()
-UI->+info: list_saves()
-info->+save_repository: find_all_saves()
+UI->+info: list_saves(8)
+info->+save_repository: find_and_sort_saves(8)
     note right of save_repository: sql query
     loop for row in rows:
     save_repository->*save: Save(row[0], row[1], row[2], row[3])

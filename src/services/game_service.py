@@ -46,7 +46,7 @@ class GameService:
 
 
         Args:
-            level (Level): Level object.
+            level (int): Level number
         """
 
         self.playing = True

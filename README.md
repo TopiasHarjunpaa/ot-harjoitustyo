@@ -7,6 +7,7 @@ The Possible Game on ohjelmistotekniikan kurssin harjoitustyö. Sovellus on yksi
 
 - [Viikko 5 -release](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/releases/tag/viikko5)
 - [Viikko 6 -release](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/releases/tag/viikko6)
+- [Loppupalautus -release](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/releases/tag/v1.0)
 
 ## Dokumentaatio
 

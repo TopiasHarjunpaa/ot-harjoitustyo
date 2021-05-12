@@ -1,34 +1,5 @@
 # Vaatimusmäärittely
 
-TODO:t ennen lopullista palautusta:
-
-1. Tee TOP3 records paremmin. [Done]
-2. Siisti hieman progress informaatiota. [Done]
-3. Tee puuttuvat testi. [Done]
-4. Tee puuttuvat docstringit. [Done]
-5. Lisää ympäristömuuttujat [Done]
-6. Päivitä taustakuvat ja lisää jokaiselle maalle oma tausta. [Done]
-7. Piilota tarpeettomat muuttujat ja funktiot muilta luokilta. [Done]
-
-Kun kaikki toiminnallisuudet yllä ovat valmiita:
-
-1. Päivitä vaatimusmäärittely (paitsi tämä lista) [Done]
-2. Päivitä asennusohje ja kuvankaappaukset (lisää puuttuva setup) [Done]
-
-3. Päivitä lopullinen luokka ja pakkauskaavio
-4. Päivitä arkkitehtuurikuvaus (puuttuvia osioita) [Luo vielä pelisession sekvenssikaavio]
-
-5. Luo testausdokumentti. [Done]
-6. Tarkasta README ja lisää ainakin creditit (musa, fontti yms.). [Done]
-7. Lue vielä kertaalleen arvosteluperusteet.
-8. Viimeinen koodin tarkastus (tyylitarkistus, testit sekä visuaalinen tsekki)
-9. Luo uusi release ja lisää linkki sekä README ja käyttöohje.
-10. Tsekkaa tuntikirjanpito ja tarkista tuntien summat.
-11. Poista nämä ja tee viimeinen push.
-12. Sulje issue.
-
-DEADLINE: su 16.5
-
 ## Sovelluksen tarkoitus
 
 Sovellus on yksinkertainen tasohyppelypeli, jonka esikuvana toimii [The Impossible Game](https://impossible.game/). Pelissä pelaajan tulee väistellä vastaan tulevia esteitä ja edetä mahdollisimman pitkälle.

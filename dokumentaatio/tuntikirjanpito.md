@@ -40,4 +40,6 @@
 | 9.5  | 2   | Ylimääräisten muuttujien poistaminen sekä luokan sisäisten attribuuttien nimeäminen |
 | 10.5 | 3   | Dokumentaation päivittäminen (käyttöohje ja testaus) sekä pieniä korjauksia |
 | 11.5 | 3   | Dokumentaation päivittäminen (arkkitehtuurikuvaus, sekvenssikaaviot ja README) |
-| yht   | 87    | | 
+| 12.5 | 2   | Dokumentaation päivittäminen (arkkitehtuurikuvaus, pienet korjaukset yleisesti)
+| 12.5 | 1   | Viimeinen release ja lopullinen palautus |
+| yht   | 90    | | 

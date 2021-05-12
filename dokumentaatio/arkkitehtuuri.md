@@ -20,8 +20,8 @@ Käyttöliittymästä vastaa paketti `ui`, joka pitää sisällään seuraavat n
 3. Uuden pelin aloittamisnäkymä `NewGameView`
 4. Aiemman pelin latausnäkymä `LoadGameView`
 5. Pelin käynnistysnäkymä `StartView`
-6. Game Over näkymä `GameOverView`
-7. Level Completed näkymä `FinishView`
+6. Game Over -näkymä `GameOverView`
+7. Level Completed -näkymä `FinishView`
 
 Jokainen näistä on toteutettu omana luokkana. Näkymien näyttämisestä vastaa [UI](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/ui/ui.py) -luokka, joka käyttää apunaan näkymien piirtämisestä vastaavaa luokkaa [Renderer](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/ui/renderer.py).
 
@@ -141,18 +141,33 @@ Seuraavaksi haetaan aktiivisen tallennustiedon edistymistieto `InformationServic
 
 Kun käynnistäpeli -näkymä on ruudulla, niin jäädään odottamaan käyttäjän syötettä, jonka tarkoituksena saadaan tieto pelitasosta. Käyttäjä valitsee haluamansa tason, jonka jälkeen kyseinen tieto välitetään `GameService` -luokan metodille `start_gameloop(level)`. Tämä käynnistää peliloopin ja pelaaminen voi alkaa.
 
-### Pelin eteneminen
+### Pelilooppi
 
-lisää puuttuva sekvenssikaavio ja tekstiä...
+Pelilooppi aloitetaan kutsumalla `GameService` -luokan metodia `start_gameloop(level)`, jossa level viittaa `Käynnistäpeli -näkymässä` valittua tasoa. Seuraava sekvenssikaavio esittää peliloopin etenemisen:
 
-### Level Completed näkymä
+<img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sekvenssi-pelilooppi.png" width="1000">
 
-Level Completed näkymä aloitetaan kutsumalla `UI` -luokan metodia `show_finish_view()`. Tämä tapahtuu silloin, Kun pelaaja on läpäissyt tason. Ensimmäiseksi pyydetään `AudioService` -luokkaa käynnistämään menunäkymän kappale. Seuraavaksi haetaan aktiivisen tallennustiedon edistymistieto `InformationService` -luokan metodilla `get_progress_information()`, joka edelleen hakee tiedon oman `Save` -attribuuttinsa metodilla `get_information()` ja palauttaa takaisin käyttöliittymään. Tason suorittaminen päivitetään tietokantaan, mikäli kyseistä tasoa ei ollut vielä aikaisemmin läpäisty.
+Pelaaminen aloitetaan alustamalla uusi `LevelService` -luokan olio. `GameService` -luokka on saanut jo alustamisen yhteydessä parametreikseen näytön mitat sekä `AudioService` -luokan olion. Tasonumero annetaan metodikutsussa. `LevelService` -luokka alustaa peliin liittyvät objektit luokan `Sprites` avulla. `Sprites` luo tasonumeron perusteella kyseiseen tasoon liittyvät objektit kuten lattian, esteet sekä pelihahmon.
 
-Tämän jälkeen kutsutaan `FinishView` -luokan metodia `show()`, jolle annetaan parametrina aiemmin haetut tulokset sekä suoritetun tason numero. Sitten `FinishView` -luokka erittelee tulokset ja kutsuu `Renderer` -luokan metodia `render_menu()`, joka lopulta renderöi Level Completed näkymän ruudulle.
+Seuraavaksi käynnistetään pelilooppi, jossa suoritetaan seuraavat toimenpiteet, kunnes `LevelService` -olio ilmoittaa pelin päättyneen:
+
+1. Ajastimen päivittäminen `clock.tick()`
+2. Käyttäjätoimintojen tarkastaminen `check_events()`
+3. Pelitilan tarkistaminen `LevelService` -olion `update()` -metodin avulla: 
+    * metodi päivittää pelissä näytettävät objektit, ylläpitää pelitilannetta, laskee tasopisteitä sekä välittää tiedon pelin jatkumisesta `GameService` -luokalle.
+    * lisäksi metodi kutsuu metodeja `player_is_alive()`, `handle_jump()` sekä `handle_goal()`, jotka tarkastavat törmäyksiä eri objektien välillä sekä mahdollistavat oikeat toimenpiteet näiden perusteella.
+4. Pelitilanteen renderöinti `Renderer` -luokan metodilla `render_game(level)`, jonka parametriksi annetaan `LevelService` -olio.
+
+Pelilooppi päättyy joko pelaajan kuolemaan tai maaliin pääsemiseen. Lopuksi kutsutaan `UI` -luokan metodeita `show_finish_view()` tai `show_game_over_view()` lopputuloksesta riippuen. Nämä metodit aloittavat `Level Completed` tai `Game Over` -näkymän.
+
+### Level Completed -näkymä
+
+Level Completed -näkymä aloitetaan kutsumalla `UI` -luokan metodia `show_finish_view()`. Tämä tapahtuu silloin, Kun pelaaja on läpäissyt tason. Ensimmäiseksi pyydetään `AudioService` -luokkaa käynnistämään menunäkymän kappale. Seuraavaksi haetaan aktiivisen tallennustiedon edistymistieto `InformationService` -luokan metodilla `get_progress_information()`, joka edelleen hakee tiedon oman `Save` -attribuuttinsa metodilla `get_information()` ja palauttaa takaisin käyttöliittymään. Tason suorittaminen päivitetään tietokantaan, mikäli kyseistä tasoa ei ollut vielä aikaisemmin läpäisty.
+
+Tämän jälkeen kutsutaan `FinishView` -luokan metodia `show()`, jolle annetaan parametrina aiemmin haetut tulokset sekä suoritetun tason numero. Sitten `FinishView` -luokka erittelee tulokset ja kutsuu `Renderer` -luokan metodia `render_menu()`, joka lopulta renderöi Level Completed -näkymän ruudulle.
 
 Lopuksi odotetaan käyttäjän syötettä ja palataan takaisin menunäkymään tai käynnistäpeli -näkymään pelin jatkamista varten.
 
-### Game Over näkymä
+### Game Over -näkymä
 
-Game over näkymä toimii samalla periaatteella kuin Level Completed näkymä. Keskeisenä erona on ainoastaan se, että `InformationService` -luokan avulla haettua tietoa vertaillaan `LevelService` -luokan ylläpitämään edellisen pelisession edistymiseen, jonka avulla tietokanta päivitetään, mikäli edellisen pelisession tulos on tietokannassa olevaa tulosta parempi.
+Game Over -näkymä toimii samalla periaatteella kuin Level Completed -näkymä. Keskeisenä erona on ainoastaan se, että `InformationService` -luokan avulla haettua tietoa vertaillaan `LevelService` -luokan ylläpitämään edellisen pelisession edistymiseen, jonka avulla tietokanta päivitetään, mikäli edellisen pelisession tulos on tietokannassa olevaa tulosta parempi.

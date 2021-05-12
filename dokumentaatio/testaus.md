@@ -64,7 +64,7 @@ Sovelluksen järjestelmätestaus on suoritettu manuaalisesti.
 
 #### Asennus ja konfigurointi
 
-Sovellus on haettu ja testattu [käyttöohjeessa](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md) kuvatulla tavalla Linux-ympäristössä.
+Sovellus on haettu ja testattu [käyttöohjeessa](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md) kuvatulla tavalla Linux-ympäristössä sekä etätyöpöytää käyttämällä.
 
 Sovellusta on testattu tilanteissa, joissa tietokannat ovat olleet olemassa sekä tilanteissa, joissa niitä ei ole vielä luotu. Lisäksi tiedostonimien muuttamista on testattu muuttamalla `.env` sekä [assets](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/tree/main/src/assets) -kansiossa olevia tiedostonimiä toisenlaisiksi.
 

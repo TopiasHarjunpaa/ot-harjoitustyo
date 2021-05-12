@@ -115,3 +115,29 @@ StartView-->-UI:
 UI->UI: level = wait_keys()
 UI->audio: play_music(level)
 UI->game: start_gameloop(level)
+
+Pelilooppi:
+
+UI ->game: start_gameloop(level)
+game->+level: level.__init__(width, height, level, audio)
+level->+sprites: Sprites(level, width, heigth)
+sprites->sprites: init_sprites()
+sprites->*floor: Floor(level)
+sprites->*obstacle: Obstacle(level)
+sprites->*player: Player(level)
+sprites-->-level:
+level->level: update()
+level-->-game:
+    loop while playing == True
+    game->game: clock.tick()
+    game->game: check_events()
+    game->+level: update()
+    level-->-game: playing = True or False
+    game->renderer: render_game(level)
+    end
+
+alt level.finished
+    game->UI: show_finish_view()
+else else
+    game->UI: show_game_over_view()
+end

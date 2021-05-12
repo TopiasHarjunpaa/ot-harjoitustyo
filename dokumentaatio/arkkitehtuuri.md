@@ -61,7 +61,7 @@ Tiedon tallentamisesta ja hakemisesta SQLite-tietokannasta huolehtii [SaveReposi
 
 SQLite tietokannassa vastaava tietokohde tallennetaan tauluun nimeltä `saves`. Taulun luomisesta vastaa [initialize_database.py](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/initialize_database.py). `SaveRepository` -luokka huolehtii tietokantakyselyistä tähän tauluun sekä välittää tietoa eteenpäin `Save` -olioiden avulla sovelluslogiikan `InformationService`:lle.
 
-## Sovelluksen Päätoiminnallisuudet
+## Sovelluksen päätoiminnallisuudet
 
 Ohjelman päätoiminnallisuudet kuvattuna sekvenssikaavioiden avulla:
 
@@ -143,7 +143,7 @@ Kun käynnistäpeli -näkymä on ruudulla, niin jäädään odottamaan käyttäj
 
 ### Pelilooppi
 
-Pelilooppi aloitetaan kutsumalla `GameService` -luokan metodia `start_gameloop(level)`, jossa level viittaa `Käynnistäpeli -näkymässä` valittua tasoa. Seuraava sekvenssikaavio esittää peliloopin etenemisen:
+Pelilooppi aloitetaan kutsumalla `GameService` -luokan metodia `start_gameloop(level)`, jossa level viittaa `Käynnistäpeli -näkymässä` valittuun tasoon. Seuraava sekvenssikaavio esittää peliloopin etenemisen:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sekvenssi-pelilooppi.png" width="1000">
 

@@ -8,13 +8,10 @@ Ohjelmaa on testattu yksikkö- ja integraatiotestien avulla.
 
 Useimmat `Entities` -luokkien toiminnallisuudet ovat testattu integraatiotasolla sovelluslogiikan yhteydessä. Yksikkötestejä on kuitenkin suoritettu seuraaville luokille:
 
-[TestObstacle](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/entities/obstacle_test.py) -luokalla testataan, että luotu olio poistetaan omasta ryhmästä sen poistuessa näytön ulkopuolelle.
-
-[TestPlayer](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/entities/player_test.py) -luokalla testataan `jump()` -metodin toimintaa olion ollessa lattialla sekä ilmassa.
-
-[TestSave](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/entities/save_test.py) -luokalla testataan `get_information()` -metodin toimintaa erilaisilla `progress` -attribuutin arvoilla.
-
-[TestSprites](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/entities/sprites_test.py) -luokalla testataan, että `Sprite` -ryhmien alustaminen luo kaikki oikeat ryhmät.
+* [TestObstacle](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/entities/obstacle_test.py) -luokalla testataan, että luotu olio poistetaan omasta ryhmästä sen poistuessa näytön ulkopuolelle.
+* [TestPlayer](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/entities/player_test.py) -luokalla testataan `jump()` -metodin toimintaa olion ollessa lattialla sekä ilmassa.
+* [TestSave](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/entities/save_test.py) -luokalla testataan `get_information()` -metodin toimintaa erilaisilla `progress` -attribuutin arvoilla.
+* [TestSprites](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/entities/sprites_test.py) -luokalla testataan, että `Sprite` -ryhmien alustaminen luo kaikki oikeat ryhmät.
 
 #### Repositorio-luokka
 
@@ -24,9 +21,8 @@ Ohjelmassa on vain yksi Repositorio-luokka `SaveRepository`, jota testaan [TestS
 
 Sovelluslogiikka testataan seuraavien testiluokkien avulla:
 
-[TestAudioService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/audio_service_test.py) -luokalla testataan äänien toistamisesta vastaavan luokan metodeita. Testeissä tarkastetaan, että kaikki sovellukseen kuuluvat äänitiedostot toimivat toivotunlaisesti myös silloin, kun äänet ovat asetettu päälle tai pois päältä.
-
-[TestGameService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/game_service_test.py) -luokalla testataan peliloopin toimivuutta. Tähän lukeutuvat testit testaavat pelin läpäisemistä, kuolemaa sekä painikkeiden toimivuutta. Testejä varten käytetään seuraavia valeluokkia:
+1. [TestAudioService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/audio_service_test.py) -luokalla testataan äänien toistamisesta vastaavan luokan metodeita. Testeissä tarkastetaan, että kaikki sovellukseen kuuluvat äänitiedostot toimivat toivotunlaisesti myös silloin, kun äänet ovat asetettu päälle tai pois päältä.
+2. [TestGameService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/game_service_test.py) -luokalla testataan peliloopin toimivuutta. Tähän lukeutuvat testit testaavat pelin läpäisemistä, kuolemaa sekä painikkeiden toimivuutta. Testejä varten käytetään seuraavia valeluokkia:
 
 * `StubClock`
 * `StubEventQueue`
@@ -34,11 +30,11 @@ Sovelluslogiikka testataan seuraavien testiluokkien avulla:
 * `StubAudio`
 * `StubUI`
 
-Kuhunkin valeluokkaan on luotu testien kannalta tarpeettomat funktiot, joita kuitenkin kutsutaan alkuperäisen `GameService` -luokan metodikutsuissa.
+Kuhunkin valeluokkaan on luotu testien kannalta tarpeettomat funktiot, joita kuitenkin kutsutaan alkuperäisen `GameService` -luokan metodikutsuissa
 
-[TestInformationService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/information_service_test.py) -luokalla testataan tiedon välityksen toiminnallisuutta `SaveRepository` -luokan tietokantakyselyiden sekä käyttöliittymän `UI` -luokan välillä. Testit ovat hyvin pitkälle samankaltaisia `TestSave` sekä `TestSaveRepository` -luokkien kanssa.
+3. [TestInformationService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/information_service_test.py) -luokalla testataan tiedon välityksen toiminnallisuutta `SaveRepository` -luokan tietokantakyselyiden sekä käyttöliittymän `UI` -luokan välillä. Testit ovat hyvin pitkälle samankaltaisia `TestSave` sekä `TestSaveRepository` -luokkien kanssa.
 
-[TestLevelService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/level_service_test.py) -luokalla testataan pelitason toiminnallisuuksia, kuten pelaajan hyppäämistä, kuolemista tai tason läpäisemistä.
+4. [TestLevelService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/level_service_test.py) -luokalla testataan pelitason toiminnallisuuksia, kuten pelaajan hyppäämistä, kuolemista tai tason läpäisemistä.
 
 ## Testikattavuus
 

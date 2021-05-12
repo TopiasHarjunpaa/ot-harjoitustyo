@@ -58,13 +58,13 @@ Testaamatta jäivät:
 
 Sovelluksen järjestelmätestaus on suoritettu manuaalisesti.
 
-#### Asennus ja konfigurointi
+### Asennus ja konfigurointi
 
 Sovellus on haettu ja testattu [käyttöohjeessa](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md) kuvatulla tavalla Linux-ympäristössä sekä etätyöpöytää käyttämällä.
 
 Sovellusta on testattu tilanteissa, joissa tietokannat ovat olleet olemassa sekä tilanteissa, joissa niitä ei ole vielä luotu. Lisäksi tiedostonimien muuttamista on testattu muuttamalla `.env` sekä [assets](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/tree/main/src/assets) -kansiossa olevia tiedostonimiä toisenlaisiksi.
 
-#### Toiminnallisuudet
+### Toiminnallisuudet
 
 Kaikki tasot ovat testattu ja pelattu läpi 1920 x 1080 resoluution näyttöasetuksilla (osa tasoista myös 1600 x 900). Objektien koot sekä tapahtumien nopeus ovat pyritty pitämään lähes tulkoon saman kokoisena huolimatta käytetystä resoluutiosta. Sen sijaan hyppäämiseen liittyvät parametrit noudattavat vakioitua pikselikokoa. Tästä syystä pelin läpäiseminen muuttuu hyvin hankalaksi pienillä resoluutiolla.
 

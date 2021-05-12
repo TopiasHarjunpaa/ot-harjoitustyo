@@ -2,7 +2,7 @@
 
 ## Rakenne
 
-Ohjelman pakkausrakenne koostuu (Korjaa RenderService -nimi ja paranna kuvan laatua):
+Ohjelman pakkausrakenne koostuu seuraavista pakkauksista:
 
 1. Käyttöliittymä `ui`
 2. Sovelluslogiikka `services`

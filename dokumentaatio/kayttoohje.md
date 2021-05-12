@@ -86,15 +86,15 @@ Nimimerkin syöttämisen jälkeen pelaajalla avautuu mahdollisuus jatkaa eteenp�
 
 Aiemman pelin lataamisnäkymässä näytetään korkeintaan 8 tallennettua peliä. Tallennetut pelit ovat järjestettynä edistymistilanteen mukaan, joten valittavista vaihtoehdoista katoavat pienimmän edistyksen omaavat pelit tilanteissa, joissa luotuja peleja on enemmän kuin 8 kappaletta.
 
-Tallennetun pelin voi valita painamalla näppäintä `1 - 8` riippuen siitä, millä rivillä valittu peli sijaitsee listalla. Paluu takaisin aloitusvalikkoon tapahtuu painamalla `ESC`.
+Tallennetun pelin voi valita painamalla näppäintä `1 - 8` riippuen siitä, millä rivillä valittu peli sijaitsee listalla. Viimeiset rivit ovat tyhjiä ja niitä ei voida valita, mikäli tallennettuja pelejä on alle kahdeksen kappaletta. Paluu takaisin aloitusvalikkoon tapahtuu painamalla `ESC`.
 
 ### Pelin valitsemisen jälkeen siirrytään pelin käynnistysnäkymään:
 
 <img src="https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjekuva-start.png" width="700">
 
-Käynnistysnäkymässä näytetään pelin tunnisteena käytetty nimimerkki sekä kokonaisedistyminen prosenteissa. Kunkin uuden tason läpäiseminen kasvattaa kokonaisedistymistä yhteensä 100 prosenttiyksiköllä. Vastaavasti uudessa tasossa puoleen väliin pääseminen kasvattaa kokonaisedistymistä 50 prosenttiyksiköllä. Maksimiedistyminen on siis `tasojen lkm * 100%` eli tässä tapauksessa 400%.
+Käynnistysnäkymässä näytetään pelin tunnisteena käytetty nimimerkki sekä kokonaisedistyminen prosenteissa. Kunkin uuden tason läpäiseminen kasvattaa kokonaisedistymistä yhteensä 100 prosenttiyksiköllä. Vastaavasti uudessa tasossa puoleen väliin pääseminen kasvattaa kokonaisedistymistä 50 prosenttiyksiköllä. Maksimiedistyminen on siis `400%`.
 
-Aluksi pelaaja voi valita vain ensimmäisen tason muiden tasojen ollessa lukittuna. Kunkin tason läpäiseminen avaa oikeuden pelata seuraavaa tasoa. Tason käynnistäminen tapahtuu painamalla näppäintä `1 - tasojen lukumäärä`. Paluu takaisin aloitusvalikkoon tapahtuu painamalla `ESC`.
+Aluksi pelaaja voi valita vain ensimmäisen tason muiden tasojen ollessa lukittuna. Kunkin tason läpäiseminen avaa oikeuden pelata seuraavaa tasoa. Tason käynnistäminen tapahtuu painamalla näppäintä `1 - 4`. Paluu takaisin aloitusvalikkoon tapahtuu painamalla `ESC`.
 
 ### Tason käynnistäminen avaa pelinäkymän:
 

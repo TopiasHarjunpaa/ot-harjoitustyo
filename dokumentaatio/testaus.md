@@ -24,13 +24,13 @@ Sovelluslogiikka testataan seuraavien testiluokkien avulla:
 1. [TestAudioService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/audio_service_test.py) -luokalla testataan äänien toistamisesta vastaavan luokan metodeita. Testeissä tarkastetaan, että kaikki sovellukseen kuuluvat äänitiedostot toimivat toivotunlaisesti myös silloin, kun äänet ovat asetettu päälle tai pois päältä.
 2. [TestGameService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/game_service_test.py) -luokalla testataan peliloopin toimivuutta. Tähän lukeutuvat testit testaavat pelin läpäisemistä, kuolemaa sekä painikkeiden toimivuutta. Testejä varten käytetään seuraavia valeluokkia:
 
-* `StubClock`
-* `StubEventQueue`
-* `StubRenderer`
-* `StubAudio`
-* `StubUI`
+    * `StubClock`
+    * `StubEventQueue`
+    * `StubRenderer`
+    * `StubAudio`
+    * `StubUI`
 
-Kuhunkin valeluokkaan on luotu testien kannalta tarpeettomat funktiot, joita kuitenkin kutsutaan alkuperäisen `GameService` -luokan metodikutsuissa
+    Kuhunkin valeluokkaan on luotu testien kannalta tarpeettomat funktiot, joita kuitenkin kutsutaan alkuperäisen `GameService` -luokan metodikutsuissa
 
 3. [TestInformationService](https://github.com/TopiasHarjunpaa/ot-harjoitustyo/blob/main/src/tests/services/information_service_test.py) -luokalla testataan tiedon välityksen toiminnallisuutta `SaveRepository` -luokan tietokantakyselyiden sekä käyttöliittymän `UI` -luokan välillä. Testit ovat hyvin pitkälle samankaltaisia `TestSave` sekä `TestSaveRepository` -luokkien kanssa.
 
